@@ -1,3 +1,16 @@
+# 0.3 — Ward Bound
+
+- Added a persistent crew dock on desktop and mobile, large AP numbers/pips, world AP labels, click-to-select fighters, and Tab/Next Ready cycling. Downed fighters cannot become active.
+- Expanded from six to sixteen districts: Rustmarket, Switchyard Nine, Ashline Terraces, Rivet Foundry, Blackwater Gardens, Cinder Docks, Dead Rail, Skyhook Stack, Blacksite Delta and the Rolling Mile freight encounter.
+- Added ten survival contracts, personal-job decisions, tracked objectives, a repairable freight locomotive, a convoy delivery loop, a clinic sluice, a counterweight route and Blacksite access. Paid salvage work can repopulate three cleared sites up to three times each.
+- Added eleven Undergrid-inspired weapon patterns and specialized effects: burst fire, toxin, shock, burn, armor punch, heavy suppression, melee and weapon blasts.
+- Added six armor patterns, six field gear types, three weapon modifications, salvage fabrication, per-fighter talents/retraining, callsigns and phosphor colors.
+- Added bonds, persistent personal grudges and supplier prices influenced by local standing. Companion choices have different payments, trust and standing outcomes.
+- Added eleven enemy archetypes including medics, demolition runners, drones, chainblade collectors, heavy gunners and named collectors.
+- Changed the opening conclusion to a local freight charter. The crew is trying to make a living; hidden world history stays in the background.
+- Migrated 0.2 saves, preserving the original expedition and adding new world/equipment state. Retained both uploaded reference games unchanged.
+- Added a campaign source module, content module and expansion test suite. Verified actual-input regressions, contract chains, gear effects, migration, enemy behaviors and a full simulated convoy encounter.
+
 # 0.2 — The Hollow Signal
 
 - Created a new standalone adventure runtime; preserved both uploaded games as unmodified references.

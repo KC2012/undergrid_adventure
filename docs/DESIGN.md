@@ -1,5 +1,16 @@
 # Design direction
 
+## Ward Bound / 0.3 expansion
+
+The story now follows a fighter trying to keep a crew alive and employed. Last Light remains the first job, but its conclusion yields a freight charter rather than a revelation about the world. Deeper lore is left to contradictory manifests, old tickets, abandoned wages and the things companions decline to explain.
+
+The world is a network of jobs that change geography: filters open a sluice, a power coupler restores an upper lift, freight parts repair a train, and a personal ledger yields an old access key. Ten contracts connect sixteen districts. The Rolling Mile is a train boarding/ambush/delivery loop, not a driving simulator. The same crew, weapons and AP language runs through all of it.
+
+Customization uses permanent equipment patterns so each crew member can be built independently without a cumbersome loot-instance inventory. Armor has mobility costs; gear answers encounter hazards; mods trade damage, accuracy and penetration. Talents and retraining add another build choice. Bonds improve accuracy; unresolved personal grudges give a damage bonus against the fighter who downed that person. Two personal jobs allow outcomes with different standing, trust and material rewards. Standing changes shop prices.
+
+Crew selection is now a first-class part of the battlefield UI. An always-visible dock shows every fighter and their AP; number keys, fighter clicks and next-ready cycling share the same selection function. The dock remains available on narrow viewports.
+
+
 ## What the supplied games taught us
 
 The Alpha 1 source contains a useful persistent-state RPG loop, several equipment types, discovery flags, party bonuses, sector gates, shops and a portable HTML delivery model. Its room generation and out-of-world shootouts would need substantial changes to deliver the exploration requested here. Its numerical breadth is not carried forward as a claim of finished content.

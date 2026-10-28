@@ -3,7 +3,9 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 src = root / 'src'
 html = (src / 'index.html').read_text()
-for marker, file in [('STYLE','style.css'),('DATA','data.js'),('GAME','game.js')]:
-    html = html.replace('/* '+marker+' */', (src / file).read_text())
+for marker, file in [('STYLE','style.css'),('DATA','data.js'),('EXPANSION','expansion-data.js'),('GAME','game.js')]:
+    content = (src / file).read_text()
+    if marker == 'GAME': content = content.replace('/* CAMPAIGN */', (src / 'campaign.js').read_text())
+    html = html.replace('/* '+marker+' */', content)
 (root / 'UNDERGRID_ADVENTURE.html').write_text(html)
 print('Built UNDERGRID_ADVENTURE.html')

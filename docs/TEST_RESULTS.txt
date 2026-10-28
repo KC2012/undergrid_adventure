@@ -1,4 +1,7 @@
-PASS: 82 integration checks; 0 browser errors
+WARD BOUND 0.3 / 238 reported checks, zero page errors
+
+CORE REGRESSION
+PASS: 143 integration checks; 0 browser errors
   PASS Fresh save schema
   PASS Reject invalid imported coordinates
   PASS hearth route to mara
@@ -8,6 +11,8 @@ PASS: 82 integration checks; 0 browser errors
   PASS hearth route to east
   PASS hearth route to down
   PASS hearth route to tram
+  PASS hearth route to market-road
+  PASS hearth route to wardboard
   PASS cable route to west
   PASS cable route to fuse
   PASS cable route to vera
@@ -37,6 +42,65 @@ PASS: 82 integration checks; 0 browser errors
   PASS bell route to engine
   PASS bell route to bell-loot
   PASS bell route to bell-tram
+  PASS bell route to dead-rail
+  PASS market route to home
+  PASS market route to switch
+  PASS market route to bench
+  PASS market route to supply
+  PASS market route to bunks
+  PASS market route to market-tram
+  PASS market route to yard
+  PASS market route to clinic
+  PASS market route to lift
+  PASS market route to market-note
+  PASS yard route to market
+  PASS yard route to axle
+  PASS yard route to locomotive
+  PASS yard route to slag
+  PASS yard route to works
+  PASS yard route to toolbox
+  PASS yard route to yard-ticket
+  PASS slag route to yard
+  PASS slag route to diesel
+  PASS slag route to torch-case
+  PASS slag route to rusk-cache
+  PASS slag route to docks
+  PASS slag route to slag-scar
+  PASS foundry route to yard
+  PASS foundry route to drive
+  PASS foundry route to coupler
+  PASS foundry route to foundry-armor
+  PASS foundry route to apprentice
+  PASS foundry route to blacksite
+  PASS garden route to market
+  PASS garden route to membrane
+  PASS garden route to needle-case
+  PASS garden route to chemical-seep
+  PASS garden route to dock
+  PASS garden route to garden-book
+  PASS docks route to garden
+  PASS docks route to slag
+  PASS docks route to cargo
+  PASS docks route to dock-armory
+  PASS docks route to dock-tram
+  PASS docks route to dock-rope
+  PASS deadrail route to bell
+  PASS deadrail route to ledger
+  PASS deadrail route to courier-kit
+  PASS deadrail route to yard
+  PASS deadrail route to dead-ticket
+  PASS skyhooks route to market
+  PASS skyhooks route to wages
+  PASS skyhooks route to sky-armory
+  PASS skyhooks route to sky-tram
+  PASS skyhooks route to sky-note
+  PASS blacksite route to foundry
+  PASS blacksite route to blackcase
+  PASS blacksite route to delta-gear
+  PASS blacksite route to delta-note
+  PASS convoy route to cab
+  PASS convoy route to convoy-kit
+  PASS convoy route to convoy-exit
   PASS Clear firing lane
   PASS Steel blocks cross-floor fire
   PASS Shooting consumes AP and ammo, damages persistent enemy
@@ -70,3 +134,94 @@ PASS: 82 integration checks; 0 browser errors
   PASS Rest restores crew
   PASS Equipment swap conserves ammunition
   PASS Full chapter save round trip
+
+EXPANSION
+PASS: 95 expansion checks; 0 browser errors
+  PASS Sixteen districts
+  PASS Fifteen firearm/melee patterns
+  PASS Old save migration preserves progress
+  PASS Old save migration adds new world and equipment
+  PASS Reject out-of-range talents
+  PASS hearth landing east
+  PASS hearth landing down
+  PASS hearth landing market-road
+  PASS cable landing west
+  PASS cable landing exit
+  PASS cable landing archive-exit
+  PASS sump landing home
+  PASS sump landing furnace
+  PASS furnace landing cable
+  PASS furnace landing sump
+  PASS furnace landing bell
+  PASS archive landing back
+  PASS bell landing back
+  PASS bell landing dead-rail
+  PASS market landing home
+  PASS market landing yard
+  PASS market landing clinic
+  PASS market landing lift
+  PASS yard landing market
+  PASS yard landing slag
+  PASS yard landing works
+  PASS slag landing yard
+  PASS slag landing docks
+  PASS foundry landing yard
+  PASS foundry landing blacksite
+  PASS garden landing market
+  PASS garden landing dock
+  PASS docks landing garden
+  PASS docks landing slag
+  PASS deadrail landing bell
+  PASS deadrail landing yard
+  PASS skyhooks landing market
+  PASS blacksite landing foundry
+  PASS Next-ready skips spent crew
+  PASS Next-ready advances crew
+  PASS Downed crew cannot become active
+  PASS Armor protection affects actual armor save
+  PASS Heavy armor movement tradeoff
+  PASS Gear and mod stats combine
+  PASS Talent purchase changes movement allowance
+  PASS Respirator blocks toxin
+  PASS Toxin damages once on activation
+  PASS Firecoat blocks burn
+  PASS Grounding braid blocks shock
+  PASS Workbench charges salvage and unlocks pattern
+  PASS Melee equips without producing ammunition
+  PASS Chainblade works with zero ammunition
+  PASS Victory grants bond progress and salvage
+  PASS A downing creates a personal blood debt
+  PASS Freight blocks without parts
+  PASS Freight parts satisfy contract
+  PASS Freight charter and SMG reward
+  PASS Contract cannot pay twice
+  PASS Dock sluice initially locked
+  PASS Clinic filters unlock dock route
+  PASS Sluice gate opens after filter job
+  PASS Coupler unlocks counterweight lift
+  PASS New upper district is traversable
+  PASS Protecting courier routes strengthens Vera bond and opens Blacksite
+  PASS Ledger key opens Blacksite freight lock
+  PASS Apprentice choice strengthens Orren bond
+  PASS Clinic cargo contract completes
+  PASS Wages unlock ghostweave
+  PASS Cleared Ashline pays bounty
+  PASS Locomotive boards escort arena
+  PASS Finishing vehicle encounter delivers freight receipt
+  PASS Escort pays and opens salvage work
+  PASS Blacksite pays its unregistered cache job
+  PASS All ten contracts complete
+  PASS Salvage commission repopulates cleared work site
+  PASS Repopulation preserves old discoveries
+  PASS Expanded campaign save round trip
+  PASS Custom callsign is rendered safely as text
+  PASS Enemy medic actually heals a wounded ally
+  PASS Demolition runner detonates near crew
+  PASS Complete convoy combat simulation wins through ordinary actions
+  PASS Convoy simulation completes without path or turn deadlock
+  PASS Selling routes creates a different persisted outcome
+  PASS Negative standing increases shop prices
+  PASS Positive standing discounts shop prices
+  PASS A job can be pinned to the HUD
+  PASS Cannot settle work away from a board
+  PASS Retraining refunds talents for salvage

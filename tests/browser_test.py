@@ -30,7 +30,7 @@ with sync_playwright() as p:
       let d=T.fresh();ok(T.validate(d).version===2,'Fresh save schema');
       let bad=T.fresh();bad.party[0].x=Infinity;let rejected=false;try{T.validate(bad)}catch{rejected=true}ok(rejected,'Reject invalid imported coordinates');
       for(const [id,r] of Object.entries(UG.rooms)){
-        T.travel(id,100,880);
+        T.travel(id,100,880);T.render();
         for(const o of r.objects)ok(!!T.route(T.selected,o.x,o.y),id+' route to '+o.id);
       }
       reset();T.travel('cable',700,880);T.beginBattle();
