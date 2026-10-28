@@ -1,3 +1,16 @@
+# 0.4 — Alpha 3 / The Living Undergrid
+
+- Adapted original Undergrid canonical weapon art for all fifteen weapon profiles; added one modular equipment-driven fighter model shared by world and inventory rendering.
+- Added six distinct armor silhouettes, visible field gear/modifications, durable identity accents, live previews, and weapon comparison readouts.
+- Added recoil/fire, reload, movement/climb, hit, airborne and incapacitated presentation. Retained a single world draw per fighter and tested it.
+- Added five interactive spaces, six contracts, eleven machine definitions and a retrofitted combat-use furnace shutoff.
+- Added a powered freight lift, persistent electrical repairs, steam toggles, barriers/caches opened by tools or weapons, flood-control changes and hazard-aware route costs for enemies.
+- Added reusable grapple anchors, two diving-access routes and repeated cutter uses, including new secrets in existing districts.
+- Added Sable and Latch, a three-person active roster with reserves, contextual reactions, medic/engineer utility, an alternate courier entrance and a lasting Nix workshop discount.
+- Added Excavator Zero with two separately disabled stabilizers, three mechanical phases, changing weapon/armor profiles, telegraphed floor attacks and coolant counterplay.
+- Added optional local synthesized sound, mute/volume controls, district pins, peaceful residential resolution and visible settlement/machine consequences.
+- Migrated older expeditions without replacing equipment or progress. Deferred saves during movement; added actual invalid/legacy import checks and controlled traversal/collision/boss tests.
+
 # 0.3 — Ward Bound
 
 - Added a persistent crew dock on desktop and mobile, large AP numbers/pips, world AP labels, click-to-select fighters, and Tab/Next Ready cycling. Downed fighters cannot become active.

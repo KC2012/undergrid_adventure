@@ -1,5 +1,14 @@
 # Design direction
 
+## Alpha 3 / The Living Undergrid
+
+This pass prioritizes equipment communication before adding map breadth. Original canonical weapon paths are shared between hand art and inspection, and one modular fighter model reads the gameplay loadout. Armor, gear and identity are separate drawing layers. The former world renderer had one crew loop; the audit preserves that rather than inventing a duplication fix.
+
+Five new spaces build on the old graph with repeated-use tools and persistent mechanisms: a residential dispute, a tall ventilation shaft, a flooded work chamber, a staged excavator and a quiet apartment. Machinery has multiple practical solutions so companions help without becoming mandatory keys. Resources, AP costs, collision changes and saved machine flags use the same operations in exploration and combat.
+
+The story remains about people surviving in the wards. Sable, Latch, an injured flood worker, Nix’s workshop and Vera’s service-route knowledge connect companionship to useful choices. The mechanical boss threatens infrastructure; it does not explain the universe. Details, limitations and next priorities are in ALPHA_3.md.
+
+
 ## Ward Bound / 0.3 expansion
 
 The story now follows a fighter trying to keep a crew alive and employed. Last Light remains the first job, but its conclusion yields a freight charter rather than a revelation about the world. Deeper lore is left to contradictory manifests, old tickets, abandoned wages and the things companions decline to explain.

@@ -1,4 +1,4 @@
-# Field guide / Ward Bound 0.3
+# Field guide / Alpha 3 (build 0.4)
 
 You are Rook, a drifter in Last Light. Speak to Mara beside the settlement lamp. Her instructions lead to the main expedition. Read the current objective in the left rail or open the journal with J.
 
@@ -20,6 +20,7 @@ You are Rook, a drifter in Last Light. Speak to Mara beside the settlement lamp.
 | G, then click | Throw frag; 2 AP, range 550 |
 | H | Heal selected crew member by up to 50; 1 AP |
 | I / M / J | Equipment / atlas / journal |
+| T / TOOLS | Reusable field tools and grapple targeting |
 | Enter / END TURN | Activate hostiles and begin the next round |
 | Esc | Close a menu, cancel a frag, or pause |
 
@@ -105,3 +106,48 @@ Toxin and burn tick once at the target’s next activation. Shock removes an add
 ## Save compatibility
 
 0.2 Hollow Signal saves and JSON backups migrate to Ward Bound while retaining inventory, wounds, credits, companions and discoveries. New districts and customization defaults are added. Newer Ward Bound saves should not be opened in the old 0.2 build. Storage remains tied to the browser origin, so export a backup when moving between GitHub downloads, local files or a local server.
+
+
+## Alpha 3: the living wards
+
+From Rustmarket’s western balcony, enter **Tenement Nine**. Investigate the roof meter readings, then use the ground-level power breaker. Repair it with salvage, an arc charge, or a travelling engineer; paying the guards’ 30-credit arrears is another valid solution. Power resolves the unpaid guards peacefully. Settle **People behind the meters** at a board to earn the grapple.
+
+At the Tenement clinic, stabilize the courier with a medkit. After the clean-water job is complete, settle **First, do no harm** for a diving apparatus; then ask Sable to join at the clinic counter. Sable adds eight healing to crew medkits and can treat the Pressure Vault’s attendant without consuming a kit. The attendant teaches a pump procedure that works without an engineer.
+
+The high service road from Skyhooks leads into the **Vent Cathedral**. Its ordinary ladder route reaches the generator. An engineer, an arc round or six salvage restarts it. Settle **A city needs to breathe** to receive a powered cutter and let Latch leave its maintenance post. Latch resists shock and performs repairs like Orren.
+
+Diving routes lead to the **Pressure Vault** from the Sump’s high platform and the Docks’ eastern deck. A cutter or chainblade opens its buckled barrier; a loaded heavy weapon or frag is another solution. You can also use the other ladder route to approach from beyond it. Restore the flood pump, recover the records, and follow the newly opened excavation conduits.
+
+### Machinery and movement
+
+E/USE near a control opens its panel. Operations check the selected fighter’s resources and current AP. Most controls cost one AP in battle; lift rides and frags cost two; firing a heavy weapon uses that weapon’s AP cost. Outside combat the resource costs remain, without AP. The furnace’s original high valve is a one-AP shutoff in battle.
+
+The Cathedral cage starts at the bottom. It works only after generator power is restored. Stand close to the cage, operate it, and nearby crew ride together. You can see the crew and cage moving through the shaft. Do not save midway through movement; the game defers such saves until the crew has stopped.
+
+The steam bypass releases a dangerous cloud on the eastern deck. It damages exposed fighters at their activation and costs health in exploration. Turn the same valve off to remove it. Enemy route planning penalizes that active lane when another route exists.
+
+Press T, choose AIM GRAPPLE, and tap/click a cyan anchor within 650 units. The active crew use the shared winch. In combat it costs two AP. Revisit the Cableworks roof, Tenement roofline and Cathedral fan housing. The tool follows authored anchors; it does not attach to arbitrary walls. Diving gear grants access to submerged routes rather than adding free swimming. The cutter is a permanent tool; barriers can often be solved another way.
+
+Frags used on structures also hurt nearby crew. Read the control costs before choosing one. Arc repairs consume a real round from the selected fighter’s arc gun.
+
+### Excavator Zero
+
+Two stabilizers shield the core. Shoot a stabilizer or reach its breaker on another floor. Disabling one exposes the core and changes its weapon and protection; disabling both produces its final phase. The core announces which floor its next surge will hit. Change floors, equip grounding gear, bring Latch, or operate the upper coolant valve. Coolant disables the floor surge, not the core’s ordinary gunfire.
+
+Defeating the machine opens the workers’ return tunnel. Read the foreman’s station and settle **The last shift never ended**. It ends a dangerous work order, not the world’s deeper mystery.
+
+### Crew, equipment and services
+
+PACK now shows the equipped fighter and shared art for every owned gun and armor pattern. Each gun has a distinct physical silhouette; changing equipment updates both the model and its behavior. Helmets, coats, plates and gear packs change the body. Companions keep identity accents beneath their loadouts.
+
+Use PACK → CREW ROSTER in a room with a safe bunk to bench a companion and choose another. Rook remains active and the travel group stays at three. Reserve members retain gear, talents and bonds. Sable and Latch can wait there if the travelling crew is full.
+
+Vera can recognize the sealed apartment entrance after her ledger job is settled, giving a route without the cutter. Nix’s workshop outcome now discounts pattern fabrication by 20% and is visible at Rustmarket. The alternative clinic outcome retains its medical rewards.
+
+The atlas has a PIN THIS DISTRICT control; pins persist without revealing undiscovered rooms. The safe apartment **Room for One** has a radio story, a packed bag and a bunk. Its mystery needs no gunfight.
+
+### Sound and backups
+
+SYSTEM → SOUND / VOLUME enables optional synthesized effects and a quiet industrial hum. Sound begins only after a gesture; all game information remains visible with sound muted. Master volume and mute persist locally.
+
+0.2 and 0.3 expedition backups migrate into Alpha 3. Older builds cannot understand the new systems. Export before switching files/origins or clearing browser data. Imports are validated before replacing the active expedition. Safe saving waits for crew movement to finish.

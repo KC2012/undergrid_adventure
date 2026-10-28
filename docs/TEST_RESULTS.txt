@@ -1,106 +1,155 @@
-WARD BOUND 0.3 / 238 reported checks, zero page errors
+ALPHA 3 / BUILD 0.4 / 436 reported checks; zero browser page errors
 
-CORE REGRESSION
-PASS: 143 integration checks; 0 browser errors
+CORE
+PASS: 192 integration checks; 0 browser errors
   PASS Fresh save schema
   PASS Reject invalid imported coordinates
-  PASS hearth route to mara
-  PASS hearth route to cot
-  PASS hearth route to shop
-  PASS hearth route to hearth-note
-  PASS hearth route to east
-  PASS hearth route to down
-  PASS hearth route to tram
-  PASS hearth route to market-road
-  PASS hearth route to wardboard
-  PASS cable route to west
-  PASS cable route to fuse
-  PASS cable route to vera
-  PASS cable route to cache-c
-  PASS cable route to exit
-  PASS cable route to archive-exit
-  PASS sump route to home
-  PASS sump route to orren
-  PASS sump route to rig
-  PASS sump route to sump-loot
-  PASS sump route to pump
-  PASS sump route to furnace
-  PASS sump route to sump-lore
-  PASS furnace route to cable
-  PASS furnace route to sump
-  PASS furnace route to heart
-  PASS furnace route to furnace-cache
-  PASS furnace route to bell
-  PASS furnace route to steam
-  PASS furnace route to valve
-  PASS archive route to back
-  PASS archive route to cipher
-  PASS archive route to longrifle
-  PASS archive route to archive-lore
-  PASS archive route to shortcut
-  PASS bell route to back
-  PASS bell route to engine
-  PASS bell route to bell-loot
-  PASS bell route to bell-tram
-  PASS bell route to dead-rail
-  PASS market route to home
-  PASS market route to switch
-  PASS market route to bench
-  PASS market route to supply
-  PASS market route to bunks
-  PASS market route to market-tram
-  PASS market route to yard
-  PASS market route to clinic
-  PASS market route to lift
-  PASS market route to market-note
-  PASS yard route to market
-  PASS yard route to axle
-  PASS yard route to locomotive
-  PASS yard route to slag
-  PASS yard route to works
-  PASS yard route to toolbox
-  PASS yard route to yard-ticket
-  PASS slag route to yard
-  PASS slag route to diesel
-  PASS slag route to torch-case
-  PASS slag route to rusk-cache
-  PASS slag route to docks
-  PASS slag route to slag-scar
-  PASS foundry route to yard
-  PASS foundry route to drive
-  PASS foundry route to coupler
-  PASS foundry route to foundry-armor
-  PASS foundry route to apprentice
-  PASS foundry route to blacksite
-  PASS garden route to market
-  PASS garden route to membrane
-  PASS garden route to needle-case
-  PASS garden route to chemical-seep
-  PASS garden route to dock
-  PASS garden route to garden-book
-  PASS docks route to garden
-  PASS docks route to slag
-  PASS docks route to cargo
-  PASS docks route to dock-armory
-  PASS docks route to dock-tram
-  PASS docks route to dock-rope
-  PASS deadrail route to bell
-  PASS deadrail route to ledger
-  PASS deadrail route to courier-kit
-  PASS deadrail route to yard
-  PASS deadrail route to dead-ticket
-  PASS skyhooks route to market
-  PASS skyhooks route to wages
-  PASS skyhooks route to sky-armory
-  PASS skyhooks route to sky-tram
-  PASS skyhooks route to sky-note
-  PASS blacksite route to foundry
-  PASS blacksite route to blackcase
-  PASS blacksite route to delta-gear
-  PASS blacksite route to delta-note
-  PASS convoy route to cab
-  PASS convoy route to convoy-kit
-  PASS convoy route to convoy-exit
+  PASS hearth reachable interaction or traversal anchor to mara
+  PASS hearth reachable interaction or traversal anchor to cot
+  PASS hearth reachable interaction or traversal anchor to shop
+  PASS hearth reachable interaction or traversal anchor to hearth-note
+  PASS hearth reachable interaction or traversal anchor to east
+  PASS hearth reachable interaction or traversal anchor to down
+  PASS hearth reachable interaction or traversal anchor to tram
+  PASS hearth reachable interaction or traversal anchor to market-road
+  PASS hearth reachable interaction or traversal anchor to wardboard
+  PASS cable reachable interaction or traversal anchor to west
+  PASS cable reachable interaction or traversal anchor to fuse
+  PASS cable reachable interaction or traversal anchor to vera
+  PASS cable reachable interaction or traversal anchor to cache-c
+  PASS cable reachable interaction or traversal anchor to exit
+  PASS cable reachable interaction or traversal anchor to archive-exit
+  PASS cable reachable interaction or traversal anchor to courier-hook
+  PASS cable reachable interaction or traversal anchor to courier-roof
+  PASS sump reachable interaction or traversal anchor to home
+  PASS sump reachable interaction or traversal anchor to orren
+  PASS sump reachable interaction or traversal anchor to rig
+  PASS sump reachable interaction or traversal anchor to sump-loot
+  PASS sump reachable interaction or traversal anchor to pump
+  PASS sump reachable interaction or traversal anchor to furnace
+  PASS sump reachable interaction or traversal anchor to sump-lore
+  PASS sump reachable interaction or traversal anchor to pressure-lock
+  PASS furnace reachable interaction or traversal anchor to cable
+  PASS furnace reachable interaction or traversal anchor to sump
+  PASS furnace reachable interaction or traversal anchor to heart
+  PASS furnace reachable interaction or traversal anchor to furnace-cache
+  PASS furnace reachable interaction or traversal anchor to bell
+  PASS furnace reachable interaction or traversal anchor to steam
+  PASS furnace reachable interaction or traversal anchor to valve
+  PASS archive reachable interaction or traversal anchor to back
+  PASS archive reachable interaction or traversal anchor to cipher
+  PASS archive reachable interaction or traversal anchor to longrifle
+  PASS archive reachable interaction or traversal anchor to archive-lore
+  PASS archive reachable interaction or traversal anchor to shortcut
+  PASS bell reachable interaction or traversal anchor to back
+  PASS bell reachable interaction or traversal anchor to engine
+  PASS bell reachable interaction or traversal anchor to bell-loot
+  PASS bell reachable interaction or traversal anchor to bell-tram
+  PASS bell reachable interaction or traversal anchor to dead-rail
+  PASS market reachable interaction or traversal anchor to home
+  PASS market reachable interaction or traversal anchor to switch
+  PASS market reachable interaction or traversal anchor to bench
+  PASS market reachable interaction or traversal anchor to supply
+  PASS market reachable interaction or traversal anchor to bunks
+  PASS market reachable interaction or traversal anchor to market-tram
+  PASS market reachable interaction or traversal anchor to yard
+  PASS market reachable interaction or traversal anchor to clinic
+  PASS market reachable interaction or traversal anchor to lift
+  PASS market reachable interaction or traversal anchor to market-note
+  PASS market reachable interaction or traversal anchor to tenements
+  PASS yard reachable interaction or traversal anchor to market
+  PASS yard reachable interaction or traversal anchor to axle
+  PASS yard reachable interaction or traversal anchor to locomotive
+  PASS yard reachable interaction or traversal anchor to slag
+  PASS yard reachable interaction or traversal anchor to works
+  PASS yard reachable interaction or traversal anchor to toolbox
+  PASS yard reachable interaction or traversal anchor to yard-ticket
+  PASS yard reachable interaction or traversal anchor to yard-junction
+  PASS slag reachable interaction or traversal anchor to yard
+  PASS slag reachable interaction or traversal anchor to diesel
+  PASS slag reachable interaction or traversal anchor to torch-case
+  PASS slag reachable interaction or traversal anchor to rusk-cache
+  PASS slag reachable interaction or traversal anchor to docks
+  PASS slag reachable interaction or traversal anchor to slag-scar
+  PASS foundry reachable interaction or traversal anchor to yard
+  PASS foundry reachable interaction or traversal anchor to drive
+  PASS foundry reachable interaction or traversal anchor to coupler
+  PASS foundry reachable interaction or traversal anchor to foundry-armor
+  PASS foundry reachable interaction or traversal anchor to apprentice
+  PASS foundry reachable interaction or traversal anchor to blacksite
+  PASS foundry reachable interaction or traversal anchor to sealed-locker
+  PASS garden reachable interaction or traversal anchor to market
+  PASS garden reachable interaction or traversal anchor to membrane
+  PASS garden reachable interaction or traversal anchor to needle-case
+  PASS garden reachable interaction or traversal anchor to chemical-seep
+  PASS garden reachable interaction or traversal anchor to dock
+  PASS garden reachable interaction or traversal anchor to garden-book
+  PASS docks reachable interaction or traversal anchor to garden
+  PASS docks reachable interaction or traversal anchor to slag
+  PASS docks reachable interaction or traversal anchor to cargo
+  PASS docks reachable interaction or traversal anchor to dock-armory
+  PASS docks reachable interaction or traversal anchor to dock-tram
+  PASS docks reachable interaction or traversal anchor to dock-rope
+  PASS docks reachable interaction or traversal anchor to pressure-dock
+  PASS deadrail reachable interaction or traversal anchor to bell
+  PASS deadrail reachable interaction or traversal anchor to ledger
+  PASS deadrail reachable interaction or traversal anchor to courier-kit
+  PASS deadrail reachable interaction or traversal anchor to yard
+  PASS deadrail reachable interaction or traversal anchor to dead-ticket
+  PASS deadrail reachable interaction or traversal anchor to quiet-door
+  PASS skyhooks reachable interaction or traversal anchor to market
+  PASS skyhooks reachable interaction or traversal anchor to wages
+  PASS skyhooks reachable interaction or traversal anchor to sky-armory
+  PASS skyhooks reachable interaction or traversal anchor to sky-tram
+  PASS skyhooks reachable interaction or traversal anchor to sky-note
+  PASS skyhooks reachable interaction or traversal anchor to vent-road
+  PASS blacksite reachable interaction or traversal anchor to foundry
+  PASS blacksite reachable interaction or traversal anchor to blackcase
+  PASS blacksite reachable interaction or traversal anchor to delta-gear
+  PASS blacksite reachable interaction or traversal anchor to delta-note
+  PASS convoy reachable interaction or traversal anchor to cab
+  PASS convoy reachable interaction or traversal anchor to convoy-kit
+  PASS convoy reachable interaction or traversal anchor to convoy-exit
+  PASS tenement reachable interaction or traversal anchor to market
+  PASS tenement reachable interaction or traversal anchor to clinic
+  PASS tenement reachable interaction or traversal anchor to lights
+  PASS tenement reachable interaction or traversal anchor to shelter
+  PASS tenement reachable interaction or traversal anchor to roof-hook
+  PASS tenement reachable interaction or traversal anchor to resident-cache
+  PASS tenement reachable interaction or traversal anchor to evidence
+  PASS tenement reachable interaction or traversal anchor to radio
+  PASS vents reachable interaction or traversal anchor to skyhooks
+  PASS vents reachable interaction or traversal anchor to lift-bottom
+  PASS vents reachable interaction or traversal anchor to lift-top
+  PASS vents reachable interaction or traversal anchor to generator
+  PASS vents reachable interaction or traversal anchor to steam
+  PASS vents reachable interaction or traversal anchor to vent-hook
+  PASS vents reachable interaction or traversal anchor to fan-cache
+  PASS vents reachable interaction or traversal anchor to latch
+  PASS vents reachable interaction or traversal anchor to excavation
+  PASS vents reachable interaction or traversal anchor to fan-note
+  PASS pressure reachable interaction or traversal anchor to sump
+  PASS pressure reachable interaction or traversal anchor to docks
+  PASS pressure reachable interaction or traversal anchor to drain
+  PASS pressure reachable interaction or traversal anchor to seal
+  PASS pressure reachable interaction or traversal anchor to vault-ledger
+  PASS pressure reachable interaction or traversal anchor to vault-cache
+  PASS pressure reachable interaction or traversal anchor to excavator
+  PASS pressure reachable interaction or traversal anchor to wet-note
+  PASS pressure reachable interaction or traversal anchor to attendant
+  PASS excavator reachable interaction or traversal anchor to vents
+  PASS excavator reachable interaction or traversal anchor to vault
+  PASS excavator reachable interaction or traversal anchor to left-breaker
+  PASS excavator reachable interaction or traversal anchor to right-breaker
+  PASS excavator reachable interaction or traversal anchor to coolant
+  PASS excavator reachable interaction or traversal anchor to excavation-log
+  PASS excavator reachable interaction or traversal anchor to foreman-kit
+  PASS excavator reachable interaction or traversal anchor to quiet
+  PASS quiet reachable interaction or traversal anchor to tenement
+  PASS quiet reachable interaction or traversal anchor to deadrail
+  PASS quiet reachable interaction or traversal anchor to radio
+  PASS quiet reachable interaction or traversal anchor to bunk
+  PASS quiet reachable interaction or traversal anchor to old-case
   PASS Clear firing lane
   PASS Steel blocks cross-floor fire
   PASS Shooting consumes AP and ammo, damages persistent enemy
@@ -135,9 +184,9 @@ PASS: 143 integration checks; 0 browser errors
   PASS Equipment swap conserves ammunition
   PASS Full chapter save round trip
 
-EXPANSION
-PASS: 95 expansion checks; 0 browser errors
-  PASS Sixteen districts
+WARD BOUND
+PASS: 112 expansion checks; 0 browser errors
+  PASS Twenty-one districts
   PASS Fifteen firearm/melee patterns
   PASS Old save migration preserves progress
   PASS Old save migration adds new world and equipment
@@ -150,6 +199,7 @@ PASS: 95 expansion checks; 0 browser errors
   PASS cable landing archive-exit
   PASS sump landing home
   PASS sump landing furnace
+  PASS sump landing pressure-lock
   PASS furnace landing cable
   PASS furnace landing sump
   PASS furnace landing bell
@@ -160,6 +210,7 @@ PASS: 95 expansion checks; 0 browser errors
   PASS market landing yard
   PASS market landing clinic
   PASS market landing lift
+  PASS market landing tenements
   PASS yard landing market
   PASS yard landing slag
   PASS yard landing works
@@ -171,10 +222,25 @@ PASS: 95 expansion checks; 0 browser errors
   PASS garden landing dock
   PASS docks landing garden
   PASS docks landing slag
+  PASS docks landing pressure-dock
   PASS deadrail landing bell
   PASS deadrail landing yard
+  PASS deadrail landing quiet-door
   PASS skyhooks landing market
+  PASS skyhooks landing vent-road
   PASS blacksite landing foundry
+  PASS tenement landing market
+  PASS tenement landing radio
+  PASS vents landing skyhooks
+  PASS vents landing excavation
+  PASS pressure landing sump
+  PASS pressure landing docks
+  PASS pressure landing excavator
+  PASS excavator landing vents
+  PASS excavator landing vault
+  PASS excavator landing quiet
+  PASS quiet landing tenement
+  PASS quiet landing deadrail
   PASS Next-ready skips spent crew
   PASS Next-ready advances crew
   PASS Downed crew cannot become active
@@ -225,3 +291,129 @@ PASS: 95 expansion checks; 0 browser errors
   PASS A job can be pinned to the HUD
   PASS Cannot settle work away from a board
   PASS Retraining refunds talents for salvage
+
+VISUAL
+PASS: 56 visual checks; 0 page errors
+ PASS authoritative weapon pistol
+ PASS authoritative weapon rifle
+ PASS authoritative weapon shotgun
+ PASS authoritative weapon sniper
+ PASS authoritative weapon smg
+ PASS authoritative weapon handcannon
+ PASS authoritative weapon needle
+ PASS authoritative weapon laser
+ PASS authoritative weapon arc
+ PASS authoritative weapon flame
+ PASS authoritative weapon launcher
+ PASS authoritative weapon plasma
+ PASS authoritative weapon heavy
+ PASS authoritative weapon chainblade
+ PASS authoritative weapon railgun
+ PASS 15 different rendered weapon silhouettes with identical color/armor
+ PASS authoritative armor leathers
+ PASS authoritative armor mesh
+ PASS authoritative armor plate
+ PASS authoritative armor ceramic
+ PASS authoritative armor ghost
+ PASS authoritative armor carapace
+ PASS Six different rendered armor silhouettes
+ PASS All field gear changes the visible kit
+ PASS Companion identities remain distinct in identical kit
+ PASS Own companion equipment vera
+ PASS Own companion equipment orren
+ PASS Own companion equipment sable
+ PASS Own companion equipment latch
+ PASS Enemy equipment scav
+ PASS Enemy equipment sentry
+ PASS Enemy equipment hound
+ PASS Enemy equipment heavy
+ PASS Enemy equipment keeper
+ PASS Enemy equipment smuggler
+ PASS Enemy equipment chemist
+ PASS Enemy equipment burner
+ PASS Enemy equipment shocker
+ PASS Enemy equipment gunner
+ PASS Enemy equipment medic
+ PASS Enemy equipment bomber
+ PASS Enemy equipment drone
+ PASS Enemy equipment cutter
+ PASS Enemy equipment jackal
+ PASS Enemy equipment warden
+ PASS Enemy equipment desperate
+ PASS Enemy equipment stabilizer
+ PASS Enemy equipment excavator
+ PASS Every weapon has shared-path inspection art
+ PASS Every armor has shared-model inspection art
+ PASS Inventory equip updates model immediately
+ PASS Inventory armor updates model immediately
+ PASS Firing drives actual fighter animation
+ PASS Reload drives actual fighter animation
+ PASS Each world fighter is rendered once
+ PASS One authoritative protagonist draw
+
+LIVING WORLD
+PASS: 76 living-world checks; 0 page errors
+ PASS 0.3 migration preserves resources and initializes machinery
+ PASS Imports cannot bench the required protagonist
+ PASS Migration retains original districts and adds five new spaces
+ PASS Solo salvage repair is a valid solution
+ PASS Repair consumes the actual parts
+ PASS Restoring homes resolves guards nonviolently
+ PASS Peaceful resolution does not add kills
+ PASS Investigation records evidence
+ PASS Residents reward a reusable traversal tool
+ PASS Grapple works at cable
+ PASS Saving defers during active traversal
+ PASS Grapple lands on intended platform cable
+ PASS Grapple works at tenement
+ PASS Saving defers during active traversal
+ PASS Grapple lands on intended platform tenement
+ PASS Grapple works at vents
+ PASS Saving defers during active traversal
+ PASS Grapple lands on intended platform vents
+ PASS Unpowered lift cannot be ridden
+ PASS Solo medkit stabilizes the courier
+ PASS Clinic opens reusable flooded traversal
+ PASS Sable joins with an owned, functional medical kit
+ PASS Sable stabilizes a second survivor for free and unlocks a solo pump procedure
+ PASS Diving suit opens Sump route
+ PASS Diving suit opens a second route from Docks
+ PASS Active Sable improves another fighter’s medkit healing
+ PASS Orren restores generator without parts
+ PASS Generator returns power and a work record
+ PASS Vent work yields reusable cutting tool
+ PASS New companion enters reserve when active crew is full
+ PASS Safe shelter swaps preserve a three-person active crew
+ PASS Latch’s intrinsic coil resists shock without grounding gear
+ PASS Benched actor coordinates remain valid in a smaller room
+ PASS Powered lift starts actual carrier movement
+ PASS Lift passes through intermediate world coordinates
+ PASS Lift reaches its upper floor
+ PASS Lift operates during tactical combat for two AP
+ PASS Steam valve opens
+ PASS Steam damages an actor at activation
+ PASS Enemy route planning recognizes active steam
+ PASS Closing the same valve removes the hazard
+ PASS Sealed barrier blocks physical route segments
+ PASS Earned cutter opens welded barrier
+ PASS Opened barrier changes route geometry
+ PASS Cutter has a second use in an established district
+ PASS Arc gun powers machinery with actual ammunition
+ PASS Flood-control restoration opens excavation access
+ PASS Flood investigation completes
+ PASS Two stabilizers shield the core
+ PASS Port breaker disables a component in combat
+ PASS Losing one component exposes phase two
+ PASS Exposed core takes damage
+ PASS Second component changes the boss to final phase
+ PASS Telegraphed surge resolves on the announced floor
+ PASS Coolant is a working environmental counter to boss surge
+ PASS Mechanical encounter can conclude in victory and open its return tunnel
+ PASS Major encounter produces an investigable quest conclusion
+ PASS Optional environmental mystery resolves without combat
+ PASS Map pin is persistent state
+ PASS Stable state saves
+ PASS Machinery and boss consequences survive save/load
+ PASS Reserve equipment and identities survive save/load
+ PASS Nix workshop permanently discounts pattern fabrication
+ PASS Vera’s settled courier knowledge offers an alternate apartment entrance

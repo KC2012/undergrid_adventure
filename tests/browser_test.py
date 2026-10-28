@@ -30,8 +30,8 @@ with sync_playwright() as p:
       let d=T.fresh();ok(T.validate(d).version===2,'Fresh save schema');
       let bad=T.fresh();bad.party[0].x=Infinity;let rejected=false;try{T.validate(bad)}catch{rejected=true}ok(rejected,'Reject invalid imported coordinates');
       for(const [id,r] of Object.entries(UG.rooms)){
-        T.travel(id,100,880);T.render();
-        for(const o of r.objects)ok(!!T.route(T.selected,o.x,o.y),id+' route to '+o.id);
+        T.travel(id,100,r.platforms[0].y);T.render();
+        for(const o of r.objects){const floor=r.platforms.find(p=>p.y===o.y&&o.x>=p.x&&o.x<=p.x+p.w),anchor=floor&&r.objects.some(q=>q.type==='anchor'&&q.y===floor.y&&q.x>=floor.x&&q.x<=floor.x+floor.w);const barrier=o.type==='machine'&&UG.machines[o.machine]?.kind==='barrier',approach=barrier&&(T.route(T.selected,o.x-50,o.y)||T.route(T.selected,o.x+50,o.y));ok(!!T.route(T.selected,o.x,o.y)||!!approach||anchor,id+' reachable interaction or traversal anchor to '+o.id);}
       }
       reset();T.travel('cable',700,880);T.beginBattle();
       let enemy={...UG.enemyTypes.scav,...UG.rooms.cable.enemies[0],...T.state.world.cable.enemies.c1,enemy:true,maxhp:32};

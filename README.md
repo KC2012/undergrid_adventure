@@ -1,10 +1,12 @@
-# Undergrid Adventure: Ward Bound
+# Undergrid Adventure: Alpha 3 — The Living Undergrid
 
-A standalone, offline side-view survival RPG built from the supplied Adventure alpha and original Undergrid references. Explore **16 connected districts**, recruit a three-person crew, take ten linked contracts, restore a freight locomotive and unlock new routes. Customize each fighter with 15 weapon patterns, six armor patterns, field gear, modifications, talents, a callsign and a color. Combat takes place on the platforms and ladders you explore.
+A standalone, offline side-view survival RPG built from the supplied Adventure alpha and original Undergrid references. Explore **21 connected districts**, recruit a three-person crew, take sixteen linked contracts, restore a freight locomotive and unlock new routes. Customize each fighter with 15 weapon patterns, six armor patterns, field gear, modifications, talents, a callsign and a color. Combat takes place on the platforms and ladders you explore.
 
-**0.3 / Ward Bound:** the stakes are a living wage, clean water, old grudges and people worth coming back for. The first Last Light mission still opens the railway. The story keeps the deeper Undergrid lore implied. Existing 0.2 saves migrate automatically; export a backup first.
+**0.4 / Alpha 3:** Equipment now drives every fighter’s appearance, using distinctive weapon paths adapted from original Undergrid. Shared inventory previews, interactive machinery, repeated-use traversal tools, a staged excavator encounter, optional local audio and a shelter roster deepen the adventure. See [Alpha 3 systems and limits](docs/ALPHA_3.md).
 
-**Play:** open `UNDERGRID_ADVENTURE.html` in a modern desktop or mobile browser. No installation, account, assets, CDN, or Internet connection is required. If your browser restricts local files or storage, serve the directory:
+**Ward Bound continuity:** the stakes are a living wage, clean water, old grudges and people worth coming back for. The first Last Light mission still opens the railway. The story keeps the deeper Undergrid lore implied. Existing 0.2 and 0.3 saves migrate automatically; export a backup first.
+
+**Play:** open `UNDERGRID_ADVENTURE.html` in a modern desktop or mobile browser. No installation, account, external assets, CDN, or Internet connection is required. Sound is optional and starts muted; enable it in SYSTEM. If your browser restricts local files or storage, serve the directory:
 
 ```sh
 cd /workspace/undergrid_adventure
@@ -25,6 +27,9 @@ node --check src/game.js
 - `src/game.js`: state, save validation, exploration, routing, combat and canvas presentation.
 - `src/expansion-data.js`: additional authored districts, arsenal, equipment and contracts.
 - `src/campaign.js`: save migration, gear/talent effects, jobs, bonds, grudges, crew dock and campaign menus. Its code is inserted inside the engine closure by the build script.
+- `src/presentation.js`: shared equipment-driven fighter, weapon paths, animation and preview rendering.
+- `src/living-data.js`: five new districts, environmental controls and six new contracts.
+- `src/living.js`: machine state, tools, roster, staged boss, audio and migration.
 - `src/style.css`: responsive terminal UI.
 - `src/index.html`: application shell.
 - `tools/build.py`: assembles readable sources into the complete portable HTML release.
@@ -36,8 +41,18 @@ Run the browser suite while the local server is running:
 ```sh
 python tests/browser_test.py
 python tests/expansion_test.py
+python tests/visual_test.py
+python tests/living_test.py
 ```
 
 The test URL opts into an isolated harness with `?test`. Normal play exposes no test API. Use the existing checkout in cloud tasks; it is already isolated and does not require a worktree.
 
 See [player guide](docs/PLAYER_GUIDE.md), [design notes](docs/DESIGN.md), [release notes](docs/CHANGELOG.md), and [validation / limitations](docs/TESTING.md). This is a substantially expanded playable campaign foundation, not a finished massive full-length RPG. See the validation report for the distinction between fixture tests, input tests and the simulated convoy encounter.
+
+## Equipment and encounter previews
+
+The sheets below use the same renderer as the game. The encounter image is a staged UI inspection, not evidence of a completed human playthrough.
+
+![Distinct equipped weapons](docs/screenshots/alpha3-weapons.png)
+
+[Armor silhouettes](docs/screenshots/alpha3-armor.png) · [Live equipment sheet](docs/screenshots/alpha3-inventory.png) · [Excavator encounter](docs/screenshots/alpha3-boss.png)

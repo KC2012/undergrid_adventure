@@ -19,8 +19,8 @@ with sync_playwright() as p:
       function board(){T.travel('market',560,880);T.close();}
       function pay(id,choice){board();if(!T.state.contracts[id]){T.settleContract(id);T.close();}T.settleContract(id,choice);T.close();}
       function recruit(){clear('cable');visit('cable','vera');T.close();clear('sump');visit('sump','orren');T.close();}
-      reset();ok(Object.keys(UG.rooms).length===16,'Sixteen districts');ok(Object.keys(UG.weapons).length===15,'Fifteen firearm/melee patterns');
-      let old=T.fresh();delete old.expansion;for(const k of ['scrap','contracts','reputation','sorties','armors','gears','mods'])delete old[k];
+      reset();ok(Object.keys(UG.rooms).length===21,'Twenty-one districts');ok(Object.keys(UG.weapons).length===15,'Fifteen firearm/melee patterns');
+      let old=T.fresh();delete old.living;delete old.reserve;delete old.expansion;for(const k of ['scrap','contracts','reputation','sorties','armors','gears','mods'])delete old[k];
       for(const id of Object.keys(old.world))if(!['hearth','cable','sump','furnace','archive','bell'].includes(id))delete old.world[id];
       for(const a of old.party)for(const k of ['armorKey','gear','mod','talents','points','bond','bondXP','callsign','dye'])delete a[k];
       old.credits=123;old.world.cable.enemies.c1.hp=7;old.flags.power=true;old.ending=true;let migrated=T.validate(old);
