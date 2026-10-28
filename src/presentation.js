@@ -93,6 +93,7 @@ function drawGear(g,id){
  if(id==='respirator'){g.strokeRect(1,-45,10,8);g.strokeRect(9,-43,5,4);g.beginPath();g.moveTo(3,-37);g.quadraticCurveTo(-9,-25,-13,-34);g.stroke();g.strokeRect(-17,-36,7,18);}
  if(id==='climbrig'){g.strokeRect(-19,-39,9,23);g.beginPath();g.arc(-15,-28,3,0,Math.PI*2);g.stroke();line(-9,-34,7,-16);line(7,-34,-7,-16);line(-16,-40,-19,-49);}
  if(id==='targeter'){line(4,-48,12,-48);g.strokeRect(10,-51,6,5);line(-3,-38,5,-31);}
+ if(id==='blastliner'){g.strokeRect(-13,-34,26,15);line(-13,-20,13,-20);line(-9,-33,-9,-22);line(9,-33,9,-22);}
  if(id==='medrig'){g.strokeRect(-19,-32,10,17);line(-14,-29,-14,-20);line(-18,-25,-10,-25);}
  if(id==='shockground'){for(let y=-35;y<-17;y+=5){line(-16,y,-9,y+3);}line(-12,-20,-14,0);line(-18,0,-10,0);}
  if(id==='salvager'){g.strokeRect(-20,-36,9,24);line(-22,-32,-25,-23);line(-25,-23,-21,-17);line(-11,-35,-8,-44);}
@@ -101,7 +102,7 @@ function drawFighterModel(g,a,options={}){
  const model=appearance(a),t=options.time??clock,pose=options.pose||{},dir=options.dir??a.dir??1;
  const state=options.preview?null:animations.get(a.id),event=state&&state.room===S?.room&&state.till>t?state:null;
  const moving=pose.walk??(!options.preview&&!transitActors.has(a.id)&&(paths.has(a.id)||a===selected()&&(keys.a||keys.d||keys.ArrowLeft||keys.ArrowRight)));
- const climbing=pose.climb??(!options.preview&&!transitActors.has(a.id)&&((paths.get(a.id)?.[0]&&Math.abs(paths.get(a.id)[0].y-a.y)>2)||(a===selected()&&(keys.w||keys.s)&&room().ladders.some(l=>Math.abs(l.x-a.x)<25&&a.y>=l.top&&a.y<=l.bottom))));
+ const climbing=pose.climb??(!options.preview&&!transitActors.has(a.id)&&((paths.get(a.id)?.[0]&&!['drop','jump'].includes(paths.get(a.id)[0].kind)&&Math.abs(paths.get(a.id)[0].y-a.y)>2)||(a===selected()&&(keys.w||keys.s)&&room().ladders.some(l=>Math.abs(l.x-a.x)<25&&a.y>=l.top&&a.y<=l.bottom))));
  const phase=Math.sin(t*12),walk=moving?phase*5:0,recoil=event?.action==='fire'?(1-(t-event.start)/.4)*3:0;
  g.save();g.scale(dir,1);g.lineWidth=1.5;g.strokeStyle=options.color||a.color||'#e7af73';g.fillStyle='#112019';g.lineJoin='miter';g.lineCap='square';
  if(a.hp===0&&!options.preview){g.translate(-10,-4);g.rotate(-Math.PI/2);}
@@ -113,6 +114,7 @@ function drawFighterModel(g,a,options={}){
  g.strokeRect(-11+walk,-2,6,3);g.strokeRect(5-walk,-2,7,3);bodyArmor(g,model.armor);headAndIdentity(g,a,model);drawGear(g,model.gear);
  if(model.weapon){g.save();g.translate(-Math.max(0,recoil),0);if(climbing){g.translate(-12,-12);g.rotate(-1.15);}else if(event?.action==='reload'){g.translate(4,-15);g.rotate(-.45);}
  g.beginPath();g.moveTo(1,-31);g.lineTo(12,-26);g.lineTo(20,-28);g.stroke();drawHeld(g,model.weapon,9,-27,UG.weapons[model.weapon].ap===2?.52:.46);
+ if(model.mod==='focused'){g.strokeRect(20,-43,20,4);g.strokeRect(38,-45,4,8);}
  if(model.mod==='sighted')g.strokeRect(24,-41,13,4);if(model.mod==='hot'){for(let x=26;x<38;x+=4){g.beginPath();g.moveTo(x,-33);g.lineTo(x+2,-28);g.stroke();}}if(model.mod==='piercer')g.strokeRect(22,-18,4,12);
  if(event?.action==='reload'){g.strokeRect(19,-12,4,8);g.beginPath();g.moveTo(3,-28);g.lineTo(19,-8);g.stroke();}g.restore();
  }else{g.beginPath();g.moveTo(-7,-31);g.lineTo(-11,-16);g.moveTo(7,-31);g.lineTo(11,-17);g.stroke();}
@@ -122,5 +124,5 @@ function drawFighterModel(g,a,options={}){
 function renderPreviews(){
  const hero=$('#loadoutPreview');if(hero&&S){const g=hero.getContext('2d');g.clearRect(0,0,hero.width,hero.height);g.save();g.translate(95,150);g.scale(2.1,2.1);drawFighterModel(g,selected(),{preview:true,time:0,dir:1});g.restore();}
  for(const c of document.querySelectorAll('canvas[data-weapon-art]')){const g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);g.strokeStyle='#ccf58b';drawHeld(g,c.dataset.weaponArt,10,45,1.5);}
- for(const c of document.querySelectorAll('canvas[data-armor-art]')){const g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);g.save();g.translate(60,105);g.scale(1.7,1.7);drawFighterModel(g,{...selected(),armorKey:c.dataset.armorArt},{preview:true,time:0});g.restore();}
+ for(const c of document.querySelectorAll('canvas[data-armor-art]')){const g=c.getContext('2d');g.clearRect(0,0,c.width,c.height);g.save();g.translate(60,105);g.scale(1.7,1.7);drawFighterModel(g,{...selected(),armorKey:c.dataset.armorArt},{preview:true,time:0,dir:1});g.restore();}
 }

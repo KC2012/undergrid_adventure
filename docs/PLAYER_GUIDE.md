@@ -1,4 +1,4 @@
-# Field guide / Alpha 3 (build 0.4)
+# Field guide / Alpha 4 (build 0.5)
 
 You are Rook, a drifter in Last Light. Speak to Mara beside the settlement lamp. Her instructions lead to the main expedition. Read the current objective in the left rail or open the journal with J.
 
@@ -8,7 +8,12 @@ You are Rook, a drifter in Last Light. Speak to Mara beside the settlement lamp.
 | --- | --- |
 | A/D or left/right | Walk during exploration |
 | W/S or up/down | Climb a nearby ladder |
-| Space | Jump during exploration |
+| Space | Jump during exploration; fire at the selected target in battle |
+| Q | Cycle combat targets |
+| F | Cycle overlapping nearby interaction targets |
+| Shift+E | Open all machine operation options |
+| V | Swap between two quick weapons; 1 AP in combat |
+| K | Learn/inspect/use active abilities |
 | Click a floor | Follow a connected ladder route; during combat, costs AP |
 | E / USE | Talk, loot, use a hatch, read, rest, activate |
 | 1 / 2 / 3, crew dock, or click a fighter | Select crew member |
@@ -20,7 +25,7 @@ You are Rook, a drifter in Last Light. Speak to Mara beside the settlement lamp.
 | G, then click | Throw frag; 2 AP, range 550 |
 | H | Heal selected crew member by up to 50; 1 AP |
 | I / M / J | Equipment / atlas / journal |
-| T / TOOLS | Reusable field tools and grapple targeting |
+| T / TOOLS | T quickly aims an owned grapple; TOOLS opens the full field menu |
 | Enter / END TURN | Activate hostiles and begin the next round |
 | Esc | Close a menu, cancel a frag, or pause |
 
@@ -28,7 +33,7 @@ Touch controls provide walk, climb, jump and interact. Tap floors or hostiles in
 
 ## Combat
 
-Visible enemies trigger a district encounter when a crew member approaches within 430 world units. All living hostiles in that district participate. Each living crew member starts with 3 AP per round; you may alternate between them. Click a connected floor to preview and execute a walk/ladder route. Base movement costs 1 AP per 240 route units, rounded up; armor, gear and Tunnel Legs talents change this allowance (shown in PACK). choose shorter intermediate destinations when a route exceeds your available AP.
+Nearby enemies trigger a local encounter when a crew member approaches within 380 world units. Most districts use nearby patrol groups. Bell Engine, Blacksite, convoy, excavator and dispatched jobs engage the full site. Approaching another hostile or attacking it can add it to a fight. Each living crew member starts with 3 AP per round; you may alternate between them. Click a connected floor to preview and execute a walk/ladder/drop/hop route. Base movement costs 1 AP per 240 route units, rounded up; armor, gear, talents and weapon mobility change this allowance (shown in PACK). Choose shorter intermediate destinations when a route exceeds your available AP.
 
 Shot chances include weapon accuracy, effective range, distance, level, suppression, cover and elevation. Steel platforms block firing lines through them. Crates protect a nearby target when they are on the shooter-facing side. Misses suppress targets; suppressed crew lose one AP on the next round. Shotguns also suppress and push enemies back on their floor. Range differs substantially between weapons; the long rifle costs two AP.
 
@@ -36,18 +41,18 @@ Barrels and frags damage allies as well as enemies, can trigger other barrels, a
 
 Wire hounds rush into melee. Breachers close to shotgun range. Riflemen seek longer lanes. Wounded enemies stay wounded if you retreat. To retreat, move the selected crew member within 180 units of the encounter entry, open M, and select RETREAT. The crew returns to Last Light.
 
-Clearing a district awards XP, credits and ammunition. Levels increase maximum HP and grant partial recovery. Fallen crew recover to 30% HP after victory. A full defeat returns you to your last bunk checkpoint with 75% HP and costs 15% of credits; discoveries and world wounds remain. Last Light's bunk heals freely. If completely out of ammunition, click a hostile within 70 units to strike with a knife for 1 AP.
+Defeated story hostiles award XP and credits once; clearing a local encounter grants ammunition and salvage. The district remains active until all patrols are gone. Levels increase maximum HP and grant partial recovery. Fallen crew recover to 30% HP after victory. A full defeat returns you to your last bunk checkpoint with 75% HP and costs 15% of credits; discoveries and world wounds remain. Last Light's bunk heals freely. If completely out of ammunition, click a hostile within 70 units to strike with a knife for 1 AP.
 
 ## Preparing the crew
 
 Ivo trades from the settlement's market balcony. The crew shares spare ammunition, medkits, grenades and credits. Each weapon keeps its own current magazine only while equipped; swapping unloads its rounds into reserves and loads the new gun from reserves. It never grants free ammo. All ranged weapons use the shared ammunition resource intentionally. The chainblade uses no rounds.
 
-Two allies can join: Vera is a carbine courier; Orren is an armored shotgun engineer who restores 8 HP to surviving crew after a victory. They follow the selected character through the ladder graph outside combat. In combat, each is directly controlled and receives their own AP. Speak to them after clearing nearby hostiles.
+The first two allies are Vera, a carbine courier, and Orren, an armored shotgun engineer who restores 8 HP to surviving crew after a victory. Sable and Latch can be recruited later (see below). They follow the selected character through the ladder graph outside combat. In combat, each is directly controlled and receives their own AP. Vera can be recruited before the deeper Cableworks fights; approach her western balcony before crossing the lower route.
 
 ## Opening route (spoilers)
 
 1. Talk to Mara at Last Light. Take the ground-level eastern hatch to the Cableworks.
-2. Clear the scavengers; recruit Vera on the western balcony. Follow the ladders to the high eastern platform and recover the live fuse.
+2. Recruit Vera on the western balcony, then fight the local patrols. Follow the ladders to the high eastern platform and recover the live fuse.
 3. Return to Mara for settlement power, a carbine, XP and credits.
 4. Take Last Light's eastern balcony hatch to the Sump. Find the climbing rig on the upper platform, recruit Orren, recover the breach gun, and optionally restore the drainage pump.
 5. Enter the Furnace Mile from the Sump or Cableworks. The high valve shuts off steam on the lower route. Recover the condenser heart from the eastern balcony and the carbine cache from the bridge.
@@ -59,7 +64,7 @@ Rail terminals in Last Light, the Archive and the Engine allow travel between di
 
 ## Saving
 
-Discoveries, purchases, travel, resting, and victories save automatically. Quiet periodic saves also run outside battle. SAVE manually before leaving. Saves and exports are disabled during battle. SYSTEM offers JSON backup export/import; malformed or incompatible saves are rejected without replacing the active expedition. Alpha 1 saves are not compatible. Reference games use separate storage.
+Discoveries, purchases, travel, resting, and victories save automatically. Quiet periodic saves also run outside battle. SAVE manually before leaving. Saves and exports are disabled during battle and dispatched jobs. A job preserves its pre-entry checkpoint; finish or withdraw to record the result. SYSTEM offers JSON backup export/import; malformed or incompatible saves are rejected without replacing the active expedition. Alpha 1 saves are not compatible. Reference games use separate storage.
 
 
 ## Ward Bound / beyond the first job
@@ -120,13 +125,13 @@ Diving routes lead to the **Pressure Vault** from the Sump’s high platform and
 
 ### Machinery and movement
 
-E/USE near a control opens its panel. Operations check the selected fighter’s resources and current AP. Most controls cost one AP in battle; lift rides and frags cost two; firing a heavy weapon uses that weapon’s AP cost. Outside combat the resource costs remain, without AP. The furnace’s original high valve is a one-AP shutoff in battle.
+E/USE near a control performs a safe available operation. Shift+E opens its full panel. If no safe option is available, E also opens the panel. Operations check the selected fighter’s resources and current AP. Most controls cost one AP in battle; lift rides and frags cost two; firing a heavy weapon uses that weapon’s AP cost. Outside combat the resource costs remain, without AP. The furnace’s original high valve is a one-AP shutoff in battle.
 
 The Cathedral cage starts at the bottom. It works only after generator power is restored. Stand close to the cage, operate it, and nearby crew ride together. You can see the crew and cage moving through the shaft. Do not save midway through movement; the game defers such saves until the crew has stopped.
 
 The steam bypass releases a dangerous cloud on the eastern deck. It damages exposed fighters at their activation and costs health in exploration. Turn the same valve off to remove it. Enemy route planning penalizes that active lane when another route exists.
 
-Press T, choose AIM GRAPPLE, and tap/click a cyan anchor within 650 units. The active crew use the shared winch. In combat it costs two AP. Revisit the Cableworks roof, Tenement roofline and Cathedral fan housing. The tool follows authored anchors; it does not attach to arbitrary walls. Diving gear grants access to submerged routes rather than adding free swimming. The cutter is a permanent tool; barriers can often be solved another way.
+With the grapple owned, press T and tap/click a cyan anchor within 650 units. The TOOLS menu also has AIM GRAPPLE. The active crew use the shared winch. In combat it costs two AP. Revisit the Cableworks roof, Tenement roofline and Cathedral fan housing. The tool follows authored anchors; it does not attach to arbitrary walls. Diving gear grants access to submerged routes rather than adding free swimming. The cutter is a permanent tool; barriers can often be solved another way.
 
 Frags used on structures also hurt nearby crew. Read the control costs before choosing one. Arc repairs consume a real round from the selected fighter’s arc gun.
 
@@ -150,4 +155,51 @@ The atlas has a PIN THIS DISTRICT control; pins persist without revealing undisc
 
 SYSTEM → SOUND / VOLUME enables optional synthesized effects and a quiet industrial hum. Sound begins only after a gesture; all game information remains visible with sound muted. Master volume and mute persist locally.
 
-0.2 and 0.3 expedition backups migrate into Alpha 3. Older builds cannot understand the new systems. Export before switching files/origins or clearing browser data. Imports are validated before replacing the active expedition. Safe saving waits for crew movement to finish.
+0.2, 0.3 and 0.4 expedition backups migrate into Alpha 4. Older builds cannot understand the new systems. Export before switching files/origins or clearing browser data. Imports are validated before replacing the active expedition. Saving defers during a winch/lift ride. Ordinary exploration saves use safe footing for anyone between platforms; import and restart clear old traversal orders.
+
+
+## Alpha 4: quick setup and new work
+
+The starter magazine on the low steps east of Mara is an optional movement lesson. Walking/climbing cancels an old click order. A generous ladder grab, short jump buffer and edge grace make the platforms easier to navigate. Followers use the same safe-drop/hop routes. Brief contextual hints can be disabled in SYSTEM.
+
+PACK separates Weapon, Armor, Gear, Mod and Growth. The top fighter selectors switch whose build you edit; the large preview updates immediately. Use each weapon's QUICK SLOT button to choose up to two guns, then V to swap. Magazines unload/reload from the shared ammunition pool without creating rounds. In combat swapping costs one AP, stops an aimed/braced stance and cancels an order. The arsenal screen lists acquisition leads.
+
+CALIBRATE EQUIPPED GUN buys permanent per-fighter improvements: +2 damage and +2 accuracy per rank, up to three. The three services cost 35/75/115 credits and 4/7/10 salvage. A companion using the same pattern has separate calibration. These upgrades are available outside combat.
+
+### Active abilities
+
+At levels 2, 4 and 6, each fighter earns one licence. Open K and learn up to three abilities per person. Learned choices are permanent in this alpha; passive talent retraining remains separate. During combat use the direct tactical buttons or K.
+
+| Ability | Use |
+| --- | --- |
+| Deadeye | 1 AP; next shot this round gains 20 accuracy and two penetration |
+| Brace | 1 AP; a two-AP weapon fires for one AP, +3 armor until next round; movement breaks it |
+| Combat dash | 1 AP; next movement can cover 1.8 times the usual route allowance; once per round |
+| Field patch | 1 AP; restore 35 HP and clear burn/toxin on the most injured ally within 180 units, no kit; once per encounter |
+| Overload | 1 AP; shock/suppress the selected visible enemy within 600 units, machinery also takes 12 damage; once per encounter |
+| Shaped frag | 2 AP and a frag; 53-damage blast with radius 155; allies can be hurt |
+
+Deadeye and Brace can each be activated once per round. Dash spends AP only when the movement is committed. A healthy party cannot waste Field patch. Q selects the hostile for Overload. Space and the FIRE button show your selected shot; illegal shots cost nothing. Empty ranged guns retain a one-AP close knife strike if unobstructed. Chainblades use their own actual melee attack.
+
+CREW WATCH puts every ready, armed fighter on overwatch and ends the round. AUTO NEXT selects another ready fighter after the current fighter spends their AP; it defaults off. These are convenience orders, not autonomous combat AI. SYSTEM changes enemy pacing and hints.
+
+### Dispatch and recovery
+
+From a work board in Last Light or Rustmarket choose DISPATCH. Four jobs use a separate three-deck freight site with fixed enemy tiers. The board shows entry costs and next rewards. Tier 2 is an early optional salvage challenge; tiers 3/5 warrant preparation. No enemies automatically grow with your level.
+
+- Recover freight from the upper deck and carry it to the east exit. Each action costs one AP in combat. First clear unlocks the Union focus rail (+11 accuracy without a damage penalty).
+- Defend the relay through three enemy rounds or eliminate the attackers sooner. The device has separate health and can take friendly blast damage. E repairs 35 HP once per round for one AP plus three salvage; an active engineer supplies parts freely. First clear unlocks blast liner gear (half incoming explosion damage).
+- Escape the elite cordon through the eastern hatch; killing all guards is optional. First clear unlocks the laser.
+- Defeat the named collector; surviving escorts do not prevent completion. First clear unlocks the hand cannon.
+
+The western dispatch hatch aborts a run. Failed/aborted work loses the entry fee and consumed supplies, with downed crew recovering at 30%. Successful material payouts diminish to 60%, 30%, 15%, then 10% after the first win. XP pays only on the first three wins. After five wins the job is practice without rewards, still charging any entry fee. Patterns pay once and dispatch kills do not add regular kill rewards. All job variants leave story populations and chests alone.
+
+Saving/import/export is disabled throughout a job. Closing the game returns to its safe pre-entry checkpoint. Return from a completed or withdrawn job to save its actual outcome.
+
+Low on supplies? WARD RELIEF at either safe settlement tops combined spare and loaded ammunition up to 24 and ensures one medkit, without money or XP. Repeated requests cannot stockpile excess rounds. The existing bunk heals freely.
+
+### Work-floor discoveries
+
+The Furnace's conveyor drive toggles eastward movement on its marked lower belt. At the Docks, a crane control drops cargo into the hostile floor below once; stay clear of its blast. In the Gardens, an engineer or three salvage isolates the chemical runoff permanently. E handles these compact interactions, including their one-AP cost in battle.
+
+Recent milestones and discoveries are retained in J. Notification cards disappear during fights so tactical controls remain usable. The last working [Alpha 3 build](../releases/UNDERGRID_ADVENTURE_Alpha_3.html) is available separately. Export a backup before changing files/origins, and keep newer saves away from older builds.

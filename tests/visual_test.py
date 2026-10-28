@@ -13,7 +13,7 @@ with sync_playwright() as p:
   function raster(a,opt={}){g.clearRect(0,0,280,180);g.save();g.translate(90,155);g.scale(2.3,2.3);T.drawFighterModel(g,a,{preview:true,time:0,dir:1,...opt});g.restore();return canvas.toDataURL()}
   let a=T.selected;const guns=new Set();for(const id of Object.keys(UG.weapons)){a.weapon=id;ok(T.appearance(a).weapon===id,'authoritative weapon '+id);guns.add(raster(a));}ok(guns.size===15,'15 different rendered weapon silhouettes with identical color/armor');
   a.weapon='rifle';let armor=new Set();for(const id of Object.keys(UG.armors)){a.armorKey=id;ok(T.appearance(a).armor===id,'authoritative armor '+id);armor.add(raster(a));}ok(armor.size===6,'Six different rendered armor silhouettes');
-  a.armorKey='leathers';let gear=new Set();for(const id of Object.keys(UG.gear)){a.gear=id;gear.add(raster(a));}ok(gear.size===7,'All field gear changes the visible kit');
+  a.armorKey='leathers';let gear=new Set();for(const id of Object.keys(UG.gear)){a.gear=id;gear.add(raster(a));}ok(gear.size===Object.keys(UG.gear).length,'All field gear changes the visible kit');
   const base={...a,weapon:'rifle',armorKey:'mesh',gear:'none'};ok(raster({...base,id:'vera'})!==raster({...base,id:'orren'}),'Companion identities remain distinct in identical kit');
   for(const [id,c] of Object.entries(UG.companions)){const x={...base,id,weapon:c.weapon};ok(T.appearance(x).weapon===c.weapon,'Own companion equipment '+id);}
   for(const [type,e] of Object.entries(UG.enemyTypes)){const x={...e,type,id:'fixture',enemy:true};ok(T.appearance(x).weapon===e.weapon,'Enemy equipment '+type);}

@@ -13,10 +13,10 @@ with sync_playwright() as p:
   function finishPaths(){for(let n=0;n<10&&T.paths.size;n++)T.updatePaths(10)}
   function settle(id){go('market',560,880);if(!T.state.contracts[id]){T.settleContract(id);T.close()}T.settleContract(id);T.close()}
   T.start();Math.random=()=>.05;
-  const legacy=T.fresh();delete legacy.living;delete legacy.reserve;for(const id of ['tenement','vents','pressure','excavator','quiet'])delete legacy.world[id];for(const w of Object.values(legacy.world))delete w.machines;legacy.credits=91;
+  const legacy=T.fresh();delete legacy.adventure;delete legacy.world.trial;delete legacy.living;delete legacy.reserve;for(const id of ['tenement','vents','pressure','excavator','quiet'])delete legacy.world[id];for(const w of Object.values(legacy.world))delete w.machines;legacy.credits=91;
   const restored=T.validate(legacy);ok(restored.world.vents.machines&&restored.credits===91,'0.3 migration preserves resources and initializes machinery');
   let invalid=T.fresh(),root=invalid.party[0];invalid.party=[{...root,id:'vera',name:'Vera',callsign:'Vera'}];invalid.reserve=[root];let rejected=false;try{T.validate(invalid)}catch{rejected=true}ok(rejected,'Imports cannot bench the required protagonist');
-  ok(Object.keys(restored.world).length===21,'Migration retains original districts and adds five new spaces');
+  ok(Object.keys(restored.world).length===Object.keys(UG.rooms).length,'Migration retains original districts and adds five new spaces');
   T.state.flags.power=true;T.state.flags.sluice=true;T.state.flags.liftPower=true;
   go('tenement',400,880);const credits=T.state.credits;
   ok(T.operateMachine('tenement-lights','scrap'),'Solo salvage repair is a valid solution');
@@ -76,17 +76,17 @@ with sync_playwright() as p:
  page.evaluate('''()=>{UG_TEST.travel('pressure',900,1230);UG_TEST.state.flags.vaultWall=false;for(const q of Object.values(UG_TEST.state.world.pressure.enemies))q.hp=0}''')
  page.keyboard.down('d');page.wait_for_timeout(450);page.keyboard.up('d')
  assert page.evaluate('UG_TEST.selected.x')<940
- page.keyboard.press('e');page.get_by_role('button',name='CUTTER OR CHAINBLADE').click()
+ page.keyboard.press('e')
  page.keyboard.down('d');page.wait_for_timeout(450);page.keyboard.up('d')
  assert page.evaluate('UG_TEST.selected.x')>970
  page.evaluate('UG_TEST.travel("vents",1330,1480);UG_TEST.state.flags.ventPower=true')
- page.keyboard.press('e');page.get_by_role('button',name='RIDE LIFT').click();page.wait_for_timeout(500)
+ page.keyboard.press('e');page.wait_for_timeout(500)
  assert 590<page.evaluate('UG_TEST.selected.y')<1480
  page.wait_for_function('UG_TEST.paths.size===0')
  assert page.evaluate('UG_TEST.selected.y')==590
  page.evaluate('UG_TEST.travel("tenement",1000,440)')
  # Actual tool UI and pointer anchor selection, without direct grapple calls.
- page.keyboard.press('t');page.get_by_role('button',name='AIM GRAPPLE').click();page.wait_for_timeout(400)
+ page.keyboard.press('t');page.wait_for_timeout(400)
  pt=page.evaluate('''()=>{const r=document.querySelector('#view').getBoundingClientRect(),T=UG_TEST,a=T.worldPoint({clientX:r.left,clientY:r.top}),b=T.worldPoint({clientX:r.left+100,clientY:r.top}),s=100/(b.x-a.x);return {x:r.left+(1470-a.x)*s,y:r.top+(315-a.y)*s}}''')
  page.mouse.click(pt['x'],pt['y']);page.wait_for_function('UG_TEST.paths.size===0')
  assert abs(page.evaluate('UG_TEST.selected.y')-350)<1
@@ -105,7 +105,7 @@ with sync_playwright() as p:
  chooser.value.set_files({'name':'broken.json','mimeType':'application/json','buffer':b'{"version":2,"party":[]}'})
  page.wait_for_function('document.querySelector("#toast").textContent.includes("Import rejected")')
  assert page.evaluate('JSON.stringify(UG_TEST.state)')==before
- legacy=page.evaluate('''()=>{let d=UG_TEST.fresh();delete d.living;delete d.reserve;for(const id of ['tenement','vents','pressure','excavator','quiet'])delete d.world[id];for(const w of Object.values(d.world))delete w.machines;d.credits=87;d.world.cable.enemies.c1.hp=9;return JSON.stringify(d)}''')
+ legacy=page.evaluate('''()=>{let d=UG_TEST.fresh();delete d.adventure;delete d.world.trial;delete d.living;delete d.reserve;for(const id of ['tenement','vents','pressure','excavator','quiet'])delete d.world[id];for(const w of Object.values(d.world))delete w.machines;d.credits=87;d.world.cable.enemies.c1.hp=9;return JSON.stringify(d)}''')
  with page.expect_file_chooser() as chooser:page.evaluate('UG_TEST.action("import")')
  chooser.value.set_files({'name':'legacy.json','mimeType':'application/json','buffer':legacy.encode()})
  page.wait_for_function('UG_TEST.state.credits===87')

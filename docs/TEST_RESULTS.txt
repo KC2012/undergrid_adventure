@@ -1,7 +1,11 @@
-ALPHA 3 / BUILD 0.4 / 436 reported checks; zero browser page errors
+UNDERGRID ADVENTURE / ALPHA 4 / BUILD 0.5
+2026-10-28 — Chromium / Python Playwright
+526 reported checks; zero browser page errors
+Built standalone HTML; all nine JavaScript source files syntax checked.
+Detailed scope, fixture distinctions and unrun checks: docs/TESTING.md
 
 CORE
-PASS: 192 integration checks; 0 browser errors
+PASS: 200 integration checks; 0 browser errors
   PASS Fresh save schema
   PASS Reject invalid imported coordinates
   PASS hearth reachable interaction or traversal anchor to mara
@@ -13,6 +17,7 @@ PASS: 192 integration checks; 0 browser errors
   PASS hearth reachable interaction or traversal anchor to tram
   PASS hearth reachable interaction or traversal anchor to market-road
   PASS hearth reachable interaction or traversal anchor to wardboard
+  PASS hearth reachable interaction or traversal anchor to starter-stash
   PASS cable reachable interaction or traversal anchor to west
   PASS cable reachable interaction or traversal anchor to fuse
   PASS cable reachable interaction or traversal anchor to vera
@@ -36,6 +41,7 @@ PASS: 192 integration checks; 0 browser errors
   PASS furnace reachable interaction or traversal anchor to bell
   PASS furnace reachable interaction or traversal anchor to steam
   PASS furnace reachable interaction or traversal anchor to valve
+  PASS furnace reachable interaction or traversal anchor to utility-belt
   PASS archive reachable interaction or traversal anchor to back
   PASS archive reachable interaction or traversal anchor to cipher
   PASS archive reachable interaction or traversal anchor to longrifle
@@ -84,6 +90,7 @@ PASS: 192 integration checks; 0 browser errors
   PASS garden reachable interaction or traversal anchor to chemical-seep
   PASS garden reachable interaction or traversal anchor to dock
   PASS garden reachable interaction or traversal anchor to garden-book
+  PASS garden reachable interaction or traversal anchor to utility-runoff
   PASS docks reachable interaction or traversal anchor to garden
   PASS docks reachable interaction or traversal anchor to slag
   PASS docks reachable interaction or traversal anchor to cargo
@@ -91,6 +98,7 @@ PASS: 192 integration checks; 0 browser errors
   PASS docks reachable interaction or traversal anchor to dock-tram
   PASS docks reachable interaction or traversal anchor to dock-rope
   PASS docks reachable interaction or traversal anchor to pressure-dock
+  PASS docks reachable interaction or traversal anchor to utility-crane
   PASS deadrail reachable interaction or traversal anchor to bell
   PASS deadrail reachable interaction or traversal anchor to ledger
   PASS deadrail reachable interaction or traversal anchor to courier-kit
@@ -150,6 +158,10 @@ PASS: 192 integration checks; 0 browser errors
   PASS quiet reachable interaction or traversal anchor to radio
   PASS quiet reachable interaction or traversal anchor to bunk
   PASS quiet reachable interaction or traversal anchor to old-case
+  PASS trial reachable interaction or traversal anchor to job-case
+  PASS trial reachable interaction or traversal anchor to job-exit
+  PASS trial reachable interaction or traversal anchor to job-abort
+  PASS trial reachable interaction or traversal anchor to job-relay
   PASS Clear firing lane
   PASS Steel blocks cross-floor fire
   PASS Shooting consumes AP and ammo, damages persistent enemy
@@ -184,9 +196,9 @@ PASS: 192 integration checks; 0 browser errors
   PASS Equipment swap conserves ammunition
   PASS Full chapter save round trip
 
-WARD BOUND
+EXPANSION
 PASS: 112 expansion checks; 0 browser errors
-  PASS Twenty-one districts
+  PASS Twenty-one story districts
   PASS Fifteen firearm/melee patterns
   PASS Old save migration preserves progress
   PASS Old save migration adds new world and equipment
@@ -351,7 +363,7 @@ PASS: 56 visual checks; 0 page errors
  PASS Each world fighter is rendered once
  PASS One authoritative protagonist draw
 
-LIVING WORLD
+LIVING
 PASS: 76 living-world checks; 0 page errors
  PASS 0.3 migration preserves resources and initializes machinery
  PASS Imports cannot bench the required protagonist
@@ -417,3 +429,83 @@ PASS: 76 living-world checks; 0 page errors
  PASS Reserve equipment and identities survive save/load
  PASS Nix workshop permanently discounts pattern fabrication
  PASS Vera’s settled courier knowledge offers an alternate apartment entrance
+
+LOOP
+PASS: 16 complete-opening checks; 0 page errors
+ PASS Opening conversation starts a clear objective
+ PASS A reachable early reward teaches vertical exploration
+ PASS Walk to a real hatch and enter Cableworks
+ PASS Recruit courier without requiring a district-wide battle
+ PASS Opening scavenger defeated through ordinary actions
+ PASS First encounter does not force distant hostiles into combat
+ PASS Equip a stronger firearm with an immediate matching visual
+ PASS Reach the upper fuse using actual routes and encounters
+ PASS Return through the original district connection
+ PASS Quest reward restores transit and funds a useful upgrade
+ PASS The opening loop grants a meaningful ability choice
+ PASS Spend the earned licence on a precision option
+ PASS Earned resources buy a lasting fighter upgrade
+ PASS Save completed opening loop
+ PASS Loop progression survives save/load
+ PASS Opening completes in local, bounded encounters (2 encounters / 2 hostile rounds)
+
+SYSTEMS
+PASS: 60 Alpha 4 systems/input checks; 0 page errors
+ PASS Alpha 3 progression migrates with earned ability licences
+ PASS Old kills cannot be rewarded again; dispatch state is added
+ PASS A local patrol starts without distant district enemies
+ PASS Local victory resumes exploration while distant guards remain
+ PASS Claimed kills cannot be paid twice
+ PASS Click routes prefer a short safe drop over a long ladder detour
+ PASS Click navigation can hop onto the teaching ledge
+ PASS Click route queued
+ PASS Ordinary queued movement can save with safe footing
+ PASS A brief step beyond an edge still accepts the jump
+ PASS A jump pressed just before landing is buffered
+ PASS Deadeye trades AP for a stronger next shot
+ PASS Deadeye is consumed by the next shot
+ PASS Brace changes heavy firing cost and defense
+ PASS Movement breaks the heavy stance
+ PASS Dash arms a movement order
+ PASS Dash covers a longer route for one AP
+ PASS Dash cannot be repeated in the same round
+ PASS Field patch heals without creating or spending medkits
+ PASS Field patch is limited per encounter
+ PASS Overload disables selected hostile actions
+ PASS Breach arms a shaped frag
+ PASS Shaped frag consumes the advertised AP and item
+ PASS Quick swap conserves all ammunition
+ PASS Combat quick swap costs one AP
+ PASS Relief supplies recover from an empty kit
+ PASS Relief cannot farm XP, credits or excess ammunition
+ PASS Emergency knife cannot strike through a sealed barrier
+ PASS Opening the barrier permits the advertised one-AP knife strike
+ PASS Deliberately enter a dispatched job
+ PASS Jobs preserve the last safe checkpoint
+ PASS Recover objective can be taken during tactical combat
+ PASS Extraction pays and unlocks its first-clear pattern
+ PASS Optional work never repopulates a cleared story route
+ PASS Practice beyond five paid wins grants no rewards
+ PASS Replay rewards deliberately diminish
+ PASS Attackers threaten the actual protected relay
+ PASS Defensive repairs cost resources and AP
+ PASS Holdout objective can win without killing all guards
+ PASS Escape objective completes without compulsory elimination
+ PASS Named bounty ignores surviving escorts
+ PASS Failed protection work returns safely without victory rewards
+ PASS Runoff control creates a persistent safe route
+ PASS Conveyor drive can be stopped with one contextual action
+ PASS Cargo release actually damages the hostile dock floor
+ PASS Cargo release cannot deal its blast twice
+ PASS Selecting crew cannot cancel a winch into a softlock
+ PASS Starting a new expedition clears all traversal runtime
+ PASS New progression and settings survive validation and reload
+
+DISPATCH
+PASS: 6 normal-AP dispatched defense checks; 0 page errors
+ PASS Prepared crew accepts the defense contract
+ PASS Defense wins through real combat and objective turns (1 hostile rounds)
+ PASS Gunfire and genuine hostile relay damage occur
+ PASS Successful work pays the quoted fee/reward and rare gear
+ PASS A complete dispatched battle leaves story populations untouched
+ PASS Successful dispatched objective is saved

@@ -19,8 +19,8 @@ with sync_playwright() as p:
       function board(){T.travel('market',560,880);T.close();}
       function pay(id,choice){board();if(!T.state.contracts[id]){T.settleContract(id);T.close();}T.settleContract(id,choice);T.close();}
       function recruit(){clear('cable');visit('cable','vera');T.close();clear('sump');visit('sump','orren');T.close();}
-      reset();ok(Object.keys(UG.rooms).length===21,'Twenty-one districts');ok(Object.keys(UG.weapons).length===15,'Fifteen firearm/melee patterns');
-      let old=T.fresh();delete old.living;delete old.reserve;delete old.expansion;for(const k of ['scrap','contracts','reputation','sorties','armors','gears','mods'])delete old[k];
+      reset();ok(Object.keys(UG.rooms).filter(id=>id!=='trial').length===21,'Twenty-one story districts');ok(Object.keys(UG.weapons).length===15,'Fifteen firearm/melee patterns');
+      let old=T.fresh();delete old.adventure;delete old.living;delete old.reserve;delete old.expansion;for(const k of ['scrap','contracts','reputation','sorties','armors','gears','mods'])delete old[k];
       for(const id of Object.keys(old.world))if(!['hearth','cable','sump','furnace','archive','bell'].includes(id))delete old.world[id];
       for(const a of old.party)for(const k of ['armorKey','gear','mod','talents','points','bond','bondXP','callsign','dye'])delete a[k];
       old.credits=123;old.world.cable.enemies.c1.hp=7;old.flags.power=true;old.ending=true;let migrated=T.validate(old);
@@ -35,8 +35,8 @@ with sync_playwright() as p:
       T.state.party[0].hp=90;T.travel('hearth',720,880);T.close();
       const a=T.selected,base=T.combatWeapon(a);T.reward({armorKey:'plate',gear:'targeter',mod:'hot'});a.armorKey='plate';a.gear='targeter';a.mod='hot';
       ok(T.armorSave(a)===a.armor+7,'Armor protection affects actual armor save');
-      ok(T.moveAllowance(a)===195,'Heavy armor movement tradeoff');ok(T.combatWeapon(a).damage===base.damage+6&&T.combatWeapon(a).acc===base.acc+1,'Gear and mod stats combine');
-      a.points=1;T.action('inventory');document.querySelector('[data-talent="runner"]').click();ok(a.points===0&&T.moveAllowance(a)===215,'Talent purchase changes movement allowance');T.close();
+      ok(T.moveAllowance(a)===220,'Heavy armor movement tradeoff');ok(T.combatWeapon(a).damage===base.damage+6&&T.combatWeapon(a).acc===base.acc+1,'Gear and mod stats combine');
+      a.points=1;T.action('inventory');document.querySelector('[data-talent="runner"]').click();ok(a.points===0&&T.moveAllowance(a)===240,'Talent purchase changes movement allowance');T.close();
       T.reward({gear:'respirator'});a.gear='respirator';T.statusHit({},a,UG.weapons.needle);ok(!a.toxin,'Respirator blocks toxin');
       a.gear='none';T.statusHit({},a,UG.weapons.needle);let hp=a.hp;T.activationStatus(a);ok(a.hp===hp-5&&!a.toxin,'Toxin damages once on activation');
       T.reward({armorKey:'ceramic'});a.armorKey='ceramic';T.statusHit({},a,UG.weapons.flame);ok(!a.burn,'Firecoat blocks burn');

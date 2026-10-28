@@ -1,5 +1,18 @@
 # Design direction
 
+## Alpha 4 / The Adventure Loop
+
+The audit found operational friction in all-district engagements, precise ladder capture, ladder-only routing, deep equipment pages, repeated machine option panels and a missing bridge between level rewards and new tactical choices. This pass keeps the 21-district campaign, its sixteen contracts and its gunplay, then improves that bridge.
+
+The opening now demonstrates a small vertical reward, an approachable recruit, a short local fight, a stronger firearm, the return to a familiar settlement, an ability licence and a funded calibration. These are the classic RPG principles applied here: a legible nearby goal, a useful detour, a changed party and a reason to return. New active abilities provide movement, medical, control and heavy-fire choices alongside passive talents. Fixed enemy tiers preserve the satisfaction of returning stronger.
+
+Voluntary work uses one three-deck freight site with four enemy/objective configurations. It gives players different reasons to move and fight without repopulating ordinary travel routes. A separate relay has its own damage/repair rules; escapes and leader hunts do not require eliminating escorts. Paid material returns diminish over five wins and XP stops after three; rare first-clear patterns are permanent. These are explicit bounds, not a claim of a tuned endgame economy.
+
+Three persistent changes make familiar floors more useful: stop a conveyor, drop dock cargo, or isolate runoff. These extend the previous valves, breakers, barriers and lift rather than creating a separate puzzle language. Additional props and signage reinforce local work/living spaces. There is no claim that every district has been rebuilt or that this completes the brief's full world-density ambition.
+
+This pass uses established design knowledge and direct inspection of the supplied code. No new live external research was performed. Practical evidence consists of browser input, inspected screenshots and deterministic normal-action bots; it is not a human usability or long-session balance study. See ALPHA_4.md and TESTING.md.
+
+
 ## Alpha 3 / The Living Undergrid
 
 This pass prioritizes equipment communication before adding map breadth. Original canonical weapon paths are shared between hand art and inspection, and one modular fighter model reads the gameplay loadout. Armor, gear and identity are separate drawing layers. The former world renderer had one crew loop; the audit preserves that rather than inventing a duplication fix.
