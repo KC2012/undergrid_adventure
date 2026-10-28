@@ -1,0 +1,72 @@
+PASS: 82 integration checks; 0 browser errors
+  PASS Fresh save schema
+  PASS Reject invalid imported coordinates
+  PASS hearth route to mara
+  PASS hearth route to cot
+  PASS hearth route to shop
+  PASS hearth route to hearth-note
+  PASS hearth route to east
+  PASS hearth route to down
+  PASS hearth route to tram
+  PASS cable route to west
+  PASS cable route to fuse
+  PASS cable route to vera
+  PASS cable route to cache-c
+  PASS cable route to exit
+  PASS cable route to archive-exit
+  PASS sump route to home
+  PASS sump route to orren
+  PASS sump route to rig
+  PASS sump route to sump-loot
+  PASS sump route to pump
+  PASS sump route to furnace
+  PASS sump route to sump-lore
+  PASS furnace route to cable
+  PASS furnace route to sump
+  PASS furnace route to heart
+  PASS furnace route to furnace-cache
+  PASS furnace route to bell
+  PASS furnace route to steam
+  PASS furnace route to valve
+  PASS archive route to back
+  PASS archive route to cipher
+  PASS archive route to longrifle
+  PASS archive route to archive-lore
+  PASS archive route to shortcut
+  PASS bell route to back
+  PASS bell route to engine
+  PASS bell route to bell-loot
+  PASS bell route to bell-tram
+  PASS Clear firing lane
+  PASS Steel blocks cross-floor fire
+  PASS Shooting consumes AP and ammo, damages persistent enemy
+  PASS Cannot fire without AP
+  PASS Reload costs one AP
+  PASS Medkit heals and costs one AP
+  PASS Overwatch reserves activation
+  PASS Overwatch reacts to movement
+  PASS Enemy round completes and returns control
+  PASS Blast victory completes encounter
+  PASS Combat awards XP
+  PASS XP threshold increases level
+  PASS Blast chains barrels and destroys cover
+  PASS Victory cannot award rewards twice
+  PASS Save round trip
+  PASS Retreat works from atlas modal
+  PASS Tactical path charges AP
+  PASS Reject path exceeding AP
+  PASS Main quest accepted
+  PASS Archive gate blocks without rig
+  PASS Fuse discovery
+  PASS Vera recruitment
+  PASS Fuse turns in for power and carbine
+  PASS Orren and traversal rig
+  PASS Pump rewards only once
+  PASS Heart and environmental valve
+  PASS Archive discoveries
+  PASS Mara decodes signal
+  PASS Engine gate opens with decoded signal
+  PASS Narrative chapter completes
+  PASS Rest restores crew
+  PASS Equipment swap conserves ammunition
+  PASS Full chapter save round trip
