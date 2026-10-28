@@ -1,4 +1,4 @@
-# Field guide / Alpha 4 (build 0.5)
+# Field guide / Alpha 5 (build 0.6)
 
 You are Rook, a drifter in Last Light. Speak to Mara beside the settlement lamp. Her instructions lead to the main expedition. Read the current objective in the left rail or open the journal with J.
 
@@ -58,7 +58,7 @@ The first two allies are Vera, a carbine courier, and Orren, an armored shotgun 
 5. Enter the Furnace Mile from the Sump or Cableworks. The high valve shuts off steam on the lower route. Recover the condenser heart from the eastern balcony and the carbine cache from the bridge.
 6. With the rig, use the high Cableworks hatch to enter the Archive. Recover its cipher and optional long rifle.
 7. Bring the heart and cipher to Mara. Her decoded signal opens the Furnace's eastern bulkhead.
-8. Enter the Bell Engine, defeat the keeper and its escort, then interact with the listening terminal. You can keep exploring after the chapter ending.
+8. Enter the Bell Engine, defeat the keeper and its escort, then interact with the listening terminal. This completes Act I; Rustmarket’s Common Line desk continues the adventure.
 
 Rail terminals in Last Light, the Archive and the Engine allow travel between discovered terminal districts after power is restored.
 
@@ -202,4 +202,51 @@ Low on supplies? WARD RELIEF at either safe settlement tops combined spare and l
 
 The Furnace's conveyor drive toggles eastward movement on its marked lower belt. At the Docks, a crane control drops cargo into the hostile floor below once; stay clear of its blast. In the Gardens, an engineer or three salvage isolates the chemical runoff permanently. E handles these compact interactions, including their one-AP cost in battle.
 
-Recent milestones and discoveries are retained in J. Notification cards disappear during fights so tactical controls remain usable. The last working [Alpha 3 build](../releases/UNDERGRID_ADVENTURE_Alpha_3.html) is available separately. Export a backup before changing files/origins, and keep newer saves away from older builds.
+Recent milestones and discoveries are retained in J. Notification cards disappear during fights so tactical controls remain usable. The previous [Alpha 4 build](../releases/UNDERGRID_ADVENTURE_Alpha_4.html) is available separately. Export a backup before changing files/origins, and keep newer saves away from older builds.
+
+
+## Alpha 5: the greater adventure
+
+The Bell Engine is now Act I. J opens a six-page journal: Main Story, Contracts, Side Quests, Expeditions, Completed and Crew/Notes. The current act shows what to do next; TRACK MAIN STORY clears a tracked job from the objective rail. Boards still accept and settle physical work, and completed choices remain in their own journal page.
+
+### The Common Line (route spoilers)
+
+1. Complete the Bell Engine's listening terminal. Restore Locomotive 09 through A living on the rails, finish its first freight run, and settle What we drink for the clean-water sluice. These existing achievements can be completed before or after the Engine.
+2. Visit the Common Line desk on Rustmarket's ground concourse. Public carriage gives ward trust, medkits and salvage. Bonded freight gives factor trust, a payment and a supplier discount. Both open the same route. Its reward pays once.
+3. Take the high outer-freight hatch at the eastern crown of the Dead Rail to Kettle Junction. Ask Ada beside the kettle. The station has bunks, a shop, work board and a discovered-terminal rail stop.
+4. Enter the Counterweight Abyss from the Junction's lower east hatch. Descend to the Cold Foundry intake. The crown has an optional rigger cache and grapple anchor; a submerged cut returns to the Pressure Vault if you have diving gear.
+5. The Cold Foundry's two magnetic feeds shield the Shift Marshal while both survive. Shoot a coupler or isolate it from its nearby machine control using an engineer, four salvage or a loaded arc charge. The Marshal announces a floor surge. Change floors or use grounding gear. Defeat the site, recover the high governor and return to Ada.
+6. Ada restores the Junction and opens its eastern service duct into the Relay Orchard. The crew receives a burst rifle, recoil cradle and supplies. Connect all three exchanges, then reach the Unlisted Station above the Orchard and read its manifest. Those two tasks open the Heart conduit.
+7. In the Unlisted Station, help Anik through the shutter with a cutter, an engineer or four salvage. Anik uses a safe service passage; return to Ada for the reunion, then settle Seven cups, six names. It is optional and discounts expedition entries.
+8. Enter Load-Bearing Heart from the Orchard's lower east conduit. Both tethers must be disabled before its Receiver can be damaged. Each can be shot or isolated with the same machine controls. The high emergency coolant stops floor surges; ordinary gunfire remains dangerous. Grounding gear and Latch counter surge damage.
+9. After defeating the site, reach the far Common Line switch. Public ownership requires ward trust or positive standing; bonded ownership requires factor backing/trust. The independent crew charter is always available. Your choice opens Cable Commons and a saved epilogue. The arc blade unlocks and the wider world stays open.
+
+Your earlier power, train, water, companion and personal-job outcomes remain in place. Ada and the epilogue react to your rescue and choices; the story resolves the line's immediate future rather than explaining the Undergrid's deeper origins.
+
+### Optional Redoubt and local jobs
+
+Redoubt Six branches from the Abyss crown road. Captain Vey calls one reserve into battle. You can fight the checkpoint, or reach the high armistice order and spend one AP to stand it down. The service record supports an optional board choice: passage/amnesty or publishing the evidence. Neither requires executing the garrison.
+
+New board work also covers the Cold Foundry's lost wages and a rigger's counterweight tag on the Abyss crown. Personal side quests have their own journal page; paid contracts remain separate. The board has twenty formal jobs in total, including the original sixteen.
+
+### Longer expeditions
+
+Open the expedition board from J or Ada. Depart from Last Light, Rustmarket, Kettle Junction or Cable Commons while quiet. Brasslung Mill needs power, Drowned Post needs diving gear, and Carriage Zero needs the freight charter. Each contains three connected areas with recognizable authored geography and saved survey variation in patrols, cache deck and contamination.
+
+Recover the contracted freight on the middle floor. You can extract there for a successful trip, or operate the pressure drive to open an optional deeper reserve. The drive uses three salvage, a cutter or a crew engineer. Its lower-deck contamination is removed when isolated. The third area's elite cache needs its guards cleared or stood down. The Mill's deep cache grants a survey harness; the Drowned Post grants a recoil cradle; Carriage Zero grants an arc blade.
+
+Return hatches appear in every area. In combat, extracting, collecting, opening a drive or changing expedition areas uses one AP. You need not kill every guard to leave. Short dispatched jobs retain their separate rules.
+
+Expedition kills and caches add **unbanked** credits, salvage and XP. Successful freight extraction banks the haul plus the base reward. Returning without freight banks half the materials and no XP/patterns; defeat banks a quarter and revives downed crew at half HP. Used supplies/entry remain spent. Rewards diminish over five finished trips per family, including withdrawals/defeats; XP only on the first three. After five trips there are no material/XP/cache-supply rewards. First-time permanent patterns can still be found. Full details are in [EXPEDITIONS.md](EXPEDITIONS.md).
+
+Multi-area expeditions can save/export/import outside combat and controlled transit. Their survey, wounds, opened caches, haul and objectives persist. Reloading resumes the same configuration. An active short dispatch still cannot save mid-run. Story districts remain cleared when you return.
+
+### New equipment and presentation
+
+The Union three-stamp rifle trades two rounds per shot for burst suppression. The Switchman's arc blade trades some chainblade armor penetration for ammo-free shock. The recoil cradle adds four accuracy/two penetration; the Redoubt breach feed adds three damage/two penetration. The survey harness adds twenty-five movement units per AP and chemical protection. These use the same visible pattern system, companions and calibration as your existing kit.
+
+New mechanical bosses have physical couplers, distinct machine bodies and their actual phase weapons. Their readouts announce shields and the next threatened floor. The portrait camera reserves space above the tactical bar so the active fighter stays visible near a deep room's bottom.
+
+### Backups
+
+0.2 through 0.5 expedition saves migrate into Alpha 5. The old Bell Engine completion becomes Act I completion; it does not mark the new campaign finished. Crew, equipment, talents, skills, calibrations, money, wounds and old world changes are retained. Export before changing origins/devices. Never load a newer save into an older game. [Alpha 4 is preserved separately](../releases/UNDERGRID_ADVENTURE_Alpha_4.html).

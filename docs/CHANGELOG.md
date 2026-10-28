@@ -1,3 +1,16 @@
+# 0.6 — Alpha 5 / The Greater Adventure
+
+- Repositioned the existing Bell Engine ending as Act I. Added a five-stage Common Line campaign with explicit objectives, existing freight/water prerequisites, public/bonded backing, deep works, a hidden freight bypass, a final requisition-engine encounter and three conditional conclusions. The world remains playable afterward.
+- Added eight permanent districts: Kettle Junction, Counterweight Abyss, Cold Foundry, Redoubt Six, Relay Orchard, Unlisted Station, Load-Bearing Heart and Cable Commons. Retained all 21 original districts and their discoveries.
+- Added three expedition families with three connected areas each. Family-specific authored geography supports saved seed variation in patrol composition, cache deck and middle-floor contamination. Recover the contract, extract early, open a deeper route or seek an elite cache.
+- Added quiet expedition checkpoints and validated active-run imports, escrowed XP/materials, partial withdrawal/defeat returns, bounded five-trip rewards including failed trips, and real deep-cache pattern unlocks. Story routes are never repopulated by expeditions.
+- Added the Shift Marshal and Receiver with breakable/isolateable couplers, shield states, changing weapons/armor, announced floor surges and coolant counterplay. Captain Vey calls one reserve; an armistice offers a peaceful alternative.
+- Added four formal jobs, a missing operator’s reunion, service discounts, a rigger’s memorial and Redoubt resolutions. Added restrained ambient residents, distinct settlement signage, lit machinery, cable-tree landmarks and distinct machinery silhouettes.
+- Added two equipment-driven weapon profiles (burst rifle and arc blade), two service modifications and a survey harness, all with visible renderer support and source leads.
+- Split the journal into main story, side quests, contracts, expeditions, completed work and crew/notes. Kept the existing quick combat, crew/AP dock, equipment tabs and local encounters.
+- Preserved Alpha 4 byte-for-byte; migrated older expeditions without resetting crew, money, world wounds, calibration or prior chapter completion. Generated definitions are restored after rejected imports.
+- Added campaign/expedition fixtures, actual journal/import/portrait UI checks, a full fresh Bell Engine normal-action simulation, a prepared Act III–V clear and a three-area expedition clear. Updated the previous regression suites for the expanded content.
+
 # 0.5 — Alpha 4 / The Adventure Loop
 
 - Refined walking, ladder capture, jump buffering, edge forgiveness, camera look-ahead, click-route interruption and companion following. Added safe drop and short-hop edges to shared navigation.

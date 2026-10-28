@@ -69,12 +69,12 @@ function livingEntry(){bossWarning=null;toolMode=false;liftMotion.clear();const 
 }
 // Mechanical encounter phases and telegraphed attacks.
 function bossPhase(){if(S.room!=='excavator')return 0;const w=world().enemies;return 3-['port','starboard'].filter(id=>w[id].hp>0).length;}
-function livingEnemy(e){if(e.type==='excavator'){const phase=bossPhase();return {...e,weapon:phase===1?'heavy':phase===2?'arc':'plasma',armor:phase===1?9:phase===2?5:2};}return e;}
-function bossStep(e){if(e.type!=='excavator')return false;const phase=bossPhase();if(bossWarning!==null&&!S.flags.bossCoolant){for(const a of alive())if(Math.abs(a.y-bossWarning)<40&&a.gear!=='shockground'&&a.id!=='latch')hurt(a,16,e);audioCue('blast');checkBattle();if(!battle)return true;}
+function livingEnemy(e){e=greaterEnemy(e);if(e.type==='excavator'){const phase=bossPhase();return {...e,weapon:phase===1?'heavy':phase===2?'arc':'plasma',armor:phase===1?9:phase===2?5:2};}return e;}
+function bossStep(e){if(greaterBossStep(e))return true;if(e.type!=='excavator')return false;const phase=bossPhase();if(bossWarning!==null&&!S.flags.bossCoolant){for(const a of alive())if(Math.abs(a.y-bossWarning)<40&&a.gear!=='shockground'&&a.id!=='latch')hurt(a,16,e);audioCue('blast');checkBattle();if(!battle)return true;}
  bossWarning=phase>1?selected().y:null;if(bossWarning!==null)notify('EXCAVATOR SURGE // Floor '+floorLabel(bossWarning)+' flashes next hostile activation. Change floors, ground your gear, or open coolant.');return false;
 }
-function shielded(t){return t.type==='excavator'&&bossPhase()===1;}
-function hazardTick(a){if(S.room==='furnace'&&!S.flags.steam&&dist(a,{x:820,y:880})<80)hurt(a,8);for(const [id,m] of Object.entries(UG.machines)){if(m.room!==S.room||m.kind!=='steam'||!S.flags[m.flag])continue;if(dist(a,m)<125){hurt(a,10);a.suppressed=true;}}}
+function shielded(t){return greaterShielded(t)||t.type==='excavator'&&bossPhase()===1;}
+function hazardTick(a){greaterHazardTick(a);if(S.room==='furnace'&&!S.flags.steam&&dist(a,{x:820,y:880})<80)hurt(a,8);for(const [id,m] of Object.entries(UG.machines)){if(m.room!==S.room||m.kind!=='steam'||!S.flags[m.flag])continue;if(dist(a,m)<125){hurt(a,10);a.suppressed=true;}}}
 function livingTick(dt){for(const [id,m] of Object.entries(UG.machines)){if(m.room===S.room&&m.kind==='steam'&&S.flags[m.flag]&&!battle&&dist(selected(),m)<100)selected().hp=Math.max(1,selected().hp-dt*8);}
  const box=$('#bossReadout');if(box){box.hidden=S.room!=='excavator'||!enemies().some(e=>e.id==='core');if(!box.hidden)box.textContent=`EXCAVATOR ZERO / ${world().enemies.core.hp} HP / PHASE ${bossPhase()} / ${shielded({type:'excavator'})?'SHIELDED: DISABLE A STABILIZER':'CORE EXPOSED'}${bossWarning!==null?' / SURGE ON FLOOR '+floorLabel(bossWarning):''}`;}
 }

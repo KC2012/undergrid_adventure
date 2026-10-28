@@ -1,6 +1,6 @@
 // Weapon line paths adapted from original Undergrid canonicalWeaponPath.
 // Reference is retained unchanged. This module has no original skirmish dependencies.
-const WEAPON_ART={pistol:'PISTOL',rifle:'CARBINE',shotgun:'SHOTGUN',sniper:'SNIPER',smg:'SMG',handcannon:'HAND_CANNON',needle:'NEEDLE_PISTOL',laser:'LASER_RIFLE',arc:'ARC_GUN',flame:'FLAME_PROJECTOR',launcher:'LAUNCHER',plasma:'PLASMA_GUN',heavy:'HEAVY',chainblade:'CHAINBLADE',railgun:'MARKSMAN_RIFLE'};
+const WEAPON_ART={pistol:'PISTOL',rifle:'CARBINE',shotgun:'SHOTGUN',sniper:'SNIPER',smg:'SMG',handcannon:'HAND_CANNON',needle:'NEEDLE_PISTOL',laser:'LASER_RIFLE',arc:'ARC_GUN',flame:'FLAME_PROJECTOR',launcher:'LAUNCHER',plasma:'PLASMA_GUN',heavy:'HEAVY',chainblade:'CHAINBLADE',railgun:'MARKSMAN_RIFLE',burst:'BURST_RIFLE',arcblade:'ARC_BLADE'};
 const animations=new Map();
 function animate(a,action,duration=.6){animations.set(a.id,{action,start:clock,till:clock+duration,room:S.room});}
 function appearance(a){return {weapon:a.weapon||null,armor:a.enemy?(a.armor>=7?'carapace':a.armor>=4?'plate':a.armor>=2?'mesh':'leathers'):(a.armorKey||'leathers'),gear:a.enemy?(a.type==='chemist'?'respirator':a.type==='medic'?'medrig':a.type==='shocker'?'shockground':'none'):(a.gear||'none'),mod:a.mod||'none',identity:a.id||a.type||'resident',color:a.color||'#e7af73'};}
@@ -93,7 +93,7 @@ function drawGear(g,id){
  if(id==='respirator'){g.strokeRect(1,-45,10,8);g.strokeRect(9,-43,5,4);g.beginPath();g.moveTo(3,-37);g.quadraticCurveTo(-9,-25,-13,-34);g.stroke();g.strokeRect(-17,-36,7,18);}
  if(id==='climbrig'){g.strokeRect(-19,-39,9,23);g.beginPath();g.arc(-15,-28,3,0,Math.PI*2);g.stroke();line(-9,-34,7,-16);line(7,-34,-7,-16);line(-16,-40,-19,-49);}
  if(id==='targeter'){line(4,-48,12,-48);g.strokeRect(10,-51,6,5);line(-3,-38,5,-31);}
- if(id==='blastliner'){g.strokeRect(-13,-34,26,15);line(-13,-20,13,-20);line(-9,-33,-9,-22);line(9,-33,9,-22);}
+ if(id==='surveykit'){g.strokeRect(-22,-34,12,25);g.strokeRect(9,-49,12,6);g.beginPath();g.moveTo(10,-43);g.lineTo(-12,-28);g.stroke();}if(id==='blastliner'){g.strokeRect(-13,-34,26,15);line(-13,-20,13,-20);line(-9,-33,-9,-22);line(9,-33,9,-22);}
  if(id==='medrig'){g.strokeRect(-19,-32,10,17);line(-14,-29,-14,-20);line(-18,-25,-10,-25);}
  if(id==='shockground'){for(let y=-35;y<-17;y+=5){line(-16,y,-9,y+3);}line(-12,-20,-14,0);line(-18,0,-10,0);}
  if(id==='salvager'){g.strokeRect(-20,-36,9,24);line(-22,-32,-25,-23);line(-25,-23,-21,-17);line(-11,-35,-8,-44);}
@@ -114,7 +114,7 @@ function drawFighterModel(g,a,options={}){
  g.strokeRect(-11+walk,-2,6,3);g.strokeRect(5-walk,-2,7,3);bodyArmor(g,model.armor);headAndIdentity(g,a,model);drawGear(g,model.gear);
  if(model.weapon){g.save();g.translate(-Math.max(0,recoil),0);if(climbing){g.translate(-12,-12);g.rotate(-1.15);}else if(event?.action==='reload'){g.translate(4,-15);g.rotate(-.45);}
  g.beginPath();g.moveTo(1,-31);g.lineTo(12,-26);g.lineTo(20,-28);g.stroke();drawHeld(g,model.weapon,9,-27,UG.weapons[model.weapon].ap===2?.52:.46);
- if(model.mod==='focused'){g.strokeRect(20,-43,20,4);g.strokeRect(38,-45,4,8);}
+ if(model.mod==='damped'){g.strokeRect(25,-23,18,5);}if(model.mod==='deepfeed'){g.strokeRect(18,-20,7,12);g.strokeRect(23,-43,10,3);}if(model.mod==='focused'){g.strokeRect(20,-43,20,4);g.strokeRect(38,-45,4,8);}
  if(model.mod==='sighted')g.strokeRect(24,-41,13,4);if(model.mod==='hot'){for(let x=26;x<38;x+=4){g.beginPath();g.moveTo(x,-33);g.lineTo(x+2,-28);g.stroke();}}if(model.mod==='piercer')g.strokeRect(22,-18,4,12);
  if(event?.action==='reload'){g.strokeRect(19,-12,4,8);g.beginPath();g.moveTo(3,-28);g.lineTo(19,-8);g.stroke();}g.restore();
  }else{g.beginPath();g.moveTo(-7,-31);g.lineTo(-11,-16);g.moveTo(7,-31);g.lineTo(11,-17);g.stroke();}

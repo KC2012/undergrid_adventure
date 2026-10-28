@@ -1,55 +1,63 @@
-# Validation / Alpha 4 (build 0.5)
+# Validation / Alpha 5 (build 0.6)
 
 ## Executed
 
-Built the standalone HTML using Python 3.12 and syntax-checked all nine JavaScript source files with Node 24. Seven Chromium / Python Playwright suites passed **526 reported checks** with zero browser page errors. Exact suite totals and output are retained in [TEST_RESULTS.txt](TEST_RESULTS.txt).
+Built the standalone HTML using Python 3.12 and syntax-checked all eleven JavaScript source files with Node 24. Nine Chromium / Python Playwright suites passed **732 reported checks** with zero browser page errors. Exact reported totals and output are in [TEST_RESULTS.txt](TEST_RESULTS.txt).
 
-| Suite | Evidence |
-| --- | --- |
-| browser_test.py | Core integration, actual keyboard/pointer/touch input, paths to all interactables, AP/ammunition, recruitment, story gates, save/continue and bounds |
-| expansion_test.py | Existing contract chains/choices, gear and talents, supplier standing, migration, crew cycling, enemy support and a full prepared-crew normal-AP convoy simulation |
-| visual_test.py | Fifteen distinct weapon renders, six armor silhouettes, all gear variants, identity accents, authoritative equipment mappings, real equip buttons, shared previews, action animation and one world render per fighter |
-| living_test.py | Existing machinery, repeated tools, roster, persistent changes, staged boss components/phases, actual cutting/lift/grapple inputs, portrait inventory, corrupt/legacy file chooser imports and audio controls |
-| adventure_loop_test.py | Fresh-start opening through ordinary routes, recruitment, AP/hostile turns, fuse return, earned ability/calibration and save/load |
-| adventure_systems_test.py | Local groups/reward ownership, jump/route affordances, six abilities and limits, quick swaps, relief, four dispatch objective branches, diminishing rewards, relay failure/repairs, three utilities, transit runtime recovery and real browser controls/import |
-| dispatch_play_test.py | A prepared tier-three crew completing the new defense job with normal AP, routes, shots, hostile relay damage, rewards and persistent outcome |
+| Suite | Reported checks | Evidence |
+| --- | ---: | --- |
+| browser_test.py | 293 | Core controls, actual keyboard/pointer/touch, AP/ammo, saves, recruitment, story gates and navigation to interactables across the expanded world |
+| expansion_test.py | 135 | Existing contract chains/choices, every door landing, equipment/talents, standing, migration, next-ready crew, enemy support and normal-AP convoy simulation |
+| visual_test.py | 63 | Seventeen distinct weapon renders, six armor silhouettes, nine gear states, identities, real equipment buttons, shared previews/animations and one world draw per fighter |
+| living_test.py | 76 | Existing machinery, tools, roster, persistent changes, excavator component/phase fixture, actual cutting/lift/grapple inputs, imports and audio controls |
+| adventure_loop_test.py | 16 | Fresh first job through actual paths/turns, recruitment, fuse return, earned ability/calibration and save/load |
+| adventure_systems_test.py | 60 | Alpha 4 local engagements, six skills, supply/quick-slot rules, four dispatch outcomes/caps, utilities, real input, jump forgiveness and transit/import recovery |
+| dispatch_play_test.py | 6 | Normal-AP prepared-crew defense with genuine relay damage, payout, rare gear and saved result |
+| greater_test.py | 69 | Alpha 4 migration, new campaign gates/charters/ending, rescue and Redoubt outcomes, boss shields/cooling, all expedition families, variance, extraction/withdrawal/defeat/caps, active-run imports and journal/portrait UI |
+| greater_play_test.py | 14 | Complete fresh introductory act, prepared continuation through a public ending, and prepared three-area Mill expedition using normal combat/route/resource actions |
 
-Inspected desktop equipment, combat, portrait controls, the fresh-opening result and dispatch result screenshots. The notification/controls overlap found in portrait combat was corrected; combat hides the notification card and stacks interactive overlays above the tactical bar. These are Chromium desktop and emulated portrait observations, not physical-phone certification.
+Inspected staged desktop views of Kettle Junction, Counterweight Abyss, Relay Orchard, Receiver, campaign journal, expedition board and ending, plus portrait combat/journal. Corrected the portrait camera so the active fighter stays above the tactical controls near a deep room's bottom. Staged screenshots demonstrate presentation; they are separate from the gameplay completions below.
 
-Confirmed the two uploaded reference games remain byte-identical. The preserved [Alpha 3 release](../releases/UNDERGRID_ADVENTURE_Alpha_3.html) exactly matches the build in commit `504e2438c370bfcc156b872625141a5a9da11809`, SHA256 `4eb967e404ef4e55ae615f9e4167b987eeb0bb47cf65e5a041d08d6a669b42e7`.
+Confirmed both original uploaded reference games remain byte-identical. The preserved [Alpha 4 release](../releases/UNDERGRID_ADVENTURE_Alpha_4.html) exactly matches the supplied attachment and commit `7817f9c7680ced5a3f8629389f98c4b1b8406bd2`: SHA256 `2eaadd851f6b6a60079717c2fcdf1749b2451595f535e220a11df0eef36075fe`. Alpha 3 remains available too.
 
-## Complete-loop simulations
+## Normal-action gameplay evidence
 
-The fresh-opening test begins a genuinely new expedition. A seeded bot talks to Mara, reaches the new low stash, uses the actual Cableworks hatch, recruits Vera, fights the two local encounters using AP/ammo, reaches the upper fuse, returns via the original route and turns it in. It equips a stronger gun with the real equipment button, learns an earned licence and spends earned credits/salvage on calibration. It never edits health, enemy health, XP, money, inventory or quest flags. It uses engine movement/order APIs and deterministic randomness, not a human or entirely pointer-only playthrough. Its final run took two encounters and two hostile rounds.
+**Fresh full introduction:** The bot starts a new expedition with the actual starter kit. It talks to Mara, finds the low stash, recruits Vera, recovers the fuse, restores power, earns/crafts equipment, reaches the Sump, recruits Orren, finds the rig, crosses the Furnace, obtains the condenser/cipher and returns to Mara. It then rests, enters the Bell Engine, clears its encounter and uses the listening terminal. It reaches Act II and saves successfully. It never edits crew/enemy HP, resources, XP, inventory or quest flags. All battles use ordinary AP, ammo, reloads, healing, routes and enemy activations. Its run took nine encounters and five hostile rounds. Bot speed is not player playtime.
 
-The dispatched defense starts from an explicitly prepared level-three crew, with weapons/armor and extra ammunition assigned before entry. During the job, it uses normal route orders, AP, reloads, shots and enemy activations. It never edits positions, AP, resources, health or objective state during the fight. Hostiles damage the relay; the crew clears attackers after one hostile round, satisfying the advertised early-win condition. Actual repair and three-round survival branches are separate fixtures, not proven by that bot. The quoted entry/reward, rare gear unlock, untouched story populations and saved win are checked.
+**Prepared continuation:** A separate fixture starts a level-seven crew with marksman rifles, mesh, grounding gear, supplies and the already-earned Act II prerequisites. From the actual public charter transaction onward, the bot uses normal actions: Dead Rail hatch to Junction, Abyss descent, Cold Foundry couplers/Marshal, governor return, Orchard exchanges, manifest/rescue, Anik's reunion, Heart couplers/Receiver and public conclusion. It does not rewrite health, AP, resources, enemy HP or campaign flags during that route. It completes the continuation in nine hostile rounds. This proves a complete executable route, not organic difficulty for every build. Other ending availability/payouts use controlled fixtures.
 
-The existing convoy bot also uses normal AP, movement, ammo, healing and hostile turns with a prepared party; it does not rewrite enemy health during the encounter. Together these simulations provide bounded integration evidence, not a representative human completion-time or difficulty measurement.
+**Prepared expedition:** A level-four crew with carbines, mesh and supplies starts the Mill normally. The bot traverses the approach, recovers middle-floor freight, opens the drive, clears the optional reserve through normal encounters, obtains the deep cache and extracts. It banks the real haul/harness and reloads the saved result. It takes three hostile rounds. There are no position/health/AP/resource edits after the starting fixture. Drowned Post and Carriage Zero outcomes have fixture coverage, not equivalent normal-action playthroughs yet.
+
+**Retained simulations:** The fresh-opening test exercises earned calibration/skills independently. Existing prepared convoy and dispatch-defense bots also run ordinary turns, damage, ammunition and movement. The defense test actually damages the relay and wins by clearing its attackers; its repair and full three-round holdout branches are separate fixtures.
+
+These are deterministic bots using the same engine order APIs as controls. They are not human playtests or wholly pointer-driven recordings. No gameplay-hours estimate is supported.
 
 ## Controlled fixtures and practical input
 
-Fixtures deliberately place actors, set resources, simulate previously completed quests or change enemy/component HP to isolate rules. They verify every existing contract condition and route connection, all six active abilities, effect limits, ammo conservation, first-clear unlocks, reward diminishing, no duplicate kill payout, old-save upgrades, protected asset repairs/failure and all four dispatch outcomes. They do not constitute full unassisted clears of all jobs or the campaign.
+Fixtures intentionally place actors, assign equipment/resources, mark prerequisites or alter component/enemy HP to isolate mechanics. They cover all twenty formal jobs' data/doors and the existing sixteen job conditions, plus the new rescue settlement, charter branches, Redoubt peace, governor payment and new conclusion transactions. The new amnesty/evidence descriptions and rewards are authored choices; a full human playthrough of every branch has not been done.
 
-The excavator fixture checks shields, both breakers, phase transitions, exposed damage, announced floor danger, coolant counterplay, victory and the investigation conclusion. Its completion segment resets fixture AP; a full normal-AP excavator clear remains unrun.
+Expedition fixtures exercise all three families through primary/deep-cache/extraction transactions. They check that seeds survive validation, layouts vary, story populations stay unchanged, quiet checkpoints/imports work, withdrawals/defeats recover the appropriate crew/state, and later trips cannot pay unlimited currency/ammo. Malformed run imports cannot leave the active game's generated definitions replaced. Boss fixtures test Marshal shield damage, an actual feed-isolation transaction, Receiver's two-tether requirement, real surge damage and coolant suppression when ordinary gunfire has no line of sight.
 
-Actual browser inputs separately cover keyboard walking/climbing with a 40-unit ladder offset, interrupting a click route, pointer shooting, Q/Space targeting with no-cost invalid shots, touch movement, equipment tabs, collision before/after cutting, a complete lift ride and a pointer-aimed winch. Actual file chooser imports reject malformed data without replacing the active expedition, migrate legacy progression and cancel a pre-import winch so its runtime cannot leave the imported crew stuck. Selecting a different crew member during controlled transit is checked to preserve the ride. Isolated movement fixtures verify jump grace, buffering and directed drop/hop routes.
+The legacy excavator fixture checks its shields, both breakers, phase transitions, announced floor attack, coolant, victory and investigation conclusion. Its completion segment resets fixture AP; a normal-AP excavator clear remains unrun.
 
-Visual checks rasterize the actual shared fighter model. Distinct pixels are one acceptance check, not a claim of finished art. All fifteen original Undergrid-inspired weapons, six armor types and eight gear states (including empty) are checked. Mods add physical details; the new focus rail and blast liner have renderer support.
+Actual browser input covers walking/climbing with generous ladder capture, interrupting click routes, pointer shots, Q/Space target changes and no-cost invalid shots, touch movement, equipment tabs, cutting a collision barrier, a full lift ride and pointer-aimed grapple. Real file chooser checks reject corrupt saves, migrate old progress, recover from pre-import winch state and restore an active seeded expedition. Journal pages and portrait bounds are exercised in the new UI suite. Physical-device usability is still untested.
 
-## Implemented scope and remaining limits
+Visual raster checks use the actual shared renderer: all seventeen weapon profiles differ under identical kit/color, all six armor silhouettes differ, and nine gear states including empty have distinct output. New machinery also uses its phase's actual held weapon. Screenshots were visually inspected; distinct pixels alone are not presented as finished art.
 
-- Retained 21 story districts, sixteen formal contracts, four recruitable companions with three active slots, fifteen weapon patterns, six armor patterns, seven actual gear types plus the empty slot, four modifications plus factory parts and four passive talent tracks. Alpha 4 adds six learned active abilities and four optional job configurations in one separate work site.
-- Regional enemy tiers are fixed. Local ordinary patrol groups replace district-wide fights; major set pieces remain full-site. Exactly-once kill payouts and migration markers protect progression. New dispatch payouts are bounded; legacy explicitly commissioned salvage runs remain capped at three per site.
-- Each district gains contextual props, but this is not a complete individually authored visual redesign. Three new mechanisms extend existing machinery. There is no second large story chapter, randomized reward system or full endgame economy study.
-- No human full-campaign session, solo difficulty study, normal-AP excavator clear or extended economy test has been completed. Normal-action bot results and controlled fixtures are reported separately above.
-- Navigation uses authored graphs and scripted transit. Grapples target authored anchors; lifts carry nearby crew through coordinates rather than acting as general physics platforms. Diving grants route access rather than free swimming. Enemy route motion is discrete.
-- A protected relay is a real distinct target. There is no generic protect-any-NPC framework, tactical vehicle driving, destructible terrain simulation or procedural mining. Crew Watch/Auto Next are convenience orders, not autonomous companion combat AI.
-- Equipment uses shared permanent patterns; calibration is per fighter/weapon. No durability or individually rolled loot. Learned abilities cannot yet be retrained; passive talents can.
-- Normal exploration saves put moving actors on safe footing. Controlled winch/lift rides defer saving. Dispatched jobs preserve the pre-entry checkpoint and cannot save/export/import mid-run. Quitting restores that checkpoint.
-- 0.2/0.3/0.4 saves migrate; Alpha 1 saves do not. Newer saves must not be opened in older builds. Browser storage is origin-specific; export backups when moving builds/devices.
-- Optional synthesized audio controls were exercised, but no formal listening/device-volume test was performed. No score or voice acting.
-- Physical iOS/Android, Safari, Firefox, gamepads, screen readers and low-end performance profiling remain unrun. Keyboard bindings are fixed; menus are not a completed accessibility pass.
-- No new live external research was performed. The supplied source and established design knowledge informed the work; DESIGN.md distinguishes prior research attempts from actual sources read.
+## Scope and limits
+
+- Playable compact five-act campaign with three authored conclusions; 29 permanent story districts; twenty formal side quests/contracts; three expedition families across nine separate work rooms; four retained short dispatched jobs.
+- Four recruitable companions with three active slots remain. Seventeen weapons, six armors, eight gear patterns plus empty, six mods plus factory parts, four passive talent tracks and six active abilities. Calibration remains per fighter/weapon.
+- No human full campaign, organically developed late-game balance run, solo study, measured duration or extended economy session has been completed. The eventual 8–12/15–25-hour targets are not release claims.
+- Drowned Post, Carriage Zero, alternative seed cases, every ending branch and the legacy excavator need more normal-action/human clears. Fixture coverage is reported separately from completed normal-action routes.
+- Expedition layouts are authored; seeds select patrol/cache/hazard cases. No arbitrary room generation, procedural campaign or endless randomized loot. Withdrawal attempts count toward material caps. First-time patterns remain obtainable after earlier failed trips.
+- Bosses have real components/phases/surges; a commander calls one reserve. There is no general reinforcement director, universal environmental AI, fully animated enemy navigation or complete tactical planning simulation.
+- Anik's rescue uses an authored safe return passage, not a damageable escort. Ambient residents perform small visual movements, not schedules/economies. Charter trust is a small authored relationship system, not territorial faction warfare.
+- Grapples, lifts, diving and barriers retain authored rules. Abyss counterweights are atmospheric moving machinery, not general physics carriers. No mining, freely driven vehicle, procedural destruction or free swimming.
+- Quiet expedition checkpoints persist all run progress. Combat and controlled transit cannot save. Short dispatched jobs still preserve pre-entry checkpoints only. No cloud saves or multiplayer.
+- Older 0.2–0.5 saves migrate; Alpha 1 does not. New saves must not be opened in older builds. Browser storage is origin-specific; export before moving files/devices.
+- Optional synthesized audio controls work; no score, voice acting or formal listening/device-volume test. No physical iOS/Android, Safari, Firefox, gamepad, screen-reader or low-end performance certification. Bindings remain fixed.
+- No new external live design research was performed. The supplied code and established design knowledge informed this pass. Previous research/source distinctions remain in DESIGN.md.
 
 ## Reproduce
 
@@ -65,6 +73,8 @@ python tests/living_test.py
 python tests/adventure_loop_test.py
 python tests/adventure_systems_test.py
 python tests/dispatch_play_test.py
+python tests/greater_test.py
+python tests/greater_play_test.py
 ```
 
-No game runtime packages or external assets are needed. Development tests require Python Playwright and `/usr/bin/chromium`. Test APIs exist only with `?test`; use isolated browser contexts because fixtures start new expeditions. Next priorities are recorded in [ALPHA_4.md](ALPHA_4.md).
+The game has no runtime packages, external assets or services. Development checks require Python Playwright and `/usr/bin/chromium`. Test APIs exist only with `?test`; isolated contexts are necessary because fixtures start new expeditions. Campaign scope and Alpha 6 priorities are in [ALPHA_5.md](ALPHA_5.md).

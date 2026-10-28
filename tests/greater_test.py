@@ -1,0 +1,61 @@
+"""Alpha 5 controlled integration: campaign gates/choices, save migration,
+expedition transactions/variants and all new boss component semantics.
+These fixtures deliberately set completion/health/position to isolate rules.
+Normal-action campaign/expedition simulations are in greater_play_test.py.
+"""
+import json
+from playwright.sync_api import sync_playwright
+with sync_playwright() as p:
+ b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox'])
+ page=b.new_page(viewport={'width':1440,'height':960});errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+ page.goto('http://127.0.0.1:8000/UNDERGRID_ADVENTURE.html?test');page.get_by_role('button',name='BEGIN EXPEDITION').click()
+ results=page.evaluate('''()=>{
+ const T=UG_TEST,out=[],ok=(v,n)=>{if(!v)throw Error(n);out.push(n)};
+ function reset(){T.start();Math.random=()=>.05;}
+ function use(kind){const o=UG.rooms[T.state.room].objects.find(o=>o.kind===kind);Object.assign(T.selected,{x:o.x,y:o.y});T.greaterInteract(o);T.close();}
+ function clear(){for(const e of Object.values(T.state.world[T.state.room].enemies))e.hp=0;T.checkBattle();}
+ reset();ok(T.campaignAct()===1,'The existing Bell Engine is Act I, not a replacement opening');
+ let old=T.fresh();delete old.greater;for(const id of [...UG.greaterStoryRooms,...UG.expeditionIds])delete old.world[id];old.ending=true;old.credits=183;old.world.cable.enemies.c1.hp=7;old.party[0].calibrations.pistol=2;const migrated=T.validate(old);
+ ok(migrated.credits===183&&migrated.ending&&migrated.world.cable.enemies.c1.hp===7&&migrated.party[0].calibrations.pistol===2,'Alpha 4 migration preserves money, wounds, chapter ending and calibration');ok(migrated.world.heart&&migrated.greater.relays.length===0,'Migration adds the continuation without claiming it completed');
+ T.state.ending=true;T.travel('market',1010,880);ok(T.campaignAct()===2&&!T.signCharter('commons'),'A Bell charter alone does not bypass restored freight/water requirements');Object.assign(T.state.flags,{railPass:true,convoy:true,sluice:true});let credit=T.state.credits;ok(T.signCharter('bonded')&&T.state.flags.commonPass&&T.state.credits===credit+100&&T.state.greater.factions.factors===2,'Bonded charter opens Act III with its actual payment/trust');ok(!T.signCharter('commons')&&T.state.greater.charter==='bonded','Charter cannot pay twice or be silently replaced');
+ T.travel('cold',1200,1080);T.beginBattle();ok(T.greaterShielded({type:'marshal'}),'Both live magnetic feeds shield the Shift Marshal');let e=T.combatEnemies().find(e=>e.id==='marshal');T.hurt(e,100);ok(T.state.world.cold.enemies.marshal.hp===180,'Shield immunity affects actual damage');Object.assign(T.selected,{x:550,y:650});T.reward({scrap:10});ok(T.operateMachine('cold-a','scrap')&&T.state.world.cold.enemies['coil-a'].hp===0&&!T.greaterShielded({type:'marshal'}),'A real one-AP control transaction exposes the Marshal');
+ clear();T.travel('cold',1500,420);use('governor');ok(T.state.items.governor,'Cold Foundry objective is collectible after its encounter');T.travel('junction',500,880);use('ada');ok(T.campaignAct()===4&&T.state.flags.networkPass&&T.state.weapons.includes('burst')&&T.state.mods.includes('damped'),'Ada fits the governor and grants the Act IV route and distinct arsenal');let paid=T.state.credits;use('ada');ok(T.state.credits===paid,'Ada cannot repeat the governor payment');
+ T.travel('orchard',450,650);use('relay');const repeatXP=T.state.xp;use('relay');ok(T.state.greater.relays.length===1&&T.state.xp===repeatXP,'Relay connections persist and cannot farm XP');
+ for(const id of ['relay-b','relay-c']){const o=UG.rooms.orchard.objects.find(o=>o.id===id);Object.assign(T.selected,{x:o.x,y:o.y});T.greaterInteract(o);}
+ ok(!T.state.flags.heartPass,'Three exchanges still require the missing manifest');T.travel('unlisted',1060,420);use('manifest');ok(T.campaignAct()===5&&T.state.flags.heartPass,'Manifest and exchanges jointly open the final conduit');T.reward({scrap:4});use('rescue');T.travel('junction',500,880);use('ada');ok(T.state.items.anikHome&&T.state.greater.factions.wards===0,'Anik actually returns to the seventh cup and changes trust');
+ T.travel('junction',680,880);T.settleContract('nightshift');T.close();T.settleContract('nightshift');T.close();ok(T.state.flags.rescueWorkshop&&T.state.contracts.nightshift.done,'Optional rescue pays through a physical work board and unlocks a service');
+ T.travel('redoubt',1390,980);T.beginBattle();T.enemyStep('captain');ok(T.state.world.redoubt.enemies.reinforcement.hp>0&&T.battle.ids.includes('reinforcement'),'Vey calls one persistent reserve into the actual encounter');T.enemyStep('captain');ok(T.state.world.redoubt.enemies.captain.called,'The reserve call is one-time');Object.assign(T.selected,{x:1350,y:300});T.selected.ap=3;use('armistice');ok(!T.battle&&T.state.flags.redoubtPeace&&Object.values(T.state.world.redoubt.enemies).every(e=>e.spared),'The armistice can end the encounter without executions');
+ T.travel('junction',680,880);for(const id of ['armistice','coldwages']){T.settleContract(id);T.close();T.settleContract(id,id==='armistice'?'amnesty':undefined);T.close();}ok(T.state.contracts.armistice.done&&T.state.contracts.coldwages.done&&T.state.mods.includes('deepfeed'),'New armistice and Cold Foundry jobs settle through actual reward checks');
+ T.travel('abyss',1110,180);T.interact();T.close();T.travel('junction',680,880);T.settleContract('riggers');T.close();T.settleContract('riggers');T.close();ok(T.state.contracts.riggers.done&&T.state.gears.includes('surveykit'),'Rigger tag discovery and return unlock the actual harness');
+ T.travel('heart',1040,1080);T.beginBattle();let receiver=T.combatEnemies().find(e=>e.id==='receiver');ok(T.greaterShielded(receiver),'Both final tethers shield the Receiver');T.state.world.heart.enemies['load-a'].hp=0;ok(T.greaterShielded(receiver),'One remaining final tether still shields the core');T.state.world.heart.enemies['load-b'].hp=0;ok(!T.greaterShielded(receiver),'Both final tethers must be released');T.selected.hp=T.selected.maxhp;T.bossStep(receiver);let hp=T.selected.hp;T.bossStep(receiver);ok(T.selected.hp<hp,'An announced surge damages an exposed fighter on that floor');T.state.flags.heartCoolant=true;hp=T.selected.hp;T.bossStep(receiver);ok(T.selected.hp===hp,'Flood coolant stops the surge when ordinary line of sight is blocked');
+ clear();T.travel('heart',1750,1280);ok(T.endingAvailable('bonded')&&T.endingAvailable('crew'),'Paid backing and independent conclusions remain reachable');ok(T.finishCampaign('bonded')&&T.state.room==='commons'&&T.state.flags.lineComplete&&T.state.weapons.includes('arcblade'),'Final switch produces a persisted ending, platform and arc blade');ok(!T.finishCampaign('crew'),'Campaign ending cannot pay twice');T.close();ok(T.save(true)&&T.restore().greater.ending==='bonded','Ending and companions survive save/load');
+ // Reading an armistice after a lethal clear cannot rewrite the killed garrison.
+ reset();T.travel('redoubt',1350,300);clear();use('armistice');ok(!T.state.flags.redoubtPeace&&Object.values(T.state.world.redoubt.enemies).every(e=>!e.spared),'A late armistice cannot rewrite a lethal clear as a peaceful resolution');
+ // Every family: entry requirement, primary return, state untouched and deep routes.
+ reset();Object.assign(T.state.flags,{power:true,railPass:true});T.state.items.diving=true;T.reward({credits:100,scrap:20});let original=JSON.stringify(T.state.world.cable);
+ for(const family of Object.keys(UG.expeditions)){T.travel('market',560,880);ok(T.startExpedition(family),'Start '+family+' expedition');const first=T.state.room,seed=T.state.greater.run.seed,layout=JSON.stringify(UG.rooms[first]);ok(T.save(true),'Quiet expedition can be saved: '+family);const restored=T.restore();ok(restored.greater.run.seed===seed&&JSON.stringify(UG.rooms[first])===layout,'Seed/layout survives checkpoint validation: '+family);
+ T.travel('exp_'+family+'_1',100,880);use('primary');ok(T.state.greater.run.primary,'Recover the primary freight: '+family);use('control');ok(T.state.greater.run.control,'Open optional deeper work: '+family);use('next');ok(T.state.room==='exp_'+family+'_2','Continue to a third connected area: '+family);clear();use('vault');ok(T.state.greater.run.vault,'Recover the elite cache: '+family);use('extract');T.finishExpedition();ok(T.state.room==='market'&&T.state.greater.expeditionWins[family]===1,'Bank the complete multi-area return: '+family);}
+ ok(T.state.weapons.includes('arcblade')&&T.state.gears.includes('surveykit'),'Deep caches grant real equipment patterns');ok(JSON.stringify(T.state.world.cable)===original,'Expeditions never repopulate or alter story enemies');
+ let serial=T.state.greater.serial;T.startExpedition('mill');let variant=JSON.stringify(UG.rooms[T.state.room]);use('extract');T.finishExpedition();T.startExpedition('mill');ok(T.state.greater.serial===serial+2&&JSON.stringify(UG.rooms[T.state.room])!==variant,'Saved survey seeds vary authored patrol/cache configurations');
+ use('cache');let haul=T.state.greater.run.bag.credits;credit=T.state.credits;use('extract');T.finishExpedition();ok(T.state.credits-credit<=Math.round(haul*.5)&&!T.state.greater.run,'Withdrawal banks only bounded partial materials');
+ T.startExpedition('mill');T.state.greater.run.bag={credits:100,scrap:20,xp:90};T.state.party.forEach(a=>a.hp=0);T.checkBattle();T.beginBattle();T.checkBattle();T.finishExpedition();ok(T.state.room==='market'&&T.state.party.every(a=>a.hp>0),'Expedition defeat returns and recovers crew');
+ T.state.greater.expeditionReturns.mill=5;T.startExpedition('mill');use('cache');let ammo=T.state.ammo;credit=T.state.credits;T.travel('exp_mill_1',100,880);use('primary');use('extract');T.finishExpedition();ok(T.state.ammo===ammo&&T.state.credits===credit,'After five trips, withdrawals/replays cannot farm materials or ammunition');
+ ok(T.save(true)&&T.restore().greater.expeditionReturns.mill===6,'Return caps persist after extraction');
+ // Bad run state must not mutate the active layout even during validation.
+ T.startExpedition('mill');const current=JSON.stringify(UG.rooms[T.state.room]);let bad=JSON.parse(JSON.stringify(T.state));bad.greater.run.seed=-1;let rejected=false;try{T.validate(bad)}catch{rejected=true;}ok(rejected&&JSON.stringify(UG.rooms[T.state.room])===current,'Rejected expedition import leaves active generated definitions unchanged');
+ return out;
+ }''')
+ # Actual UI: navigation tabs, locked departures, portrait bounds and active-run import.
+ page.keyboard.press('j');page.locator('[data-journal-tab="main"]').click();assert page.get_by_text('The Common Line.',exact=True).is_visible();page.locator('[data-journal-tab="expeditions"]').click();assert page.get_by_text('Beyond the timetable.',exact=True).is_visible();page.keyboard.press('Escape')
+ saved=page.evaluate('JSON.stringify(UG_TEST.state)')
+ with page.expect_file_chooser() as chooser:page.evaluate('UG_TEST.action("import")')
+ chooser.value.set_files({'name':'active-expedition.json','mimeType':'application/json','buffer':saved.encode()})
+ page.wait_for_function('document.querySelector("#toast").textContent.includes("Expedition imported")')
+ assert page.evaluate('UG_TEST.state.room.startsWith("exp_mill_")&&UG_TEST.save(true)')
+ page.keyboard.press('j');page.set_viewport_size({'width':390,'height':844});assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');page.screenshot(path='/tmp/ua5-mobile-journal.png');page.keyboard.press('Escape')
+ page.evaluate('UG_TEST.start();UG_TEST.enlist("vera");UG_TEST.enlist("orren");UG_TEST.travel("heart",1150,1280);UG_TEST.beginBattle()');page.wait_for_timeout(900)
+ assert page.evaluate('''()=>{const T=UG_TEST,r=document.querySelector('#view').getBoundingClientRect(),a=T.worldPoint({clientX:r.left,clientY:r.top}),b=T.worldPoint({clientX:r.left,clientY:r.top+100}),scale=100/(b.y-a.y),feet=r.top+(T.selected.y-a.y)*scale;return feet<document.querySelector('#bossReadout').getBoundingClientRect().top-10&&feet>document.querySelector('#crewDock').getBoundingClientRect().bottom+15}''')
+ assert not errors,errors
+ print('PASS:',len(results)+5,'Greater Adventure integration/UI checks; 0 page errors')
+ for r in results:print(' PASS',r)
+ b.close()

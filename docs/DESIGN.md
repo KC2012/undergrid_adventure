@@ -1,5 +1,15 @@
 # Design direction
 
+## Alpha 5 / The Greater Adventure
+
+The existing act ended at the moment the crew acquired the means to travel. That charter is now the start of a larger commitment: keep a line running for people who need it. The wards' existing locomotive, delivery and water jobs supply Act II rather than being discarded for a new set of fetch keys. The expansion adds a remote hub, a genuinely deeper shaft, two large mechanical encounters, a military stand-down and a route-making investigation. It resolves ownership of a working line while leaving the origin of its impossible orders unexplained.
+
+Expeditions extend the short-job model into miniature adventures. The primary freight lies on a middle floor; returning is valid, while a pressure drive opens an optional third reserve. Three families have separate authored geography. Variation changes patrols, cache elevations and contamination, with a saved survey seed. It does not claim procedural world generation or randomized room connectivity. Rewards are escrowed and bounded across returns, including withdrawals, so optional practice cannot produce endless currency/XP.
+
+A signed charter, local standing, a missing operator and the Redoubt record affect practical options and the conclusion. These are small authored relationships, not faction territory or social simulation. The journal separates directions without spraying markers over the map. The previous movement, local encounter, kit and crew-control language is retained throughout.
+
+A complete five-stage arc is playable in this alpha. It is a compact implementation of the intended adventure, not a tested 8–12-hour release. Full human campaign pacing and late-game economic tuning remain the main next priorities. See ALPHA_5.md and TESTING.md for the distinction between intended scope, controlled fixtures and normal-action evidence.
+
 ## Alpha 4 / The Adventure Loop
 
 The audit found operational friction in all-district engagements, precise ladder capture, ladder-only routing, deep equipment pages, repeated machine option panels and a missing bridge between level rewards and new tactical choices. This pass keeps the 21-district campaign, its sixteen contracts and its gunplay, then improves that bridge.

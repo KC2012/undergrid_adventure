@@ -1,11 +1,11 @@
-UNDERGRID ADVENTURE / ALPHA 4 / BUILD 0.5
+UNDERGRID ADVENTURE / ALPHA 5 / BUILD 0.6
 2026-10-28 — Chromium / Python Playwright
-526 reported checks; zero browser page errors
-Built standalone HTML; all nine JavaScript source files syntax checked.
-Detailed scope, fixture distinctions and unrun checks: docs/TESTING.md
+732 reported checks; zero browser page errors
+Built standalone HTML; all eleven JavaScript source files syntax checked.
+Normal-action/fixture distinctions and unrun checks: docs/TESTING.md
 
 CORE
-PASS: 200 integration checks; 0 browser errors
+PASS: 293 integration checks; 0 browser errors
   PASS Fresh save schema
   PASS Reject invalid imported coordinates
   PASS hearth reachable interaction or traversal anchor to mara
@@ -18,6 +18,7 @@ PASS: 200 integration checks; 0 browser errors
   PASS hearth reachable interaction or traversal anchor to market-road
   PASS hearth reachable interaction or traversal anchor to wardboard
   PASS hearth reachable interaction or traversal anchor to starter-stash
+  PASS hearth reachable interaction or traversal anchor to future-work
   PASS cable reachable interaction or traversal anchor to west
   PASS cable reachable interaction or traversal anchor to fuse
   PASS cable reachable interaction or traversal anchor to vera
@@ -63,6 +64,7 @@ PASS: 200 integration checks; 0 browser errors
   PASS market reachable interaction or traversal anchor to lift
   PASS market reachable interaction or traversal anchor to market-note
   PASS market reachable interaction or traversal anchor to tenements
+  PASS market reachable interaction or traversal anchor to common-desk
   PASS yard reachable interaction or traversal anchor to market
   PASS yard reachable interaction or traversal anchor to axle
   PASS yard reachable interaction or traversal anchor to locomotive
@@ -105,6 +107,7 @@ PASS: 200 integration checks; 0 browser errors
   PASS deadrail reachable interaction or traversal anchor to yard
   PASS deadrail reachable interaction or traversal anchor to dead-ticket
   PASS deadrail reachable interaction or traversal anchor to quiet-door
+  PASS deadrail reachable interaction or traversal anchor to outer-line
   PASS skyhooks reachable interaction or traversal anchor to market
   PASS skyhooks reachable interaction or traversal anchor to wages
   PASS skyhooks reachable interaction or traversal anchor to sky-armory
@@ -162,6 +165,96 @@ PASS: 200 integration checks; 0 browser errors
   PASS trial reachable interaction or traversal anchor to job-exit
   PASS trial reachable interaction or traversal anchor to job-abort
   PASS trial reachable interaction or traversal anchor to job-relay
+  PASS junction reachable interaction or traversal anchor to back
+  PASS junction reachable interaction or traversal anchor to ada
+  PASS junction reachable interaction or traversal anchor to kettle-bunks
+  PASS junction reachable interaction or traversal anchor to kettle-shop
+  PASS junction reachable interaction or traversal anchor to kettle-board
+  PASS junction reachable interaction or traversal anchor to kettle-tram
+  PASS junction reachable interaction or traversal anchor to abyss
+  PASS junction reachable interaction or traversal anchor to orchard
+  PASS junction reachable interaction or traversal anchor to commons
+  PASS junction reachable interaction or traversal anchor to kettle-note
+  PASS abyss reachable interaction or traversal anchor to junction
+  PASS abyss reachable interaction or traversal anchor to cold
+  PASS abyss reachable interaction or traversal anchor to redoubt
+  PASS abyss reachable interaction or traversal anchor to abyss-anchor
+  PASS abyss reachable interaction or traversal anchor to abyss-cache
+  PASS abyss reachable interaction or traversal anchor to wet-cut
+  PASS abyss reachable interaction or traversal anchor to abyss-note
+  PASS cold reachable interaction or traversal anchor to abyss
+  PASS cold reachable interaction or traversal anchor to cold-left
+  PASS cold reachable interaction or traversal anchor to cold-right
+  PASS cold reachable interaction or traversal anchor to governor
+  PASS cold reachable interaction or traversal anchor to cold-order
+  PASS redoubt reachable interaction or traversal anchor to abyss
+  PASS redoubt reachable interaction or traversal anchor to redoubt-witness
+  PASS redoubt reachable interaction or traversal anchor to redoubt-case
+  PASS redoubt reachable interaction or traversal anchor to redoubt-meds
+  PASS redoubt reachable interaction or traversal anchor to redoubt-note
+  PASS orchard reachable interaction or traversal anchor to junction
+  PASS orchard reachable interaction or traversal anchor to relay-a
+  PASS orchard reachable interaction or traversal anchor to relay-b
+  PASS orchard reachable interaction or traversal anchor to relay-c
+  PASS orchard reachable interaction or traversal anchor to unlisted
+  PASS orchard reachable interaction or traversal anchor to heart
+  PASS orchard reachable interaction or traversal anchor to orchard-note
+  PASS unlisted reachable interaction or traversal anchor to orchard
+  PASS unlisted reachable interaction or traversal anchor to manifest
+  PASS unlisted reachable interaction or traversal anchor to missing-worker
+  PASS unlisted reachable interaction or traversal anchor to unlisted-bunk
+  PASS unlisted reachable interaction or traversal anchor to unlisted-note
+  PASS heart reachable interaction or traversal anchor to orchard
+  PASS heart reachable interaction or traversal anchor to heart-left
+  PASS heart reachable interaction or traversal anchor to heart-right
+  PASS heart reachable interaction or traversal anchor to heart-coolant
+  PASS heart reachable interaction or traversal anchor to common-line
+  PASS heart reachable interaction or traversal anchor to heart-supplies
+  PASS commons reachable interaction or traversal anchor to junction
+  PASS commons reachable interaction or traversal anchor to epilogue
+  PASS commons reachable interaction or traversal anchor to commons-bunk
+  PASS commons reachable interaction or traversal anchor to commons-tram
+  PASS commons reachable interaction or traversal anchor to commons-window
+  PASS exp_mill_0 reachable interaction or traversal anchor to exp-return
+  PASS exp_mill_0 reachable interaction or traversal anchor to exp-next
+  PASS exp_mill_0 reachable interaction or traversal anchor to exp-cache
+  PASS exp_mill_1 reachable interaction or traversal anchor to exp-return
+  PASS exp_mill_1 reachable interaction or traversal anchor to exp-back
+  PASS exp_mill_1 reachable interaction or traversal anchor to exp-next
+  PASS exp_mill_1 reachable interaction or traversal anchor to exp-cache
+  PASS exp_mill_1 reachable interaction or traversal anchor to exp-primary
+  PASS exp_mill_1 reachable interaction or traversal anchor to exp-control
+  PASS exp_mill_2 reachable interaction or traversal anchor to exp-return
+  PASS exp_mill_2 reachable interaction or traversal anchor to exp-back
+  PASS exp_mill_2 reachable interaction or traversal anchor to exp-cache
+  PASS exp_mill_2 reachable interaction or traversal anchor to exp-vault
+  PASS exp_drowned_0 reachable interaction or traversal anchor to exp-return
+  PASS exp_drowned_0 reachable interaction or traversal anchor to exp-next
+  PASS exp_drowned_0 reachable interaction or traversal anchor to exp-cache
+  PASS exp_drowned_1 reachable interaction or traversal anchor to exp-return
+  PASS exp_drowned_1 reachable interaction or traversal anchor to exp-back
+  PASS exp_drowned_1 reachable interaction or traversal anchor to exp-next
+  PASS exp_drowned_1 reachable interaction or traversal anchor to exp-cache
+  PASS exp_drowned_1 reachable interaction or traversal anchor to exp-primary
+  PASS exp_drowned_1 reachable interaction or traversal anchor to exp-control
+  PASS exp_drowned_2 reachable interaction or traversal anchor to exp-return
+  PASS exp_drowned_2 reachable interaction or traversal anchor to exp-back
+  PASS exp_drowned_2 reachable interaction or traversal anchor to exp-cache
+  PASS exp_drowned_2 reachable interaction or traversal anchor to exp-vault
+  PASS exp_carriage_0 reachable interaction or traversal anchor to exp-return
+  PASS exp_carriage_0 reachable interaction or traversal anchor to exp-next
+  PASS exp_carriage_0 reachable interaction or traversal anchor to exp-cache
+  PASS exp_carriage_1 reachable interaction or traversal anchor to exp-return
+  PASS exp_carriage_1 reachable interaction or traversal anchor to exp-back
+  PASS exp_carriage_1 reachable interaction or traversal anchor to exp-next
+  PASS exp_carriage_1 reachable interaction or traversal anchor to exp-cache
+  PASS exp_carriage_1 reachable interaction or traversal anchor to exp-primary
+  PASS exp_carriage_1 reachable interaction or traversal anchor to exp-control
+  PASS exp_carriage_2 reachable interaction or traversal anchor to exp-return
+  PASS exp_carriage_2 reachable interaction or traversal anchor to exp-back
+  PASS exp_carriage_2 reachable interaction or traversal anchor to exp-cache
+  PASS exp_carriage_2 reachable interaction or traversal anchor to exp-vault
+  PASS exp_carriage_2 reachable interaction or traversal anchor to exp-armistice
   PASS Clear firing lane
   PASS Steel blocks cross-floor fire
   PASS Shooting consumes AP and ammo, damages persistent enemy
@@ -197,9 +290,9 @@ PASS: 200 integration checks; 0 browser errors
   PASS Full chapter save round trip
 
 EXPANSION
-PASS: 112 expansion checks; 0 browser errors
-  PASS Twenty-one story districts
-  PASS Fifteen firearm/melee patterns
+PASS: 135 expansion checks; 0 browser errors
+  PASS Twenty-nine story districts
+  PASS Seventeen firearm/melee patterns
   PASS Old save migration preserves progress
   PASS Old save migration adds new world and equipment
   PASS Reject out-of-range talents
@@ -238,6 +331,7 @@ PASS: 112 expansion checks; 0 browser errors
   PASS deadrail landing bell
   PASS deadrail landing yard
   PASS deadrail landing quiet-door
+  PASS deadrail landing outer-line
   PASS skyhooks landing market
   PASS skyhooks landing vent-road
   PASS blacksite landing foundry
@@ -253,6 +347,28 @@ PASS: 112 expansion checks; 0 browser errors
   PASS excavator landing quiet
   PASS quiet landing tenement
   PASS quiet landing deadrail
+  PASS junction landing back
+  PASS junction landing abyss
+  PASS junction landing orchard
+  PASS junction landing commons
+  PASS abyss landing junction
+  PASS abyss landing cold
+  PASS abyss landing redoubt
+  PASS abyss landing wet-cut
+  PASS cold landing abyss
+  PASS redoubt landing abyss
+  PASS orchard landing junction
+  PASS orchard landing unlisted
+  PASS orchard landing heart
+  PASS unlisted landing orchard
+  PASS heart landing orchard
+  PASS commons landing junction
+  PASS exp_mill_1 landing exp-back
+  PASS exp_mill_2 landing exp-back
+  PASS exp_drowned_1 landing exp-back
+  PASS exp_drowned_2 landing exp-back
+  PASS exp_carriage_1 landing exp-back
+  PASS exp_carriage_2 landing exp-back
   PASS Next-ready skips spent crew
   PASS Next-ready advances crew
   PASS Downed crew cannot become active
@@ -305,7 +421,7 @@ PASS: 112 expansion checks; 0 browser errors
   PASS Retraining refunds talents for salvage
 
 VISUAL
-PASS: 56 visual checks; 0 page errors
+PASS: 63 visual checks; 0 page errors
  PASS authoritative weapon pistol
  PASS authoritative weapon rifle
  PASS authoritative weapon shotgun
@@ -321,7 +437,9 @@ PASS: 56 visual checks; 0 page errors
  PASS authoritative weapon heavy
  PASS authoritative weapon chainblade
  PASS authoritative weapon railgun
- PASS 15 different rendered weapon silhouettes with identical color/armor
+ PASS authoritative weapon burst
+ PASS authoritative weapon arcblade
+ PASS All different rendered weapon silhouettes with identical color/armor
  PASS authoritative armor leathers
  PASS authoritative armor mesh
  PASS authoritative armor plate
@@ -354,6 +472,11 @@ PASS: 56 visual checks; 0 page errors
  PASS Enemy equipment desperate
  PASS Enemy equipment stabilizer
  PASS Enemy equipment excavator
+ PASS Enemy equipment watch
+ PASS Enemy equipment marshal
+ PASS Enemy equipment tether
+ PASS Enemy equipment captain
+ PASS Enemy equipment receiver
  PASS Every weapon has shared-path inspection art
  PASS Every armor has shared-model inspection art
  PASS Inventory equip updates model immediately
@@ -509,3 +632,90 @@ PASS: 6 normal-AP dispatched defense checks; 0 page errors
  PASS Successful work pays the quoted fee/reward and rare gear
  PASS A complete dispatched battle leaves story populations untouched
  PASS Successful dispatched objective is saved
+
+GREATER
+PASS: 69 Greater Adventure integration/UI checks; 0 page errors
+ PASS The existing Bell Engine is Act I, not a replacement opening
+ PASS Alpha 4 migration preserves money, wounds, chapter ending and calibration
+ PASS Migration adds the continuation without claiming it completed
+ PASS A Bell charter alone does not bypass restored freight/water requirements
+ PASS Bonded charter opens Act III with its actual payment/trust
+ PASS Charter cannot pay twice or be silently replaced
+ PASS Both live magnetic feeds shield the Shift Marshal
+ PASS Shield immunity affects actual damage
+ PASS A real one-AP control transaction exposes the Marshal
+ PASS Cold Foundry objective is collectible after its encounter
+ PASS Ada fits the governor and grants the Act IV route and distinct arsenal
+ PASS Ada cannot repeat the governor payment
+ PASS Relay connections persist and cannot farm XP
+ PASS Three exchanges still require the missing manifest
+ PASS Manifest and exchanges jointly open the final conduit
+ PASS Anik actually returns to the seventh cup and changes trust
+ PASS Optional rescue pays through a physical work board and unlocks a service
+ PASS Vey calls one persistent reserve into the actual encounter
+ PASS The reserve call is one-time
+ PASS The armistice can end the encounter without executions
+ PASS New armistice and Cold Foundry jobs settle through actual reward checks
+ PASS Rigger tag discovery and return unlock the actual harness
+ PASS Both final tethers shield the Receiver
+ PASS One remaining final tether still shields the core
+ PASS Both final tethers must be released
+ PASS An announced surge damages an exposed fighter on that floor
+ PASS Flood coolant stops the surge when ordinary line of sight is blocked
+ PASS Paid backing and independent conclusions remain reachable
+ PASS Final switch produces a persisted ending, platform and arc blade
+ PASS Campaign ending cannot pay twice
+ PASS Ending and companions survive save/load
+ PASS A late armistice cannot rewrite a lethal clear as a peaceful resolution
+ PASS Start mill expedition
+ PASS Quiet expedition can be saved: mill
+ PASS Seed/layout survives checkpoint validation: mill
+ PASS Recover the primary freight: mill
+ PASS Open optional deeper work: mill
+ PASS Continue to a third connected area: mill
+ PASS Recover the elite cache: mill
+ PASS Bank the complete multi-area return: mill
+ PASS Start drowned expedition
+ PASS Quiet expedition can be saved: drowned
+ PASS Seed/layout survives checkpoint validation: drowned
+ PASS Recover the primary freight: drowned
+ PASS Open optional deeper work: drowned
+ PASS Continue to a third connected area: drowned
+ PASS Recover the elite cache: drowned
+ PASS Bank the complete multi-area return: drowned
+ PASS Start carriage expedition
+ PASS Quiet expedition can be saved: carriage
+ PASS Seed/layout survives checkpoint validation: carriage
+ PASS Recover the primary freight: carriage
+ PASS Open optional deeper work: carriage
+ PASS Continue to a third connected area: carriage
+ PASS Recover the elite cache: carriage
+ PASS Bank the complete multi-area return: carriage
+ PASS Deep caches grant real equipment patterns
+ PASS Expeditions never repopulate or alter story enemies
+ PASS Saved survey seeds vary authored patrol/cache configurations
+ PASS Withdrawal banks only bounded partial materials
+ PASS Expedition defeat returns and recovers crew
+ PASS After five trips, withdrawals/replays cannot farm materials or ammunition
+ PASS Return caps persist after extraction
+ PASS Rejected expedition import leaves active generated definitions unchanged
+
+PLAY
+PASS: 14 normal-action campaign/expedition checks; 0 page errors
+ PASS A fresh crew completes Bell Engine through normal actions and continues into Act II
+ PASS The introductory ending points naturally to the wards
+ PASS The completed introduction remains compatible with save/load
+ PASS Fresh introductory act: 9 encounters / 5 hostile rounds
+ PASS Prepared continuation signs the public charter through its actual transaction
+ PASS Cold Foundry couplers and Marshal are defeated with normal AP and weapons
+ PASS Normal return to Ada opens the Hidden Network
+ PASS Normal exploration reunites the missing operator
+ PASS Receiver and both tethers are defeated with ordinary AP and enemy turns
+ PASS A complete playable continuation reaches a public ending
+ PASS Prepared continuation: 9 hostile rounds
+ PASS Prepared early crew deliberately starts a multi-area expedition
+ PASS Actual routes/combat reach the contracted middle-floor freight
+ PASS Actual routes/combat reach and clear the optional deep reserve
+ PASS Normal multi-area expedition banks its haul and rare discovery
+ PASS Normal expedition progression survives reload
+ PASS Prepared expedition: 3 hostile rounds
