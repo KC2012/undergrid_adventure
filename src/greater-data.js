@@ -61,7 +61,7 @@ for(const [id,m] of Object.entries({
 UG.machines['heart-coolant']={room:'heart',kind:'coolant',x:510,y:390,flag:'heartCoolant',text:'Flood the induction floor. Stops announced floor surges, not ordinary gunfire.',methods:['toggle']};
 Object.assign(UG.roomTiers,{junction:0,abyss:4,cold:5,redoubt:5,orchard:5,unlisted:0,heart:6,commons:0});
 UG.greaterStoryRooms=['junction','abyss','cold','redoubt','orchard','unlisted','heart','commons'];
-UG.mainActs=[['Last Light','Restore the Bell Engine freight channel.'],['The Wards','Restore freight and clean water; choose the line’s charter.'],['The Deep Works','Recover the governor from the Cold Foundry; report to Ada.'],['The Hidden Network','Connect the Relay Orchard and recover the Unlisted manifest.'],['A Place in the Grid','Stop the requisition engine and decide who owns the line.']];
+UG.mainActs=[['Disintegration Ward','Restore the Bell Engine freight channel.'],['The Wards','Restore freight and clean water; choose the line’s charter.'],['The Deep Works','Recover the governor from the Cold Foundry; report to Ada.'],['The Hidden Network','Connect the Relay Orchard and recover the Unlisted manifest.'],['A Place in the Grid','Stop the requisition engine and decide who owns the line.']];
 UG.expeditions={
  mill:{name:'Brasslung Mill',tier:2,fee:0,requires:'power',xp:90,credits:65,scrap:12,reward:{mod:'focused'},text:'A mothballed press complex. Recover a governor stamp; push into the exhaust crown for a rare service harness.',themes:['works','fire','lift'],foes:[['scav','heavy'],['sentry','burner'],['heavy','cutter']]},
  drowned:{name:'Drowned Post',tier:4,fee:15,requires:'diving',xp:140,credits:100,scrap:18,reward:{gear:'surveykit'},text:'A flooded maintenance annex. Recover a dispatch spool, drain the lower chamber and search the drowned archive.',themes:['water','water','archive'],foes:[['chemist','shocker'],['drone','watch'],['shocker','gunner']]},
@@ -77,17 +77,25 @@ const expeditionGeometry={
 function expeditionDefinition(family,index,seed=0){const job=UG.expeditions[family],id='exp_'+family+'_'+index,g=expeditionGeometry[family][index],base=g[0][1],entry=index===0?base:880,w=family==='carriage'?index===1?1800:1900:1700;
  const ladders=[];for(let n=1;n<g.length;n++){const p=g[n],below=g.filter(q=>q!==p&&q[1]>p[1]&&Math.max(p[0],q[0])+35<Math.min(p[0]+p[2],q[0]+q[2])-35).sort((a,b)=>a[1]-b[1])[0];if(below){const l=Math.max(p[0],below[0])+70,r=Math.min(p[0]+p[2],below[0]+below[2])-70;ladders.push([l,p[1],below[1]]);if(r-l>280)ladders.push([r,p[1],below[1]]);}}
  const first=g.find(p=>p[1]===entry&&p[0]<=100)||g[0],inY=first[1],top=[...g].sort((a,b)=>a[1]-b[1])[0],upper=g[1],cacheDeck=seed%2?top:upper,objects=[obj('exp-return','expedition',90,inY,'Extraction / bank recovered haul',{kind:'extract'})];
+ for(const [rid,d] of Object.entries(UG.relics||{}))if(d.room===id)objects.push(obj('relic-'+rid,'ward',d.x,d.y,d.name+' / sealed relic case',{kind:'relic',relic:rid}));
+ for(const [eid,e] of Object.entries(UG.wardEvents||{}))if(e.room===id)objects.push(obj('event-'+eid,'ward',e.x,e.y,e.name,{kind:'event',event:eid}));
+ if(seed&&UG.lifeOrders){const order=UG.lifeOrders[(seed-1)%3];const target=order.kind==='survey'?0:order.kind==='gauge'?1:2;
+ if(index===target)objects.push(obj('life-order','life',top[0]+top[2]*.35,top[1],order.name+' / optional work',{kind:'workorder'}));}
  if(index>0)objects.push(door('exp-back',180,inY,'Previous work area','exp_'+family+'_'+(index-1),100,expeditionDefinitionEntry(family,index-1)));
  if(index<2)objects.push(obj('exp-next','expedition',w-150,base,'Continue deeper',{kind:'next'}));
  objects.push(obj('exp-cache','expedition',cacheDeck[0]+cacheDeck[2]*.65,cacheDeck[1],'Unclaimed service cache',{kind:'cache'}));
  if(index===1)objects.push(obj('exp-primary','expedition',top[0]+top[2]*.6,top[1],'Recover the contracted freight',{kind:'primary'}),obj('exp-control','expedition',470,inY,'Pressure drive / open the deep route',{kind:'control'}));
  if(index===2)objects.push(obj('exp-vault','expedition',top[0]+top[2]*.7,top[1],'Deep cache / optional elite reward',{kind:'vault'}));
  if(family==='carriage'&&index===2)objects.push(obj('exp-armistice','expedition',300,880,'Defaced military order / stand down',{kind:'armistice'}));
- const foes=seed?[[id+'-1',job.foes[index][seed%2],w*.6,base],[id+'-2',job.foes[index][(seed+1)%2],Math.min(w-220,upper[0]+upper[2]*.65),upper[1]]]:[];
- if(index===2&&seed)foes.push([id+'-elite',family==='mill'?'gunner':family==='drowned'?'shocker':'captain',w-250,base]);
+ const foes=seed?[[id+'-1',job.foes[index][seed%3===0?1:seed%2],w*.6,base],[id+'-2',job.foes[index][seed%3===0?1:(seed+1)%2],Math.min(w-220,upper[0]+upper[2]*.65),upper[1]]]:[];
+ if(index===2&&seed)foes.push([id+'-elite',family==='mill'?'gunner':family==='drowned'?'shocker':family==='service'?'sentry':family==='signal'?'heavy':'captain',w-250,base]);
  return {name:job.name+' / '+['Approach','Work floor','Deep reserve'][index],subtitle:job.text,depth:400+index*120,color:family==='drowned'?'#8ecbd0':family==='mill'?'#d2b27c':'#b9b0d0',theme:job.themes[index],w,h:base+120,platforms:g.map((p,i)=>platform(i?'expdeck'+i:'floor',...p)),ladders:ladders.map(l=>ladder(...l)),objects,enemies:foes.map(e=>enemy(...e)),covers:[{id:'exp-cover',x:w*.48,y:base,hp:40}],barrels:[{id:'exp-barrel',x:w*.7,y:base}]};
 }
 function expeditionDefinitionEntry(family,index){const g=expeditionGeometry[family][index];return (g.find(p=>p[1]===880&&p[0]<=100&&p[0]+p[2]>=100)||g[0])[1];}
+UG.expeditions.service={name:'The Service Drains',tier:1,fee:0,requires:'wardAccess',xp:45,credits:70,scrap:16,reward:{meds:2},text:'Nell’s first salvage survey. Recover a pump crate, open the drowned switch stair, and investigate the bell locker. Departure: Ward dispatch or any safe settlement.',themes:['water','works','archive'],foes:[['scav','scav'],['scav','hound'],['sentry','scav']]};
+UG.expeditions.signal={name:'Signal Ossuary',tier:3,fee:10,requires:'wardFreight',xp:100,credits:90,scrap:15,reward:{mod:'damped'},text:'A silent carrier garden beyond the restored freight depot. Recover its receiver, repair the signal and face the optical watch.',themes:['archive','works','archive'],foes:[['drone','sentry'],['shocker','scav'],['watch','drone']]};
+expeditionGeometry.service=[[[0,880,1700],[80,650,600],[850,650,760],[410,420,800]],[[0,1080,1700],[0,880,610],[760,880,850],[300,650,720],[1050,650,580]],[[0,1080,1700],[0,880,650],[830,880,800],[350,650,900],[420,420,800]]];
+expeditionGeometry.signal=[[[0,1080,1700],[0,880,520],[740,880,850],[300,640,720],[1050,640,580],[650,400,780]],[[0,1280,1700],[0,880,550],[790,880,820],[250,1080,700],[1110,1080,520],[340,650,900],[610,420,750]],[[0,1380,1700],[0,880,560],[820,880,800],[300,650,680],[1110,650,540],[580,420,760],[340,1130,1100]]];
 for(const f of Object.keys(UG.expeditions))for(let i=0;i<3;i++){const id='exp_'+f+'_'+i;UG.expeditionIds.push(id);UG.rooms[id]=expeditionDefinition(f,i);UG.roomTiers[id]=UG.expeditions[f].tier;}
 
 Object.assign(UG.contracts,{
@@ -99,3 +107,6 @@ Object.assign(UG.contracts,{
 UG.rooms.abyss.objects.find(o=>o.id==='abyss-cache').item='counterweightTag';
 
 for(const id of ['nightshift','armistice','riggers','ledger','apprentice','homes','clinic','lung'])UG.contracts[id].side=true;
+
+// Alpha 8: an approachable firing position beside the first exchange.
+UG.rooms.orchard.covers.push({id:'exchange-cover',x:520,y:650,hp:40});

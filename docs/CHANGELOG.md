@@ -1,3 +1,61 @@
+# 0.11 / Alpha 10 — Strange Industry
+
+- Transformed Vent Cathedral and Relay Orchard with distinct large machinery, occupied spaces, palettes and state-dependent animation; added the connected optional Walking Foundry.
+- Added five dedicated enemy silhouettes and behaviors: pressure diver, rivet penitent, kiln carrier, cable shepherd and unfinished inspector. Added marked attacks, armor exposure, suppression/shock interruption, cover destruction, machine support and inspection stand-down.
+- Added consequential air routing, power allocation, a stride-drive shortcut/reserve/exhaust tradeoff, a one-use cargo blast and an auxiliary supply decision with a visible Ward service outcome.
+- Added three rare field patterns with actual pressure protection, engineering-interface and traversal/salvage effects, plus Latch’s connected personal work and short environmental micro narratives.
+- Preserved the existing campaign, old enemy wounds/cleared states, four-person crew and shared physical geometry. Added actual Alpha 9 import and new gameplay/UI checks.
+
+# 0.10 / Alpha 9 — The Open Undergrid
+
+- Added shared deck sections and authored apertures for rendering, movement, survey maps, shots, enemy targeting, electrical propagation, grenade paths and blast obstruction. Ordinary side ladders keep solid steel beneath them.
+- Improved running, forgiving jumps, ceiling collision, low-obstacle vaulting, controlled drops, ladder dismounts, tactical jump/drop routes and follower recovery. Winches require clear geometry and move only the selected fighter in combat for two AP.
+- Refined the Ward’s safe shelves, Cableworks broken upper deck and concealed workshop, Furnace broken bridge and maintenance crossing, and Counterweight Abyss rigging rest.
+- Expanded to four active fighters and seven recruitable companions, with shelter reserves, previews, equipment/field-role/bond summaries, keys 1–4 and a responsive four-person dock.
+- Added Nim, Brass and Ilex, their field and weapon specialties, recruitment encounters, personal contracts, concise conditional reactions and saved seen flags.
+- Added a permanent service shortcut, survey/terminal alternatives, an atmospheric letter, a return seal, tenants’ evidence, nonviolent toll resolution and alternate courier/hoist/kettle outcomes.
+- Preserved old progression and the Alpha 8 artifact. Imported actors whose former positions now lie in a gap receive nearby supported footing; transient jumps, lifts and winches stay outside saves.
+- Added fresh normal-action Alpha 9 play, physical input/geometry tests, companion/choice tests and a genuine Alpha 8 file-import check. Retained focus-loss behavior and compact boss presentation.
+
+# Alpha 8 — Cartography & Combat
+
+- Replaced the basic atlas grid with observed directed district connections, gate explanations, discovered rail access and optional route planning.
+- Added persistent proximity surveys from actual platforms/ladders, observed local landmarks, minimap fog, zoom, district pins and short notes; migrated Alpha 7 names and pins.
+- Shared attack damage/AP/ammo and movement route/cost forecasts with execution, including explosive impact plus primary splash and exact Dash limits.
+- Added deliberate suppressive fire, directional-cover/status/armor feedback, bounded cover/flank/target decisions and safe enemy industrial opportunities.
+- Refined three existing encounter cover positions and made Annex electrical isolation a one-AP combat action. Preserved rosters, base stats, rewards and content counts.
+- Added touch preview/confirmation for hostile attacks and tactical movement; preserved direct mouse/keyboard flow, explicit menus and compact boss status.
+- Preserved Alpha 7 and expanded navigation, tactical, fresh-route, difficult-expedition and real input/import validation. See [scope and limits](ALPHA_8.md) and [tests](TESTING.md).
+
+---
+
+# Alpha 7 — The Adventurer’s Life
+
+- Audited the fresh optional loop before feature work; retained the five-act campaign and Alpha 6 snapshot.
+- Added two incomplete-frame restoration chains and the optional Pump Test Annex with isolation, component recovery and a two-outcome engineer rescue.
+- Connected seven existing facilities to named residents, saved merchant stock, treatment, restoration discounts and a richer home display.
+- Added four sparse saved regional encounters, finite choices, visual groups and prerequisites without respawning story enemies.
+- Added three saved expedition work orders, optional tasks and a compact risk/return report. All late routes now reimburse entry fare and pay a small net delivery reward without renewable XP or rare patterns.
+- Improved effective equipment comparison, exceptional recoil/muzzle/shot/audio identity and conductive-chain range behavior. Watching companions hold position.
+- Added optional restoration tracking and touch NEXT. Preserved focus-loss behavior and removed the old combat positioning conflict that stretched boss status during active fights.
+- Expanded fresh normal-action, controlled life-state, portrait and coarse-pointer tablet tests. See [testing](TESTING.md) and [limits](ALPHA_7.md).
+
+---
+
+# Alpha 6 — The Living Undergrid
+
+- Renamed current settlement presentation to Disintegration Ward, retaining `hearth` and existing quest/save identities.
+- Added seven visible, persistent projects and facility services; resident/freight/workshop activity; a bunk/trophy interface.
+- Added twelve exceptional equipment patterns, acquisition cases, discovery states and equipment mechanics/art.
+- Added Nell's early dispatch introduction, immediate Service Drains, depot-unlocked Signal Ossuary, relic cargo banking and bounded renewable late-route payouts.
+- Added six finite local opportunities and rumor sources; retained the original campaign and expeditions.
+- Added equipped weapon inspection, class-dependent handling poses, visual clarity fixes and touch journal access.
+- Preserved the supplied Alpha 5 release; added controlled and fresh normal-action Alpha 6 suites.
+
+See [scope and known limits](ALPHA_6.md), [artwork audit](WEAPON_AUDIT.md) and [current validation](TESTING.md).
+
+---
+
 # 0.6 — Alpha 5 / The Greater Adventure
 
 - Repositioned the existing Bell Engine ending as Act I. Added a five-stage Common Line campaign with explicit objectives, existing freight/water prerequisites, public/bonded backing, deep works, a hidden freight bypass, a final requisition-engine encounter and three conditional conclusions. The world remains playable afterward.

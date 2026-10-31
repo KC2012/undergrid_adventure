@@ -5,6 +5,7 @@ const animations=new Map();
 function animate(a,action,duration=.6){animations.set(a.id,{action,start:clock,till:clock+duration,room:S.room});}
 function appearance(a){return {weapon:a.weapon||null,armor:a.enemy?(a.armor>=7?'carapace':a.armor>=4?'plate':a.armor>=2?'mesh':'leathers'):(a.armorKey||'leathers'),gear:a.enemy?(a.type==='chemist'?'respirator':a.type==='medic'?'medrig':a.type==='shocker'?'shockground':'none'):(a.gear||'none'),mod:a.mod||'none',identity:a.id||a.type||'resident',color:a.color||'#e7af73'};}
  function weaponPath(p,k){
+  if(UG.relics?.[k]?.kind==='weapon'){const base={funeral:'shotgun',deadair:'sniper',mercy:'arc',disorder:'smg',widow:'handcannon',furnacekey:'flame'}[k];weaponPath(p,base);if(k==='funeral'){p.rect(65,-14,25,25);p.moveTo(90,-14);p.lineTo(104,-20);p.lineTo(104,17);p.lineTo(90,11);}if(k==='deadair'){p.rect(83,-10,30,12);p.rect(22,-25,34,7);}if(k==='mercy'){for(let x=45;x<90;x+=14){p.moveTo(x+8,-4);p.arc(x,-4,8,0,Math.PI*2);}}if(k==='disorder'){p.rect(20,4,35,16);p.moveTo(30,-18);p.lineTo(60,-24);p.lineTo(65,-18);}if(k==='widow'){p.moveTo(57,-4);p.arc(47,-4,10,0,Math.PI*2);p.rect(62,-17,32,5);}if(k==='furnacekey'){p.rect(10,7,21,25);p.rect(65,-19,26,8);}return true;}
   const v=WEAPON_ART[k];if(!v)return false;const L=(p,a,b,c,d)=>{p.moveTo(a,b);p.lineTo(c,d)},R=(p,a,b,c,d)=>p.rect(a,b,c,d),C=(p,x,y,r)=>{p.moveTo(x+r,y);p.arc(x,y,r,0,Math.PI*2)},P=(p,pts,closed=false)=>{p.moveTo(...pts[0]);for(const pt of pts.slice(1))p.lineTo(...pt);if(closed)p.closePath()};
   // SIDEARMS // grip is always near x 20; muzzle points right.
   if(v==='PISTOL'){L(p,6,0,58,0);L(p,15,-7,43,-7);L(p,22,1,17,18);L(p,48,0,55,5)}
@@ -68,6 +69,8 @@ function appearance(a){return {weapon:a.weapon||null,armor:a.enemy?(a.armor>=7?'
  }
 function drawHeld(g,id,x,y,scale=.46){if(!id)return;g.save();g.translate(x,y);g.scale(scale,scale);g.beginPath();weaponPath(g,id);g.lineWidth=1.55/scale;g.stroke();g.restore();}
 function bodyArmor(g,id){
+ if(id==='celebration'){bodyArmor(g,'carapace');g.strokeRect(-20,-43,40,9);g.strokeRect(-9,-13,18,10);return;}
+ if(id==='sunday'){bodyArmor(g,'ghost');g.beginPath();g.moveTo(-10,-35);g.lineTo(0,-20);g.lineTo(8,-35);g.moveTo(-13,-8);g.lineTo(-16,0);g.lineTo(10,-2);g.stroke();return;}
  const line=(a,b,c,d)=>{g.beginPath();g.moveTo(a,b);g.lineTo(c,d);g.stroke()},box=(x,y,w,h)=>{g.fillRect(x,y,w,h);g.strokeRect(x,y,w,h)};
  if(id==='leathers'){box(-5,-35,10,21);line(-5,-32,5,-20);line(-5,-26,5,-26);}
  if(id==='mesh'){box(-7,-36,14,23);for(let y=-33;y<-15;y+=5)line(-5,y,5,y+3);box(-10,-35,5,7);}
@@ -85,10 +88,18 @@ function headAndIdentity(g,a,model){
  if(a.id==='orren'){g.strokeRect(-5,-48,4,3);g.strokeRect(1,-48,4,3);g.strokeRect(-19,-30,6,18);}
  if(a.id==='rook'){g.beginPath();g.moveTo(-5,-51);g.lineTo(1,-55);g.lineTo(5,-51);g.stroke();}
  if(a.id==='sable'){g.strokeRect(-7,-52,14,4);g.beginPath();g.moveTo(-1,-52);g.lineTo(-1,-47);g.moveTo(-4,-50);g.lineTo(2,-50);g.stroke();}
+ if(a.id==='nim'){g.beginPath();g.moveTo(-9,-48);g.lineTo(-5,-57);g.lineTo(7,-55);g.lineTo(10,-47);g.stroke();g.strokeRect(-18,-32,5,14);}
+ if(a.id==='brass'){g.strokeRect(-8,-52,21,4);g.strokeRect(5,-34,6,7);}
+ if(a.id==='ilex'){g.strokeRect(-9,-54,18,8);g.strokeRect(-22,-36,8,24);g.beginPath();g.moveTo(-4,-22);g.lineTo(9,-36);g.stroke();}
  if(a.id==='latch'){g.strokeRect(-7,-52,14,13);g.strokeRect(2,-49,6,4);}
 }
 function drawGear(g,id){
+ if(id==='baffle'){g.strokeRect(-16,-40,32,7);g.beginPath();g.arc(0,-43,16,0,Math.PI);g.stroke();return;}
+ if(id==='relaySpool'){for(let i=0;i<4;i++)g.strokeRect(-24,-42+i*6,13,3);g.beginPath();g.moveTo(-17,-18);g.lineTo(7,-30);g.stroke();return;}
+ if(id==='walkingRig'){drawGear(g,'climbrig');g.strokeRect(-27,-39,9,26);g.beginPath();g.moveTo(-22,-13);g.lineTo(-27,0);g.lineTo(-19,-3);g.stroke();return;}
  if(id==='none')return;
+ if(id==='hanging'){drawGear(g,'climbrig');g.strokeRect(-27,-40,7,28);g.beginPath();g.arc(-24,-25,7,0,Math.PI*2);g.stroke();return;}
+ if(id==='forest'){g.setLineDash([2,3]);g.strokeRect(-18,-55,36,53);g.setLineDash([]);return;}
  const line=(a,b,c,d)=>{g.beginPath();g.moveTo(a,b);g.lineTo(c,d);g.stroke()};
  if(id==='respirator'){g.strokeRect(1,-45,10,8);g.strokeRect(9,-43,5,4);g.beginPath();g.moveTo(3,-37);g.quadraticCurveTo(-9,-25,-13,-34);g.stroke();g.strokeRect(-17,-36,7,18);}
  if(id==='climbrig'){g.strokeRect(-19,-39,9,23);g.beginPath();g.arc(-15,-28,3,0,Math.PI*2);g.stroke();line(-9,-34,7,-16);line(7,-34,-7,-16);line(-16,-40,-19,-49);}
@@ -103,7 +114,7 @@ function drawFighterModel(g,a,options={}){
  const state=options.preview?null:animations.get(a.id),event=state&&state.room===S?.room&&state.till>t?state:null;
  const moving=pose.walk??(!options.preview&&!transitActors.has(a.id)&&(paths.has(a.id)||a===selected()&&(keys.a||keys.d||keys.ArrowLeft||keys.ArrowRight)));
  const climbing=pose.climb??(!options.preview&&!transitActors.has(a.id)&&((paths.get(a.id)?.[0]&&!['drop','jump'].includes(paths.get(a.id)[0].kind)&&Math.abs(paths.get(a.id)[0].y-a.y)>2)||(a===selected()&&(keys.w||keys.s)&&room().ladders.some(l=>Math.abs(l.x-a.x)<25&&a.y>=l.top&&a.y<=l.bottom))));
- const phase=Math.sin(t*12),walk=moving?phase*5:0,recoil=event?.action==='fire'?(1-(t-event.start)/.4)*3:0;
+ const phase=Math.sin(t*12),walk=moving?phase*5:0,recoil=event?.action==='fire'?(1-(t-event.start)/.4)*({funeral:6,deadair:2,mercy:4,disorder:5,widow:8,furnacekey:1}[model.weapon]||3):0;
  g.save();g.scale(dir,1);g.lineWidth=1.5;g.strokeStyle=options.color||a.color||'#e7af73';g.fillStyle='#112019';g.lineJoin='miter';g.lineCap='square';
  if(a.hp===0&&!options.preview){g.translate(-10,-4);g.rotate(-Math.PI/2);}
  if(!options.preview&&Math.abs(a.vy||0)>30)g.rotate(a.vy<0?-.07:.05);
@@ -113,12 +124,20 @@ function drawFighterModel(g,a,options={}){
  else {g.beginPath();g.moveTo(-3,-14);g.lineTo(-6+walk,-7);g.lineTo(-9+walk,0);g.moveTo(3,-14);g.lineTo(6-walk,-7);g.lineTo(10-walk,0);g.stroke();}
  g.strokeRect(-11+walk,-2,6,3);g.strokeRect(5-walk,-2,7,3);bodyArmor(g,model.armor);headAndIdentity(g,a,model);drawGear(g,model.gear);
  if(model.weapon){g.save();g.translate(-Math.max(0,recoil),0);if(climbing){g.translate(-12,-12);g.rotate(-1.15);}else if(event?.action==='reload'){g.translate(4,-15);g.rotate(-.45);}
- g.beginPath();g.moveTo(1,-31);g.lineTo(12,-26);g.lineTo(20,-28);g.stroke();drawHeld(g,model.weapon,9,-27,UG.weapons[model.weapon].ap===2?.52:.46);
+ const sidearm=['pistol','handcannon','needle','widow'].includes(model.weapon),heavy=UG.weapons[model.weapon].ap===2;g.beginPath();g.moveTo(1,-31);g.lineTo(sidearm?10:heavy?6:12,sidearm?-29:heavy?-18:-26);g.lineTo(20,-28);if(!sidearm){g.moveTo(-4,-31);g.lineTo(heavy?16:22,-20);g.lineTo(heavy?36:30,-28);}g.stroke();drawHeld(g,model.weapon,9,-27,UG.weapons[model.weapon].ap===2?.52:.46);
+ if(model.mod==='resonator'){for(let x=22;x<42;x+=5)g.strokeRect(x,-35,2,12);}if(model.mod==='suture'){g.strokeRect(18,-22,24,4);g.strokeRect(22,-18,5,8);}
  if(model.mod==='damped'){g.strokeRect(25,-23,18,5);}if(model.mod==='deepfeed'){g.strokeRect(18,-20,7,12);g.strokeRect(23,-43,10,3);}if(model.mod==='focused'){g.strokeRect(20,-43,20,4);g.strokeRect(38,-45,4,8);}
  if(model.mod==='sighted')g.strokeRect(24,-41,13,4);if(model.mod==='hot'){for(let x=26;x<38;x+=4){g.beginPath();g.moveTo(x,-33);g.lineTo(x+2,-28);g.stroke();}}if(model.mod==='piercer')g.strokeRect(22,-18,4,12);
  if(event?.action==='reload'){g.strokeRect(19,-12,4,8);g.beginPath();g.moveTo(3,-28);g.lineTo(19,-8);g.stroke();}g.restore();
  }else{g.beginPath();g.moveTo(-7,-31);g.lineTo(-11,-16);g.moveTo(7,-31);g.lineTo(11,-17);g.stroke();}
- if(event?.action==='fire'&&!UG.weapons[model.weapon]?.melee){const energy=['laser','plasma','arc'].includes(model.weapon),muzzle=9+(UG.weapons[model.weapon].ap===2?.52:.46)*100;g.strokeStyle=energy?'#8ed5cd':'#ffe0a0';g.beginPath();g.moveTo(muzzle,-27);g.lineTo(muzzle+8,-32);g.lineTo(muzzle+5,-27);g.lineTo(muzzle+9,-22);g.stroke();}
+ if(event?.action==='fire'&&!UG.weapons[model.weapon]?.melee){const energy=['laser','plasma','arc','mercy'].includes(model.weapon),muzzle=9-Math.max(0,recoil)+(UG.weapons[model.weapon].ap===2?.52:.46)*({pistol:58,handcannon:83,needle:94,funeral:104,deadair:113,widow:94}[model.weapon]||100);g.strokeStyle=energy?'#8ed5cd':'#ffe0a0';
+ if(model.weapon==='funeral'){g.beginPath();g.arc(muzzle,-27,12,-1.1,1.1);g.stroke();}
+ if(model.weapon==='deadair'){g.strokeRect(muzzle,-29,5,4);}
+ if(model.weapon==='mercy'){g.beginPath();g.arc(muzzle,-27,8,0,Math.PI*2);g.stroke();}
+ if(model.weapon==='disorder'){for(let i=0;i<3;i++)g.strokeRect(muzzle+i*4,-32+i*4,7,3);}
+ if(model.weapon==='widow'){g.beginPath();g.arc(muzzle,-27,15,-.9,.9);g.stroke();}
+ if(model.weapon==='furnacekey'){g.beginPath();g.moveTo(muzzle,-27);g.lineTo(muzzle+24,-38);g.lineTo(muzzle+18,-27);g.lineTo(muzzle+24,-16);g.stroke();}
+ g.beginPath();g.moveTo(muzzle,-27);g.lineTo(muzzle+8,-32);g.lineTo(muzzle+5,-27);g.lineTo(muzzle+9,-22);g.stroke();}
  g.restore();return model;
 }
 function renderPreviews(){

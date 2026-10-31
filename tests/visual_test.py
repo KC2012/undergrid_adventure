@@ -12,13 +12,13 @@ with sync_playwright() as p:
   const canvas=document.createElement('canvas');canvas.width=280;canvas.height=180;const g=canvas.getContext('2d');
   function raster(a,opt={}){g.clearRect(0,0,280,180);g.save();g.translate(90,155);g.scale(2.3,2.3);T.drawFighterModel(g,a,{preview:true,time:0,dir:1,...opt});g.restore();return canvas.toDataURL()}
   let a=T.selected;const guns=new Set();for(const id of Object.keys(UG.weapons)){a.weapon=id;ok(T.appearance(a).weapon===id,'authoritative weapon '+id);guns.add(raster(a));}ok(guns.size===Object.keys(UG.weapons).length,'All different rendered weapon silhouettes with identical color/armor');
-  a.weapon='rifle';let armor=new Set();for(const id of Object.keys(UG.armors)){a.armorKey=id;ok(T.appearance(a).armor===id,'authoritative armor '+id);armor.add(raster(a));}ok(armor.size===6,'Six different rendered armor silhouettes');
+  a.weapon='rifle';let armor=new Set();for(const id of Object.keys(UG.armors)){a.armorKey=id;ok(T.appearance(a).armor===id,'authoritative armor '+id);armor.add(raster(a));}ok(armor.size===Object.keys(UG.armors).length,'Every armor has a different rendered silhouette');
   a.armorKey='leathers';let gear=new Set();for(const id of Object.keys(UG.gear)){a.gear=id;gear.add(raster(a));}ok(gear.size===Object.keys(UG.gear).length,'All field gear changes the visible kit');
   const base={...a,weapon:'rifle',armorKey:'mesh',gear:'none'};ok(raster({...base,id:'vera'})!==raster({...base,id:'orren'}),'Companion identities remain distinct in identical kit');
   for(const [id,c] of Object.entries(UG.companions)){const x={...base,id,weapon:c.weapon};ok(T.appearance(x).weapon===c.weapon,'Own companion equipment '+id);}
   for(const [type,e] of Object.entries(UG.enemyTypes)){const x={...e,type,id:'fixture',enemy:true};ok(T.appearance(x).weapon===e.weapon,'Enemy equipment '+type);}
   a.weapon='rifle';a.mag=6;a.gear='none';a.armorKey='leathers';T.state.weapons=Object.keys(UG.weapons);T.state.armors=Object.keys(UG.armors);T.action('inventory');
-  ok(document.querySelectorAll('[data-weapon-art]').length===Object.keys(UG.weapons).length,'Every weapon has shared-path inspection art');ok(document.querySelectorAll('[data-armor-art]').length===6,'Every armor has shared-model inspection art');
+  ok(document.querySelectorAll('[data-weapon-art]').length===Object.keys(UG.weapons).length,'Every weapon has shared-path inspection art');ok(document.querySelectorAll('[data-armor-art]').length===Object.keys(UG.armors).length,'Every armor has shared-model inspection art');
   document.querySelector('[data-equip="arc"]').click();ok(T.selected.weapon==='arc'&&T.appearance(T.selected).weapon==='arc','Inventory equip updates model immediately');
   document.querySelector('[data-kit="armorKey:carapace"]').click();ok(T.appearance(T.selected).armor==='carapace','Inventory armor updates model immediately');T.close();
   T.travel('cable',700,880);T.beginBattle();let target={...UG.enemyTypes.scav,...UG.rooms.cable.enemies[0],...T.state.world.cable.enemies.c1,enemy:true,maxhp:32};T.shoot(T.selected,target);

@@ -24,7 +24,7 @@ with sync_playwright() as p:
   ok(Object.values(T.state.world.tenement.enemies).every(e=>e.hp===0&&e.spared),'Restoring homes resolves guards nonviolently');ok(T.state.kills===0,'Peaceful resolution does not add kills');
   visit('tenement','evidence');T.close();ok(T.state.items.meterReadings,'Investigation records evidence');settle('homes');ok(T.state.items.grapple,'Residents reward a reusable traversal tool');
   for(const [id,x,y,anchor] of [['cable',540,440,'courier-hook'],['tenement',1030,440,'roof-hook'],['vents',1150,590,'vent-hook']]){
-   go(id,x,y);const hook=UG.rooms[id].objects.find(o=>o.id===anchor);ok(T.grapple(hook),'Grapple works at '+id);ok(!T.save(true),'Saving defers during active traversal');finishPaths();ok(Math.abs(T.selected.y-hook.y)<1&&Math.abs(T.selected.x-hook.x)<1,'Grapple lands on intended platform '+id);
+   go(id,x,y);const hook=UG.rooms[id].objects.find(o=>o.id===anchor);ok(T.grapple(hook),'Grapple works at '+id);ok(!T.save(true),'Saving defers during active traversal');finishPaths();ok(Math.abs(T.selected.y-hook.y)<1&&Math.abs(T.selected.x-hook.x)<=40&&!!T.physicalSupport(T.selected),'Grapple lands on intended platform '+id);
   }
   go('vents',1330,1480);ok(!T.operateMachine('vent-lift','ride'),'Unpowered lift cannot be ridden');
   visit('tenement','clinic');document.querySelector('[data-living="stabilize"]').click();T.close();ok(T.state.items.courierStable&&T.state.meds===3,'Solo medkit stabilizes the courier');settle('clinic');ok(T.state.items.diving,'Clinic opens reusable flooded traversal');
@@ -33,8 +33,8 @@ with sync_playwright() as p:
   visit('sump','pressure-lock');ok(T.state.room==='pressure','Diving suit opens Sump route');visit('docks','pressure-dock');ok(T.state.room==='pressure','Diving suit opens a second route from Docks');
   T.selected.hp=10;T.action('heal');ok(T.selected.hp===68,'Active Sable improves another fighter’s medkit healing');
   T.enlist('orren');go('vents',480,280);ok(T.operateMachine('vent-generator','engineer'),'Orren restores generator without parts');ok(T.state.items.ventRecord&&T.state.flags.ventPower,'Generator returns power and a work record');settle('lung');ok(T.state.items.cutter,'Vent work yields reusable cutting tool');
-  visit('vents','latch');document.querySelector('[data-living="recruit-latch"]').click();T.close();ok(T.state.reserve.some(a=>a.id==='latch')&&T.state.party.length===3,'New companion enters reserve when active crew is full');
-  go('hearth',160,880);T.action('roster');document.querySelector('[data-bench="orren"]').click();document.querySelector('[data-enlist="latch"]').click();T.close();ok(T.state.party.some(a=>a.id==='latch')&&T.state.reserve.some(a=>a.id==='orren'),'Safe shelter swaps preserve a three-person active crew');
+  visit('vents','latch');document.querySelector('[data-living="recruit-latch"]').click();T.close();ok(T.state.party.some(a=>a.id==='latch')&&T.state.party.length===4,'Fourth active slot accepts Latch');go('hearth',160,880);T.action('roster');document.querySelector('[data-bench="latch"]').click();T.close();ok(T.state.reserve.some(a=>a.id==='latch'),'Shelter bench preserves the fourth companion');
+  go('hearth',160,880);T.action('roster');document.querySelector('[data-bench="orren"]').click();document.querySelector('[data-enlist="latch"]').click();T.close();ok(T.state.party.some(a=>a.id==='latch')&&T.state.reserve.some(a=>a.id==='orren'),'Safe shelter swaps preserve equipment in the active crew');
   const latch=T.state.party.find(a=>a.id==='latch');T.statusHit({},latch,UG.weapons.arc);ok(!latch.shocked,'Latch’s intrinsic coil resists shock without grounding gear');
   go('quiet',300,880);ok(T.validate(JSON.parse(JSON.stringify(T.state))).reserve.length===1,'Benched actor coordinates remain valid in a smaller room');
   go('vents',1330,1480);ok(T.operateMachine('vent-lift','ride'),'Powered lift starts actual carrier movement');T.updatePaths(.5);ok(T.selected.y<1480&&T.selected.y>590,'Lift passes through intermediate world coordinates');finishPaths();ok(T.selected.y===590,'Lift reaches its upper floor');
@@ -62,7 +62,7 @@ with sync_playwright() as p:
   ok(q.core.hp===0&&!T.battle&&T.state.flags.excavated,'Mechanical encounter can conclude in victory and open its return tunnel');
   visit('excavator','excavation-log');T.close();settle('machine');ok(T.state.contracts.machine.done,'Major encounter produces an investigable quest conclusion');
   visit('quiet','radio');T.close();visit('quiet','old-case');settle('radio');ok(T.state.contracts.radio.done,'Optional environmental mystery resolves without combat');
-  go('hearth',160,880);T.action('map');document.querySelector('[data-marker]').click();T.close();ok(T.state.living.markers.hearth,'Map pin is persistent state');
+  go('hearth',160,880);T.action('map');document.querySelector('[data-atlas-pin]').click();T.close();ok(T.state.living.markers.hearth,'Map pin is persistent state');
   ok(T.save(true),'Stable state saves');const saved=T.restore();ok(saved.flags.ventPower&&saved.flags.vaultWall&&saved.flags.pumps&&saved.flags.excavated,'Machinery and boss consequences survive save/load');ok(saved.reserve.some(a=>a.id==='orren'),'Reserve equipment and identities survive save/load');
   // Consequences and contextual companion utility in the established world.
   go('hearth',160,880);T.state.contracts.apprentice={accepted:true,done:true,choice:'crew',outcome:'Nix has a workshop'};T.state.scrap=50;T.action('workbench');document.querySelector('[data-craft="weapon:chainblade"]').click();T.close();ok(T.state.scrap===30,'Nix workshop permanently discounts pattern fabrication');

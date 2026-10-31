@@ -1,6 +1,48 @@
+# Alpha 7 work orders and extraction
+
+The existing five routes, regions and access gates remain. A new trip's saved survey cycles through three orders:
+
+| Order | Optional task | Where | Unscaled haul added to freight |
+| --- | --- | --- | --- |
+| Routine recovery | Inspect the upper survey plate | Approach upper deck | ¢12, two salvage |
+| Lost shift | Clear the deep floor and guide its worker out | Deep reserve | ¢22, four salvage |
+| Pressure inspection | Open the drive, then read its isolated gauge | Work-floor upper deck | ¢16, three salvage |
+
+Tasks pay once per trip, travel as unbanked haul and obey the normal return scaling. The work order, completion and patrol case survive checkpoint saves. Patrol pairs have three bounded composition cases; these are not arbitrary generated rooms or level-scaled enemies.
+
+The **RETURN** corner button explains what is banked or at risk, whether primary freight is secured, and which relics are cargo. **WALK TO THIS AREA’S RETURN HATCH** follows normal paths to the west entrance outside combat. In combat the report points out the entrance; ordinary movement/AP and the hatch interaction are still required. There is no remote extraction.
+
+After five trips, a successful primary return on **every** family reimburses its entry fare and pays eight additional credits plus one salvage. It grants no repeat XP. Failed/withdrawn late trips pay nothing and do not reimburse their fare. This keeps a small net delivery payment on routes with fees while preserving rarity caps. The original first-success and deep-cache pattern rules remain. Completed named relic recoveries/restorations cannot duplicate.
+
+The freight merchant Osa restocks at most two paid supply parcels after a successful delivery. Preparation and equipment comparison are linked directly from the expedition board. The early dispatch conversation explains that the Bell locker contains an incomplete frame, not an immediately usable weapon.
+
+---
+
+## Previous Alpha 6 access and mechanics
+
+# Alpha 6 access additions
+
+Talk to **Nell** at Disintegration Ward's ground-level dispatch hatch. The desktop sidebar and **JOURNAL → EXPEDITIONS** also open the board. The board lists locked routes, requirements, fixed tier, fee, current payout and successful/trip history. Depart from Disintegration Ward, Rustmarket, Kettle Junction or Cable Commons outside combat and other active jobs.
+
+| Route | Access | Tier | Character |
+| --- | --- | ---: | --- |
+| Service Drains | Immediate, no story gate or entry fee | 1 | Pump freight, service stairs, courier coat and guarded bell locker |
+| Brasslung Mill | Restore Mara's relay | 2 | Press complex and exhaust crown |
+| Signal Ossuary | Complete Ward power and freight-depot projects | 3 | Deep vertical receiver rooms, repairable signal, optical watch |
+| Drowned Post | Tenement clinic diving apparatus | 4 | Flooded dispatch annex |
+| Carriage Zero | Repair Locomotive 09 | 5 | Military consist and armory |
+
+Primary freight is on the middle floor. Open its drive to enter the optional reserve; return hatches are available throughout. First successful Service Drains delivery gives one workshop machinery unit. Exceptional cases travel as unbanked cargo and require successful primary extraction. Withdrawal or defeat loses those cases; later attempts can recover them. Banked exceptional patterns cannot duplicate.
+
+The existing diminishing returns and XP cap remain. After five trips the original routes stop paying materials. In Alpha 6, the two new routes retained **¢8 and one salvage for a successful primary delivery**, no XP; failed/withdrawn late trips pay nothing. This is modest continued work, not a repeat source of exceptional items. Depot discounts do not stack with the rescued operator's discount.
+
+---
+
+## Retained expedition mechanics
+
 # Multi-area expeditions / Alpha 5
 
-Open J → EXPEDITIONS → EXPEDITION BOARD, or use Ada's expedition button. Depart while quiet from Last Light, Rustmarket, Kettle Junction or Cable Commons. Supplies and entry are real; enemies have fixed regional tiers and do not scale to level.
+Open J → EXPEDITIONS → EXPEDITION BOARD, or use Ada's expedition button. Depart while quiet from Disintegration Ward, Rustmarket, Kettle Junction or Cable Commons. Supplies and entry are real; enemies have fixed regional tiers and do not scale to level.
 
 | Site | Access / entry | Three-area identity | First freight return | Deep reserve |
 | --- | --- | --- | --- | --- |

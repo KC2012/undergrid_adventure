@@ -1,6 +1,62 @@
-# Field guide / Alpha 5 (build 0.6)
+# Alpha 10 quick route
 
-You are Rook, a drifter in Last Light. Speak to Mara beside the settlement lamp. Her instructions lead to the main expedition. Read the current objective in the left rail or open the journal with J.
+Reach Vent Cathedral through Skyhooks. On its west 1200 deck, repair the Choir manifold with Orren/Latch or four salvage. Read the ninth-shift roll on the 900 deck. Restore the existing upper generator, clear the Cathedral’s patrols and recover the pressure collar from the 590-deck locker.
+
+The generator opens the Walking Foundry intake cradle at x370 on the Cathedral’s ground floor. Inside, use the cargo discharge carefully, restore the stride governor and read the replacement inspection orders. The new direct ladder comes with an awakened inspector and hot intake exhaust. Transmitting corrected orders can stop the inspectors. Choose the auxiliary feed’s destination on the 700 deck, then clear the site and climb to its rare retrieval rig. The return cradle remains available.
+
+In Relay Orchard, allocate the root exchange to homes to pause inspector attacks or to work to open its direct service ladder and disable shepherd repairs. The original story exchanges remain separate. Read replacement orders or fight through; an allocated, cleared site unlocks its rare relay spool.
+
+Industrial attackers mark a floor before releasing pressure, fasteners or hot cargo on their next activation. Move away, spread out or interrupt with suppression/shock. The diver loses armor while venting. Machinery controls cost one AP in combat. [Full effects, equipment and counterplay](ALPHA_10.md).
+
+# Alpha 9 quick reference
+
+Four travel together: Rook and three companions. Keys **1–4**, portraits, or Tab select them. Visit a district with a safe bunk to use the roster: bench someone, then bring a reserve companion in. Equipment, talents and bonds stay with them.
+
+**Space** jumps in exploration. Hold A/D for momentum; ordinary low cover and small hatch openings are vaulted automatically. **S+Space**, or touch **DROP**, descends through a maintenance shelf or a nearby real hatch. Solid steel cannot be dropped through. W/S climbs; climbing through a hatch dismounts onto its rim. Click a floor for an automatic walk, ladder, jump or drop route. The Ward’s maintenance shelves are a safe introduction.
+
+In combat, select a destination floor. Its preview includes jump arcs and drop labels; moving spends the displayed AP. On touch, confirm the preview with a second tap. Space still fires in combat; touch JUMP explains how to select a tactical jump destination. S+Space or DROP uses the nearest designated opening. Watching companions hold position.
+
+Shots, hostile targeting, grenade lobs and blasts respect actual steel and real holes. A ladder attached to a deck’s side does not automatically create a firing aperture. A winch needs a clear cable line: **T**, then select a cyan anchor. It moves only the selected fighter for **2 AP** in combat. During exploration, crew within range and with a clear cable line winch together; others need an approach. Saving waits until the crew lands.
+
+Look for scratches under the upper Cableworks service panel. Any crew can repair its latch for three salvage; Orren or Latch saves those parts. Inside, a paper survey works without an engineer, while repairing the terminal also annotates the atlas. Nim notices seams farther away. Talk to Brass on the Ashline west deck and Ilex on the Furnace west deck. Their personal work appears at the usual work boards while they travel with you. The Ward board is on the ground concourse at x720.
+
+The Ashline checkpoint can be fought through, negotiated with a tenants’ receipt and Brass or +2 standing, or opened with a ¢45 public bond. Sable can help the Cableworks courier without a medkit; Ilex or Orren can free the Sump hoist without parts. Each encounter pays once.
+
+# Alpha 8 quick reference
+
+**M / MAP** opens the Explorer’s Atlas. The world page connects observed exits; the local page gradually records floors, ladders and landmarks. Unknown passages stay unnamed. Select a discovered destination for a route explanation, add a pin/note, or zoom the current local survey. Planning does not move the crew. [Atlas guide](ATLAS.md).
+
+Before firing, inspect chance, damage on hit, AP, ammunition, range, cover, armor and effects. Hover a floor for the actual movement path and AP cost; cyan is valid, red is not. Cover protects from the side facing the attacker; flanking, high ground and destroying it matter. Floors still block fire, so find a useful edge when shooting down.
+
+Touch combat: tap a hostile to inspect, then tap again to fire; tap a floor to preview its route, then tap the destination again to move. Keyboard Q/Space and the crew dock remain available. NEXT cycles nearby interactions during exploration.
+
+SMG, heavy, burst-rifle and Disorder users can **SUPPRESS** for two AP/two rounds. It applies suppression without direct damage. Overwatch commits the fighter to one movement-triggered reaction. Watching companions stay put. Steam, chemicals, electrical equipment and explosive barrels are tactical features; barrel blasts can hurt allies. The Annex isolator works during combat for one AP. [Combat rules and balance](ALPHA_8_COMBAT.md).
+
+Focus loss does not open a menu. Notes made during combat are saved after the encounter, following the usual save rule.
+
+---
+
+# Alpha 7 quick route
+
+Choose Mara for the main story or Nell for optional salvage. **JOURNAL → RESTORATION / RILL** and **WARD DEVELOPMENT** keep optional goals visible. **TRACK MAIN STORY** clears restoration tracking. On touch screens, **NEXT** cycles nearby objects before **USE**.
+
+A first Service Drains run can recover a courier coat and an incomplete Funeral Bell frame. Recover primary freight on the middle floor before extracting; go deep only if your supplies allow. Use **RETURN** to review the risk and locate the west hatch.
+
+Successful freight provides machinery for the workshop. Build it, speak to Edda and follow the governor lead into the Pump Test Annex through the eastern Cableworks catwalk. Returning scavengers may explain its live floor. Isolate the upper switch and clear the watchers before recovering the component. If you have built Living Quarters, you can bring Rill home as well. Return to Edda to restore and equip the weapon, then try a different work order on another trip.
+
+Named residents arrive as facilities complete. Osa sells limited supply parcels at the freight depot, Meda treats wounds at the infirmary, and Sib follows unusual signals. Your bunk displays recovered weapons and opens the shared collection, map and roster.
+
+Focus loss never opens a menu. The boss warning stays compact even during combat. All menus still open through explicit buttons or keys.
+
+---
+
+# Field guide / Alpha 7
+
+Optional adventure starts immediately: talk to Nell at the ground-level dispatch hatch, or use **J / JOURNAL → EXPEDITIONS**. The Service Drains need no main-story progress. Bring supplies; extract the primary freight before attempting its optional deep reserve. The first successful delivery provides machinery for your workshop.
+
+Use **JOURNAL → WARD DEVELOPMENT** to inspect facility costs and visit a project to commission it. Use **RUMORS / DISCOVERIES** to review equipment leads. On touch screens, the header **J** button opens the same journal. [Settlement details](SETTLEMENT.md) · [Exceptional equipment, with spoilers](EXCEPTIONAL_EQUIPMENT.md).
+
+You are Rook, a drifter in Disintegration Ward. Speak to Mara beside the settlement lamp. Her instructions lead to the main expedition. Read the current objective in the left rail or open the journal with J.
 
 ## Controls
 
@@ -39,9 +95,9 @@ Shot chances include weapon accuracy, effective range, distance, level, suppress
 
 Barrels and frags damage allies as well as enemies, can trigger other barrels, and destroy crates. Be careful where you stand. Overwatch spends all remaining AP and permits one reaction shot during hostile movement if line of sight and ammo allow it. A shot consumes ammunition even if it misses.
 
-Wire hounds rush into melee. Breachers close to shotgun range. Riflemen seek longer lanes. Wounded enemies stay wounded if you retreat. To retreat, move the selected crew member within 180 units of the encounter entry, open M, and select RETREAT. The crew returns to Last Light.
+Wire hounds rush into melee. Breachers close to shotgun range. Riflemen seek longer lanes. Wounded enemies stay wounded if you retreat. To retreat, move the selected crew member within 180 units of the encounter entry, open M, and select RETREAT. The crew returns to Disintegration Ward.
 
-Defeated story hostiles award XP and credits once; clearing a local encounter grants ammunition and salvage. The district remains active until all patrols are gone. Levels increase maximum HP and grant partial recovery. Fallen crew recover to 30% HP after victory. A full defeat returns you to your last bunk checkpoint with 75% HP and costs 15% of credits; discoveries and world wounds remain. Last Light's bunk heals freely. If completely out of ammunition, click a hostile within 70 units to strike with a knife for 1 AP.
+Defeated story hostiles award XP and credits once; clearing a local encounter grants ammunition and salvage. The district remains active until all patrols are gone. Levels increase maximum HP and grant partial recovery. Fallen crew recover to 30% HP after victory. A full defeat returns you to your last bunk checkpoint with 75% HP and costs 15% of credits; discoveries and world wounds remain. Disintegration Ward's bunk heals freely. If completely out of ammunition, click a hostile within 70 units to strike with a knife for 1 AP.
 
 ## Preparing the crew
 
@@ -51,16 +107,16 @@ The first two allies are Vera, a carbine courier, and Orren, an armored shotgun 
 
 ## Opening route (spoilers)
 
-1. Talk to Mara at Last Light. Take the ground-level eastern hatch to the Cableworks.
+1. Talk to Mara at Disintegration Ward. Take the ground-level eastern hatch to the Cableworks.
 2. Recruit Vera on the western balcony, then fight the local patrols. Follow the ladders to the high eastern platform and recover the live fuse.
 3. Return to Mara for settlement power, a carbine, XP and credits.
-4. Take Last Light's eastern balcony hatch to the Sump. Find the climbing rig on the upper platform, recruit Orren, recover the breach gun, and optionally restore the drainage pump.
+4. Take Disintegration Ward's eastern balcony hatch to the Sump. Find the climbing rig on the upper platform, recruit Orren, recover the breach gun, and optionally restore the drainage pump.
 5. Enter the Furnace Mile from the Sump or Cableworks. The high valve shuts off steam on the lower route. Recover the condenser heart from the eastern balcony and the carbine cache from the bridge.
 6. With the rig, use the high Cableworks hatch to enter the Archive. Recover its cipher and optional long rifle.
 7. Bring the heart and cipher to Mara. Her decoded signal opens the Furnace's eastern bulkhead.
 8. Enter the Bell Engine, defeat the keeper and its escort, then interact with the listening terminal. This completes Act I; Rustmarket’s Common Line desk continues the adventure.
 
-Rail terminals in Last Light, the Archive and the Engine allow travel between discovered terminal districts after power is restored.
+Rail terminals in Disintegration Ward, the Archive and the Engine allow travel between discovered terminal districts after power is restored.
 
 ## Saving
 
@@ -69,7 +125,7 @@ Discoveries, purchases, travel, resting, and victories save automatically. Quiet
 
 ## Ward Bound / beyond the first job
 
-After returning the live fuse to Mara, climb to Last Light’s western balcony. Its new hatch leads to **Rustmarket**, a safe freight settlement with bunks, a supplier, a work board and a bench. You can accept and settle contracts at the boards in Last Light or Rustmarket. The journal lets you inspect all jobs; incomplete accepted jobs can be tracked on the objective rail.
+After returning the live fuse to Mara, climb to Disintegration Ward’s western balcony. Its new hatch leads to **Rustmarket**, a safe freight settlement with bunks, a supplier, a work board and a bench. You can accept and settle contracts at the boards in Disintegration Ward or Rustmarket. The journal lets you inspect all jobs; incomplete accepted jobs can be tracked on the objective rail.
 
 | Job | What it changes |
 | --- | --- |
@@ -185,7 +241,7 @@ CREW WATCH puts every ready, armed fighter on overwatch and ends the round. AUTO
 
 ### Dispatch and recovery
 
-From a work board in Last Light or Rustmarket choose DISPATCH. Four jobs use a separate three-deck freight site with fixed enemy tiers. The board shows entry costs and next rewards. Tier 2 is an early optional salvage challenge; tiers 3/5 warrant preparation. No enemies automatically grow with your level.
+From a work board in Disintegration Ward or Rustmarket choose DISPATCH. Four jobs use a separate three-deck freight site with fixed enemy tiers. The board shows entry costs and next rewards. Tier 2 is an early optional salvage challenge; tiers 3/5 warrant preparation. No enemies automatically grow with your level.
 
 - Recover freight from the upper deck and carry it to the east exit. Each action costs one AP in combat. First clear unlocks the Union focus rail (+11 accuracy without a damage penalty).
 - Defend the relay through three enemy rounds or eliminate the attackers sooner. The device has separate health and can take friendly blast damage. E repairs 35 HP once per round for one AP plus three salvage; an active engineer supplies parts freely. First clear unlocks blast liner gear (half incoming explosion damage).
@@ -231,7 +287,7 @@ New board work also covers the Cold Foundry's lost wages and a rigger's counterw
 
 ### Longer expeditions
 
-Open the expedition board from J or Ada. Depart from Last Light, Rustmarket, Kettle Junction or Cable Commons while quiet. Brasslung Mill needs power, Drowned Post needs diving gear, and Carriage Zero needs the freight charter. Each contains three connected areas with recognizable authored geography and saved survey variation in patrols, cache deck and contamination.
+Open the expedition board from J or Ada. Depart from Disintegration Ward, Rustmarket, Kettle Junction or Cable Commons while quiet. Brasslung Mill needs power, Drowned Post needs diving gear, and Carriage Zero needs the freight charter. Each contains three connected areas with recognizable authored geography and saved survey variation in patrols, cache deck and contamination.
 
 Recover the contracted freight on the middle floor. You can extract there for a successful trip, or operate the pressure drive to open an optional deeper reserve. The drive uses three salvage, a cutter or a crew engineer. Its lower-deck contamination is removed when isolated. The third area's elite cache needs its guards cleared or stood down. The Mill's deep cache grants a survey harness; the Drowned Post grants a recoil cradle; Carriage Zero grants an arc blade.
 
@@ -249,4 +305,4 @@ New mechanical bosses have physical couplers, distinct machine bodies and their 
 
 ### Backups
 
-0.2 through 0.5 expedition saves migrate into Alpha 5. The old Bell Engine completion becomes Act I completion; it does not mark the new campaign finished. Crew, equipment, talents, skills, calibrations, money, wounds and old world changes are retained. Export before changing origins/devices. Never load a newer save into an older game. [Alpha 4 is preserved separately](../releases/UNDERGRID_ADVENTURE_Alpha_4.html).
+0.2 through 0.6 expedition saves migrate into Alpha 6. The new Ward projects start unbuilt; old locations and quest flags retain their identifiers. The old Bell Engine completion becomes Act I completion; it does not mark the new campaign finished. Crew, equipment, talents, skills, calibrations, money, wounds and old world changes are retained. Export before changing origins/devices. Never load a newer save into an older game. [Alpha 5 is preserved separately](../releases/UNDERGRID_ADVENTURE_Alpha_5.html). [Alpha 4 is also preserved](../releases/UNDERGRID_ADVENTURE_Alpha_4.html).

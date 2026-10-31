@@ -8,7 +8,7 @@ UG.skills={
  overload:{name:'Overload',role:'TECHNICAL',cost:1,desc:'1 AP: shock and suppress the selected hostile within 600 units and clear line of sight. Once per encounter; machinery takes 12 damage.'},
  breach:{name:'Shaped frag',role:'EXPLOSIVES',cost:2,desc:'2 AP + one frag: aim a stronger 53-damage blast. Allies still take damage.'}
 };
-UG.weaponSources={pistol:'Starter equipment',rifle:'Restore Last Light for Mara',shotgun:'Sump maintenance chest',sniper:'Archive surveyor case',smg:'Repair the freight locomotive',handcannon:'Ashline bounty or workbench',needle:'Blackwater survey cache',laser:'Skyhook watch locker',arc:'Blacksite locker or workbench',flame:'Ashline weapons case',launcher:'Dock armory or freight escort',plasma:'Blacksite unregistered cache',heavy:'Rivet Foundry locker',chainblade:'Workbench pattern',railgun:'Settle Vera’s courier ledger'};
+UG.weaponSources={pistol:'Starter equipment',rifle:'Restore Disintegration Ward for Mara',shotgun:'Sump maintenance chest',sniper:'Archive surveyor case',smg:'Repair the freight locomotive',handcannon:'Ashline bounty or workbench',needle:'Blackwater survey cache',laser:'Skyhook watch locker',arc:'Blacksite locker or workbench',flame:'Ashline weapons case',launcher:'Dock armory or freight escort',plasma:'Blacksite unregistered cache',heavy:'Rivet Foundry locker',chainblade:'Workbench pattern',railgun:'Settle Vera’s courier ledger'};
 // Small physical steps teach jumping without disrupting the original ladder paths.
 UG.rooms.hearth.platforms.push(platform('step-one',780,830,90),platform('step-two',920,775,90),platform('step-three',1050,720,90));
 UG.rooms.hearth.objects.push(loot('starter-stash',805,830,'A drifter’s spare magazine',{ammo:12,scrap:3}));
@@ -29,3 +29,8 @@ UG.rooms.trial.objects.push(obj('job-relay','activity',600,880,'Relay / repair +
 // Three existing sites get tangible, persistent work-floor interactions.
 UG.utilities={belt:{room:'furnace',kind:'belt',x:420,y:880,name:'Foundry conveyor drive'},crane:{room:'docks',kind:'cargo',x:1040,y:440,name:'Hanging cargo release'},runoff:{room:'garden',kind:'drain',x:800,y:450,name:'Runoff isolation valve'}};
 for(const [id,u] of Object.entries(UG.utilities))UG.rooms[u.room].objects.push(obj('utility-'+id,'utility',u.x,u.y,u.name,{utility:id}));
+
+// Alpha 8: safe approach cover, a middle-game firing terrace and a late exchange position.
+// Hostile rosters, HP, rewards and campaign gates are unchanged.
+UG.rooms.cable.covers.push({id:'survey-approach-cover',x:580,y:880,hp:32});
+UG.rooms.slag.covers.push({id:'terrace-firing-cover',x:600,y:470,hp:40});
